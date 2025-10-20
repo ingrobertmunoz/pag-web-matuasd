@@ -38,6 +38,44 @@
     font-size: var(--font-size-lg);
   }
 
+  /* Dropdown en móvil */
+  .nav__item--dropdown {
+    position: relative;
+  }
+
+  .nav__dropdown-toggle {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .nav__dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin-top: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-base);
+  }
+
+  .nav__item--dropdown.active .nav__dropdown {
+    max-height: 400px;
+  }
+
+  .nav__dropdown-link {
+    text-align: center;
+    font-size: var(--font-size-base);
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .nav__dropdown-link:hover {
+    padding-left: var(--spacing-md);
+  }
+
   /* Hero Section */
   .hero {
     padding: var(--spacing-3xl) 0;

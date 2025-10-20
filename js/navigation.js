@@ -30,6 +30,9 @@ class Navigation {
       });
     }
 
+    // Manejar dropdowns
+    this.setupDropdowns();
+
     // Highlight active link
     this.highlightActiveLink();
 
@@ -38,6 +41,43 @@ class Navigation {
 
     // Smooth scroll para enlaces internos
     this.smoothScroll();
+  }
+
+  setupDropdowns() {
+    const dropdownToggles = document.querySelectorAll('.nav__dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const dropdownItem = toggle.closest('.nav__item--dropdown');
+        const isActive = dropdownItem.classList.contains('active');
+        
+        // Cerrar otros dropdowns
+        document.querySelectorAll('.nav__item--dropdown').forEach(item => {
+          if (item !== dropdownItem) {
+            item.classList.remove('active');
+          }
+        });
+        
+        // Toggle el actual
+        dropdownItem.classList.toggle('active', !isActive);
+        toggle.setAttribute('aria-expanded', !isActive);
+      });
+    });
+
+    // Cerrar dropdown al hacer click fuera
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav__item--dropdown')) {
+        document.querySelectorAll('.nav__item--dropdown').forEach(item => {
+          item.classList.remove('active');
+        });
+        dropdownToggles.forEach(toggle => {
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
   }
 
   toggleMenu() {
