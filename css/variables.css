@@ -1,0 +1,94 @@
+/* ==============================================
+   VARIABLES CSS - MATHUASD
+   ============================================== */
+
+:root {
+  /* Colores primarios */
+  --color-primary: #003B73;
+  --color-primary-light: #0052A3;
+  --color-primary-dark: #002949;
+  
+  /* Colores secundarios */
+  --color-secondary: #FF6F00;
+  --color-secondary-light: #FF8F33;
+  --color-secondary-dark: #CC5900;
+  
+  /* Colores neutros */
+  --color-white: #FFFFFF;
+  --color-gray-light: #F5F5F5;
+  --color-gray-medium: #CCCCCC;
+  --color-gray-dark: #666666;
+  --color-black: #333333;
+  
+  /* Colores de estado */
+  --color-success: #28A745;
+  --color-warning: #FFC107;
+  --color-error: #DC3545;
+  --color-info: #17A2B8;
+  
+  /* Tipografía */
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  
+  /* Tamaños de fuente */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+  --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-size-2xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-3xl: clamp(2rem, 1.7rem + 1.5vw, 2.5rem);
+  --font-size-4xl: clamp(2.5rem, 2rem + 2.5vw, 3.5rem);
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  --spacing-4xl: 6rem;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Bordes */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-full: 9999px;
+  
+  /* Transiciones */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-tooltip: 1070;
+  
+  /* Contenedor */
+  --container-max-width: 1200px;
+  --container-padding: var(--spacing-md);
+  
+  /* Header */
+  --header-height: 80px;
+}
+
+/* Variables para modo oscuro (opcional) */
+[data-theme="dark"] {
+  --color-primary: #0066CC;
+  --color-white: #1A1A1A;
+  --color-gray-light: #2A2A2A;
+  --color-gray-dark: #CCCCCC;
+  --color-black: #F5F5F5;
+}
+

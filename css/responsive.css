@@ -1,0 +1,224 @@
+/* ==============================================
+   RESPONSIVE STYLES - MATHUASD
+   Mobile First Approach
+   ============================================== */
+
+/* Tablets y dispositivos medianos (768px y más) */
+@media (max-width: 768px) {
+  /* Header y Navegación */
+  .nav__list {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--color-white);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: var(--spacing-xl);
+    gap: var(--spacing-md);
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    box-shadow: var(--shadow-lg);
+    overflow-y: auto;
+  }
+
+  .nav__list.active {
+    transform: translateX(0);
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__link {
+    width: 100%;
+    padding: var(--spacing-md);
+    text-align: center;
+    font-size: var(--font-size-lg);
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .hero__subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero__description {
+    font-size: var(--font-size-base);
+  }
+
+  .hero__cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__cta .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Secciones */
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  /* Grid */
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer__content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer__social {
+    justify-content: center;
+  }
+
+  /* Back to top */
+  .back-to-top {
+    width: 45px;
+    height: 45px;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+  }
+}
+
+/* Móviles pequeños (480px y menos) */
+@media (max-width: 480px) {
+  /* Header */
+  .header {
+    height: 60px;
+  }
+
+  :root {
+    --header-height: 60px;
+  }
+
+  .header__logo-img {
+    height: 40px;
+  }
+
+  .header__logo-text {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Hero */
+  .hero {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  /* Botones */
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Cards */
+  .card__image {
+    height: 150px;
+  }
+
+  .card__content {
+    padding: var(--spacing-md);
+  }
+
+  /* Container */
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  /* Secciones */
+  .section {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .section__header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  /* Grid */
+  .grid {
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Tablets horizontales y laptops pequeñas (769px a 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Escritorios grandes (1400px y más) */
+@media (min-width: 1400px) {
+  :root {
+    --container-max-width: 1400px;
+  }
+
+  .hero {
+    padding: var(--spacing-4xl) 0 6rem;
+  }
+
+  .section {
+    padding: 5rem 0;
+  }
+}
+
+/* Reducir animaciones para usuarios que lo prefieran */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ajustes para impresión */
+@media print {
+  .header,
+  .nav,
+  .footer,
+  .back-to-top,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  .hero {
+    background: none;
+    color: black;
+    border-bottom: 2px solid black;
+  }
+
+  .card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+}
+

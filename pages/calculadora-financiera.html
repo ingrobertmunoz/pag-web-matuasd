@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora Financiera - MATHUASD">
+    <title>Calculadora Financiera - MATHUASD</title>
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="../index.html" class="header__logo">
+                <img src="../img/logo.png" alt="Logo MATHUASD" class="header__logo-img">
+                <span class="header__logo-text">MATHUASD</span>
+            </a>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation">
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span class="nav__toggle-line"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="./blog.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="./programas.html" class="nav__link">Programas</a></li>
+                    <li class="nav__item"><a href="./matematica-basica.html" class="nav__link">Matemática Básica</a></li>
+                    <li class="nav__item"><a href="./calculo-1.html" class="nav__link">Cálculo I</a></li>
+                    <li class="nav__item"><a href="./calculo-2.html" class="nav__link">Cálculo II</a></li>
+                    <li class="nav__item"><a href="./matematica-financiera.html" class="nav__link">Mat. Financiera</a></li>
+                    <li class="nav__item"><a href="./matematica-tecnologia.html" class="nav__link">Mat. y Tecnología</a></li>
+                    <li class="nav__item"><a href="./calculadora-financiera.html" class="nav__link">Calculadora</a></li>
+                    <li class="nav__item"><a href="./noticias-bolsa.html" class="nav__link">Noticias</a></li>
+                    <li class="nav__item"><a href="./monibot014.html" class="nav__link">Monibot014</a></li>
+                    <li class="nav__item"><a href="./acerca.html" class="nav__link">Acerca</a></li>
+                    <li class="nav__item"><a href="./contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-height);">
+        <div class="container" style="padding-top: var(--spacing-lg);">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a href="../index.html" class="breadcrumb__link">Inicio</a></li>
+                <li class="breadcrumb__item">Calculadora Financiera</li>
+            </ul>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div class="section__header">
+                    <h1 class="section__title">🧮 Calculadora Financiera</h1>
+                    <p class="section__subtitle">
+                        Herramientas para cálculos de interés, amortización e inversiones
+                    </p>
+                    <div class="badge badge--warning" style="font-size: var(--font-size-base); margin-top: var(--spacing-md);">
+                        🚧 En Desarrollo
+                    </div>
+                </div>
+
+                <!-- Grid de Calculadoras (Plantillas) -->
+                <div class="grid grid--3">
+                    <!-- Calculadora de Interés Compuesto -->
+                    <div class="card">
+                        <div class="card__content">
+                            <div style="font-size: 3rem; text-align: center; margin-bottom: var(--spacing-md);">💰</div>
+                            <h3 class="card__title">Interés Compuesto</h3>
+                            <p class="card__description">
+                                Calcula el valor futuro de una inversión con interés compuesto.
+                            </p>
+                            
+                            <!-- Formulario deshabilitado -->
+                            <div style="margin-top: var(--spacing-lg); opacity: 0.5;">
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Capital Inicial ($)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de Interés (%)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tiempo (años)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Calcular</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de Amortización -->
+                    <div class="card">
+                        <div class="card__content">
+                            <div style="font-size: 3rem; text-align: center; margin-bottom: var(--spacing-md);">🏦</div>
+                            <h3 class="card__title">Amortización de Préstamos</h3>
+                            <p class="card__description">
+                                Genera tabla de amortización para préstamos con pagos fijos.
+                            </p>
+                            
+                            <div style="margin-top: var(--spacing-lg); opacity: 0.5;">
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Monto del Préstamo ($)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de Interés Anual (%)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Plazo (meses)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Generar Tabla</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de Inversiones -->
+                    <div class="card">
+                        <div class="card__content">
+                            <div style="font-size: 3rem; text-align: center; margin-bottom: var(--spacing-md);">📈</div>
+                            <h3 class="card__title">Análisis de Inversiones</h3>
+                            <p class="card__description">
+                                Calcula VAN, TIR y periodo de recuperación de inversiones.
+                            </p>
+                            
+                            <div style="margin-top: var(--spacing-lg); opacity: 0.5;">
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Inversión Inicial ($)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Flujos de Efectivo</label>
+                                    <textarea disabled rows="3" style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);"></textarea>
+                                </div>
+                                <div style="margin-bottom: var(--spacing-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de Descuento (%)</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                </div>
+                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Analizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensaje de Estado -->
+                <div class="placeholder" style="margin-top: var(--spacing-3xl);">
+                    <div class="placeholder__icon">⏳</div>
+                    <h3>Próximamente</h3>
+                    <p>
+                        Estamos trabajando en estas herramientas de cálculo financiero. 
+                        Pronto podrás realizar cálculos avanzados directamente desde el navegador.
+                    </p>
+                    <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--color-gray-dark);">
+                        Mientras tanto, puedes consultar nuestros <a href="./matematica-financiera.html" style="color: var(--color-secondary); font-weight: 600;">recursos de Matemática Financiera</a> 
+                        donde encontrarás fórmulas y ejemplos resueltos.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__section-title">MATHUASD</h3>
+                    <p style="color: var(--color-gray-medium); line-height: 1.8;">Portal educativo de la Escuela de Matemática de la UASD.</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Enlaces Rápidos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../index.html" class="footer__link">Inicio</a></li>
+                        <li class="footer__list-item"><a href="./blog.html" class="footer__link">Blog</a></li>
+                        <li class="footer__list-item"><a href="./acerca.html" class="footer__link">Acerca de</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Recursos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="./matematica-basica.html" class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="./calculo-1.html" class="footer__link">Cálculo I</a></li>
+                        <li class="footer__list-item"><a href="./matematica-financiera.html" class="footer__link">Mat. Financiera</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Contacto</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo, RD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2024</span> MATHUASD. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link"><span style="font-size: 1.5rem;">📷</span></a>
+                    <a href="#" class="footer__social-link"><span style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link"><span style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:info@mathuasd.edu.do" class="footer__social-link"><span style="font-size: 1.5rem;">✉️</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/navigation.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
+

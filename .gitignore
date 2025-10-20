@@ -1,0 +1,193 @@
+# MATHUASD - .gitignore
+
+# ============================================
+# Sistema Operativo
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+
+# ============================================
+# Editores e IDEs
+# ============================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+.history/
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ============================================
+# Node.js (si se usa en el futuro)
+# ============================================
+
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+.pnpm-debug.log
+
+# ============================================
+# Archivos de Logs y Debug
+# ============================================
+
+*.log
+logs/
+*.log.*
+
+# ============================================
+# Archivos Temporales
+# ============================================
+
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# ============================================
+# Archivos de Backup
+# ============================================
+
+*.bak
+*.backup
+*~
+
+# Archivos temporales de Microsoft Office
+~$*.doc*
+~$*.xls*
+~$*.ppt*
+
+# ============================================
+# Entornos Virtuales (Python, si se usa)
+# ============================================
+
+venv/
+env/
+ENV/
+.venv/
+.env
+
+# ============================================
+# Archivos de Configuración Local
+# ============================================
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ============================================
+# Carpetas de Build y Distribución
+# ============================================
+
+dist/
+build/
+*.min.js
+*.min.css
+
+# ============================================
+# Archivos Sensibles
+# ============================================
+
+# Claves API y secretos
+*.key
+*.pem
+secrets.json
+config/secrets.*
+
+# Bases de datos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# ============================================
+# Archivos de Testing
+# ============================================
+
+coverage/
+.nyc_output/
+*.test.js.snap
+
+# ============================================
+# Documentos Temporales del Proyecto
+# ============================================
+
+# Archivos de Word temporales
+~$*.docx
+~$*.doc
+
+# Archivos temporales de este proyecto específico
+Prompt.docx
+~$Prompt.docx
+
+# ============================================
+# Recursos Grandes (Opcional)
+# ============================================
+
+# Descomentar si los recursos son demasiado grandes para Git
+# resources/**/*.pdf
+# resources/**/*.zip
+# resources/**/*.mp4
+
+# ============================================
+# GitHub Pages
+# ============================================
+
+# Carpeta de GitHub Pages (si se genera localmente)
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# ============================================
+# Otros
+# ============================================
+
+# Carpetas de debugging
+.debug/
+debug/
+
+# Archivos específicos del proyecto
+TODO.txt
+NOTES.md
+drafts/
+
+# Archivos de configuración personal
+.personal/
+.local/
+
