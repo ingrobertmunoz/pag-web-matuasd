@@ -47,6 +47,9 @@
     width: 100%;
     text-align: center;
     justify-content: center;
+    padding: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    font-weight: 500;
   }
 
   .nav__dropdown {

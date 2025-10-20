@@ -167,11 +167,22 @@ img {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  line-height: inherit;
+}
+
+.nav__dropdown-toggle:hover {
+  color: var(--color-primary);
+  background-color: var(--color-gray-light);
 }
 
 .dropdown-arrow {
   font-size: 0.7em;
   transition: transform var(--transition-base);
+  display: inline-block;
 }
 
 .nav__item--dropdown.active .dropdown-arrow {
