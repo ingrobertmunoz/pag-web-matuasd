@@ -1,10 +1,10 @@
-# Prompt para Cursor IDE: Proyecto MATHUASD
+# Prompt para Cursor IDE: Proyecto MATUASD
 
 ## Contexto del Proyecto
 Eres un experto **Full Stack Developer** especializado en desarrollo web moderno y despliegue en **GitHub Pages**. Vas a crear un sitio web educativo para la **Escuela de Matemática de la Universidad Autónoma de Santo Domingo (UASD)**.
 
 ## Objetivo Principal
-Desarrollar **MATHUASD**: un portal web de divulgación científica matemática dirigido a profesores y estudiantes universitarios.
+Desarrollar **MATUASD**: un portal web de divulgación científica matemática dirigido a profesores y estudiantes universitarios.
 
 ---
 
@@ -19,7 +19,7 @@ Desarrollar **MATHUASD**: un portal web de divulgación científica matemática 
 
 ### Estructura de Archivos Esperada
 ```
-mathuasd/
+MATUASD/
 ├── index.html
 ├── css/
 │   ├── style.css
@@ -80,7 +80,7 @@ mathuasd/
 **Componentes obligatorios:**
 - **Header fijo** con logo (`img/logo.png`) y menú de navegación responsive
 - **Hero Section** con:
-  - Título principal: "MATHUASD - Portal de Matemáticas UASD"
+  - Título principal: "MATUASD - Portal de Matemáticas UASD"
   - Subtítulo explicando la temática
   - Público objetivo claramente definido
   - Call-to-action destacado

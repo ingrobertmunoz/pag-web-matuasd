@@ -1,8 +1,8 @@
 /* ==============================================
-   MAIN JAVASCRIPT - MATHUASD
+   MAIN JAVASCRIPT - MATUASD
    ============================================== */
 
-class MATHUASD {
+class MATUASD {
   constructor() {
     this.backToTopBtn = null;
     this.init();
@@ -191,10 +191,10 @@ const Utils = {
 };
 
 // Inicializar aplicación
-const app = new MATHUASD();
+const app = new MATUASD();
 
 // Exportar para uso en otros módulos
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { MATHUASD, Utils };
+  module.exports = { MATUASD, Utils };
 }
 

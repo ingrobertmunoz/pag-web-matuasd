@@ -1,5 +1,5 @@
 /* ==============================================
-   RESOURCES MANAGER - MATHUASD
+   RESOURCES MANAGER - MATUASD
    Gestión dinámica de recursos educativos
    ============================================== */
 

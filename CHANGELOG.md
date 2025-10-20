@@ -11,7 +11,7 @@ y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
 ### 🎉 Lanzamiento Inicial
 
-Primera versión pública de MATHUASD - Portal de Matemáticas UASD.
+Primera versión pública de MATUASD - Portal de Matemáticas UASD.
 
 ### ✨ Agregado
 

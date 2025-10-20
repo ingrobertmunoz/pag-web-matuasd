@@ -1,6 +1,6 @@
-# MATHUASD - Portal de Matemáticas UASD
+# MATUASD - Portal de Matemáticas UASD
 
-![MATHUASD](./img/logo.png)
+![MATUASD](./img/logo.png)
 
 Portal educativo de la **Escuela de Matemática de la Universidad Autónoma de Santo Domingo (UASD)**. Un sitio web de divulgación científica matemática dirigido a profesores y estudiantes universitarios.
 
@@ -8,7 +8,7 @@ Portal educativo de la **Escuela de Matemática de la Universidad Autónoma de S
 
 ## 📋 Descripción del Proyecto
 
-MATHUASD es un portal web educativo que ofrece:
+MATUASD es un portal web educativo que ofrece:
 
 - 📚 **Recursos educativos** organizados por asignatura
 - 📝 **Blog de divulgación científica** con artículos matemáticos
@@ -42,7 +42,7 @@ MATHUASD es un portal web educativo que ofrece:
 ## 📁 Estructura del Proyecto
 
 ```
-mathuasd/
+MATUASD/
 ├── index.html                      # Página principal
 ├── css/
 │   ├── variables.css              # Variables CSS (colores, fuentes, etc.)
@@ -135,9 +135,9 @@ Simplemente abre el archivo `index.html` en tu navegador preferido.
    ```bash
    git init
    git add .
-   git commit -m "Initial commit: MATHUASD"
+   git commit -m "Initial commit: MATUASD"
    git branch -M main
-   git remote add origin https://github.com/TU-USUARIO/mathuasd.git
+   git remote add origin https://github.com/TU-USUARIO/MATUASD.git
    git push -u origin main
    ```
 
@@ -148,7 +148,7 @@ Simplemente abre el archivo `index.html` en tu navegador preferido.
    - Click en **Save**
 
 3. **Accede a tu sitio**
-   - Tu sitio estará disponible en: `https://TU-USUARIO.github.io/mathuasd/`
+   - Tu sitio estará disponible en: `https://TU-USUARIO.github.io/MATUASD/`
    - Puede tardar unos minutos en estar disponible
 
 ### Dominio Personalizado (Opcional)
@@ -157,7 +157,7 @@ Si deseas usar un dominio personalizado:
 
 1. Crea un archivo `CNAME` en la raíz del proyecto con tu dominio:
    ```
-   www.mathuasd.edu.do
+   www.MATUASD.edu.do
    ```
 
 2. Configura los DNS de tu dominio apuntando a GitHub Pages:
@@ -345,9 +345,9 @@ Si encuentras algún error o tienes sugerencias:
 ## 📞 Contacto
 
 **Escuela de Matemática - UASD**
-- 📧 Email: info@mathuasd.edu.do
+- 📧 Email: info@MATUASD.edu.do
 - 📍 Dirección: Ciudad Universitaria, Santo Domingo, RD
-- 🌐 Web: [mathuasd.edu.do](https://mathuasd.edu.do) (ejemplo)
+- 🌐 Web: [MATUASD.edu.do](https://MATUASD.edu.do) (ejemplo)
 
 ---
 
@@ -359,7 +359,7 @@ Si encuentras algún error o tienes sugerencias:
 
 ---
 
-**Desarrollado con ❤️ por el equipo de MATHUASD**
+**Desarrollado con ❤️ por el equipo de MATUASD**
 
 *Última actualización: Octubre 2024*
 

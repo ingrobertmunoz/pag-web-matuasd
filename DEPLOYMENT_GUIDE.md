@@ -1,6 +1,6 @@
-# Guía de Despliegue - MATHUASD
+# Guía de Despliegue - MATUASD
 
-Esta guía te ayudará a desplegar el sitio web MATHUASD en GitHub Pages paso a paso.
+Esta guía te ayudará a desplegar el sitio web MATUASD en GitHub Pages paso a paso.
 
 ---
 
@@ -10,7 +10,7 @@ Antes de comenzar, asegúrate de tener:
 
 - ✅ Cuenta en [GitHub](https://github.com)
 - ✅ [Git](https://git-scm.com/) instalado en tu computadora
-- ✅ Los archivos del proyecto MATHUASD
+- ✅ Los archivos del proyecto MATUASD
 
 ---
 
@@ -87,7 +87,7 @@ git init
 git add .
 
 # Hacer el commit inicial
-git commit -m "Initial commit: MATHUASD v1.0.0"
+git commit -m "Initial commit: MATUASD v1.0.0"
 
 # Crear rama main (si no existe)
 git branch -M main
@@ -102,7 +102,7 @@ git branch -M main
 2. Haz click en el botón **"+"** (arriba a la derecha) → **"New repository"**
 
 3. Configura el repositorio:
-   - **Repository name:** `mathuasd` (o el nombre que prefieras)
+   - **Repository name:** `MATUASD` (o el nombre que prefieras)
    - **Description:** "Portal de Matemáticas de la UASD"
    - **Visibility:** Public (para GitHub Pages gratuito)
    - ❌ NO marques "Initialize with README" (ya tenemos uno)
@@ -117,7 +117,7 @@ Copia los comandos que GitHub te muestra (o usa estos, reemplazando `TU-USUARIO`
 
 ```bash
 # Conectar con el repositorio remoto
-git remote add origin https://github.com/TU-USUARIO/mathuasd.git
+git remote add origin https://github.com/TU-USUARIO/MATUASD.git
 
 # Subir el código
 git push -u origin main
@@ -145,14 +145,14 @@ Si te pide credenciales:
 
 6. Refresca la página y verás:
    ```
-   ✅ Your site is published at https://TU-USUARIO.github.io/mathuasd/
+   ✅ Your site is published at https://TU-USUARIO.github.io/MATUASD/
    ```
 
 ---
 
 ## ✅ Paso 7: Verificar el Sitio
 
-1. Abre la URL de tu sitio: `https://TU-USUARIO.github.io/mathuasd/`
+1. Abre la URL de tu sitio: `https://TU-USUARIO.github.io/MATUASD/`
 
 2. Verifica que:
    - ✅ La página de inicio carga correctamente
@@ -179,11 +179,11 @@ Si tienes un logo:
 
 ### Configurar Dominio Personalizado
 
-Si tienes un dominio propio (ej: `www.mathuasd.edu.do`):
+Si tienes un dominio propio (ej: `www.MATUASD.edu.do`):
 
 1. Crea un archivo `CNAME` en la raíz del proyecto:
    ```
-   www.mathuasd.edu.do
+   www.MATUASD.edu.do
    ```
 
 2. Configura los DNS en tu proveedor de dominio:
@@ -309,7 +309,7 @@ Antes de anunciar el sitio, verifica:
 
 ## 🎉 ¡Listo!
 
-Tu sitio MATHUASD está ahora en línea y accesible para toda la comunidad.
+Tu sitio MATUASD está ahora en línea y accesible para toda la comunidad.
 
 ### Próximos Pasos
 
@@ -334,13 +334,13 @@ Tu sitio MATHUASD está ahora en línea y accesible para toda la comunidad.
 
 Si necesitas ayuda:
 
-- 📧 Email: info@mathuasd.edu.do
+- 📧 Email: info@MATUASD.edu.do
 - 📖 [Documentación completa](README.md)
-- 🐛 [Reportar problemas](https://github.com/TU-USUARIO/mathuasd/issues)
+- 🐛 [Reportar problemas](https://github.com/TU-USUARIO/MATUASD/issues)
 
 ---
 
-**¡Felicidades por lanzar MATHUASD!** 🎊
+**¡Felicidades por lanzar MATUASD!** 🎊
 
 *Guía creada: Octubre 2024*
 

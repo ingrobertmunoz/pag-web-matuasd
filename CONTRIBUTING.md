@@ -1,6 +1,6 @@
-# Guía de Contribución - MATHUASD
+# Guía de Contribución - MATUASD
 
-¡Gracias por tu interés en contribuir a MATHUASD! Este documento proporciona directrices para contribuir al proyecto.
+¡Gracias por tu interés en contribuir a MATUASD! Este documento proporciona directrices para contribuir al proyecto.
 
 ---
 
@@ -120,11 +120,11 @@ Los recursos deben:
 # 1. Fork el repositorio en GitHub
 
 # 2. Clona tu fork
-git clone https://github.com/TU-USUARIO/mathuasd.git
-cd mathuasd
+git clone https://github.com/TU-USUARIO/MATUASD.git
+cd MATUASD
 
 # 3. Agrega el repositorio original como remote
-git remote add upstream https://github.com/USUARIO-ORIGINAL/mathuasd.git
+git remote add upstream https://github.com/USUARIO-ORIGINAL/MATUASD.git
 
 # 4. Crea una rama para tu feature
 git checkout -b feature/nombre-descriptivo
@@ -141,7 +141,7 @@ git checkout -b feature/nombre-descriptivo
 
 ```html
 <!-- ✅ Correcto -->
-<img src="./img/logo.png" alt="Logo MATHUASD" class="header__logo-img">
+<img src="./img/logo.png" alt="Logo MATUASD" class="header__logo-img">
 
 <!-- ❌ Incorrecto -->
 <img src=./img/logo.png class=logo>
@@ -337,7 +337,7 @@ Si tienes preguntas sobre cómo contribuir:
 
 1. Revisa la [documentación](README.md)
 2. Abre un [Issue](../../issues) con la etiqueta "question"
-3. Contacta al equipo: info@mathuasd.edu.do
+3. Contacta al equipo: info@MATUASD.edu.do
 
 ---
 
@@ -347,7 +347,7 @@ Todos los contribuidores serán reconocidos en el proyecto. Tu nombre aparecerá
 
 ---
 
-**¡Gracias por contribuir a MATHUASD!** 🎉
+**¡Gracias por contribuir a MATUASD!** 🎉
 
 *Tu apoyo ayuda a mejorar la educación matemática en la República Dominicana.*
 
