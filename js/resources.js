@@ -11,7 +11,9 @@ class ResourcesManager {
     this.filteredResources = [];
     this.searchInput = document.getElementById('search-resources');
     this.viewToggle = document.querySelectorAll('[data-view]');
-    this.currentView = 'grid';
+    // Detectar la vista activa del HTML o usar 'list' por defecto
+    const activeBtn = document.querySelector('[data-view].active');
+    this.currentView = activeBtn ? activeBtn.getAttribute('data-view') : 'list';
     this.sortSelect = document.getElementById('sort-resources');
     
     this.init();
