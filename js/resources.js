@@ -120,7 +120,7 @@ class ResourcesManager {
 
   createResourceCard(resource) {
     const icon = this.getFileIcon(resource.type);
-    const date = Utils.formatDate(resource.date);
+    const date = this.formatDate(resource.date);
     const size = resource.size || 'N/A';
 
     if (this.currentView === 'list') {
@@ -247,6 +247,11 @@ class ResourcesManager {
 
       this.renderResources();
     });
+  }
+
+  formatDate(date) {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(date).toLocaleDateString('es-DO', options);
   }
 }
 
