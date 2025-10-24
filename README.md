@@ -63,7 +63,6 @@ MATUASD/
 │   ├── matematica-financiera.html # Recursos de Mat. Financiera
 │   ├── matematica-tecnologia.html # Recursos de Mat. y Tecnología
 │   ├── calculadora-financiera.html # Plantilla de calculadora
-│   ├── noticias-bolsa.html        # Plantilla de noticias
 │   ├── monibot014.html            # Plantilla de chatbot
 │   ├── acerca.html                # Acerca de nosotros
 │   └── contacto.html              # Página de contacto

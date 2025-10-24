@@ -39,7 +39,6 @@ MATUASD/
 │   ├── matematica-financiera.html
 │   ├── matematica-tecnologia.html
 │   ├── calculadora-financiera.html
-│   ├── noticias-bolsa.html
 │   ├── monibot014.html
 │   ├── acerca.html
 │   └── contacto.html
@@ -139,25 +138,14 @@ MATUASD/
 - Mensaje: "En desarrollo - Próximamente"
 - Mantener espacio para futuras funcionalidades
 
-### 5. Noticias Bolsa de Valores (`pages/noticias-bolsa.html`)
-**Estado:** PLANTILLA INICIAL
-- Layout estilo blog financiero
-- Cards para noticias con:
-  - Título de noticia
-  - Fecha
-  - Extracto
-  - Imagen placeholder
-- Preparado para integración futura de API financiera
-- Mensaje temporal: "Próximamente: Noticias en tiempo real"
-
-### 6. Monibot014 (`pages/monibot014.html`)
+### 5. Monibot014 (`pages/monibot014.html`)
 **Estado:** PLANTILLA INICIAL
 - Página misteriosa/teaser
 - Diseño minimalista
 - Espacio para futura integración de chatbot o herramienta interactiva
 - Mensaje: "Proyecto en desarrollo - Mantente atento"
 
-### 7. Acerca de Nosotros (`pages/acerca.html`)
+### 6. Acerca de Nosotros (`pages/acerca.html`)
 **Contenido:**
 - Importar y formatear contenido desde `autores.md`
 - Grid de perfiles del equipo con:
@@ -169,7 +157,7 @@ MATUASD/
 - Historia y misión del proyecto
 - Valores y objetivos educativos
 
-### 8. Contacto (`pages/contacto.html`)
+### 7. Contacto (`pages/contacto.html`)
 **Elementos:**
 - Formulario de contacto (visual, sin backend - con instrucciones para Formspree/EmailJS)
 - Sección de redes sociales con iconos enlazados:
