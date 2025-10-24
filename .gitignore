@@ -190,6 +190,55 @@ Prompt.docx
 AGENTS.md
 autores.md
 
+# ============================================
+# Archivos de Trabajo Temporal MATUASD
+# ============================================
+
+# Archivos de desarrollo local
+dev-*.html
+test-*.html
+debug-*.html
+temp-*.html
+
+# Documentos de trabajo
+*.work-in-progress.*
+*.draft.*
+*.temp.*
+*.backup.*
+
+# Carpetas temporales del proyecto
+temp/
+temporary/
+work-in-progress/
+backup/
+meeting-notes/
+brainstorming/
+ideas/
+
+# Archivos de configuración local
+config.local.js
+settings.local.json
+.env.local
+
+# Archivos de debugging
+debug.log
+error.log
+console.log
+*.debug.*
+
+# Archivos de pruebas y experimentos
+test-files/
+experimental/
+sandbox/
+*.test.*
+
+# Archivos de análisis temporal
+reports/
+analytics/
+stats/
+*.report.html
+*.analysis.*
+
 # Archivos de configuración personal
 .personal/
 .local/
