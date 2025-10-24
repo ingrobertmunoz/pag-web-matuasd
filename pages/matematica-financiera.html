@@ -60,36 +60,218 @@
                     <p class="section__subtitle">Interés, anualidades, amortización e inversiones</p>
                 </div>
 
-                <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md);">
-                    <div style="flex: 1; min-width: 250px;">
-                        <input type="text" id="search-resources" placeholder="Buscar recursos..." style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                <!-- Calculadoras Financieras -->
+                <div class="calculadoras-container" style="margin-bottom: var(--spacing-3xl);">
+                    
+                    <!-- Calculadora de Monto Simple -->
+                    <div class="calculadora-card" style="background: var(--color-white); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                        <h2 class="calculadora-title" style="color: var(--color-primary); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-lg); text-align: center;">
+                            🧮 Calculadora de Monto Simple
+                        </h2>
+                        <p class="calculadora-formula" style="text-align: center; font-style: italic; color: var(--color-gray-dark); margin-bottom: var(--spacing-lg);">
+                            M = C (1 + i × t)
+                        </p>
+                        
+                        <div class="calculadora-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                            <div class="form-group">
+                                <label for="capital-simple" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Capital (C)</label>
+                                <input type="number" id="capital-simple" step="0.01" min="0" placeholder="Ingrese el capital" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tasa-simple" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tasa de Interés (i)</label>
+                                <input type="number" id="tasa-simple" step="0.01" min="0" placeholder="Ingrese la tasa" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tipo-tasa-simple" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tipo de Tasa</label>
+                                <select id="tipo-tasa-simple" style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                                    <option value="mensual">Mensual</option>
+                                    <option value="anual">Anual</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tiempo-simple" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tiempo (t)</label>
+                                <input type="number" id="tiempo-simple" step="0.01" min="0" placeholder="Ingrese el tiempo" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tipo-tiempo-simple" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tipo de Tiempo</label>
+                                <select id="tipo-tiempo-simple" style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                                    <option value="meses">Meses</option>
+                                    <option value="años">Años</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group" style="display: flex; align-items: end;">
+                                <button id="calcular-simple" class="btn btn--primary" style="width: 100%; padding: var(--spacing-md); font-size: var(--font-size-lg); font-weight: 600;">
+                                    Calcular Monto
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="resultado-simple" class="resultado" style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md); text-align: center; display: none;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Resultado:</h3>
+                            <p id="monto-simple" style="font-size: var(--font-size-xl); font-weight: 700; color: var(--color-secondary);"></p>
+                        </div>
                     </div>
-                    <div style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
-                        <select id="sort-resources" style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
-                            <option value="date-newest">Más recientes</option>
-                            <option value="date-oldest">Más antiguos</option>
-                            <option value="name-asc">Nombre A-Z</option>
-                            <option value="name-desc">Nombre Z-A</option>
-                            <option value="type">Por tipo</option>
-                        </select>
-                        <div style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
-                            <button data-view="grid" class="btn-view active" style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer;">⊞</button>
-                            <button data-view="list" class="btn-view" style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer;">☰</button>
+
+                    <!-- Calculadora de Monto Compuesto -->
+                    <div class="calculadora-card" style="background: var(--color-white); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                        <h2 class="calculadora-title" style="color: var(--color-primary); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-lg); text-align: center;">
+                            📈 Calculadora de Monto Compuesto
+                        </h2>
+                        <p class="calculadora-formula" style="text-align: center; font-style: italic; color: var(--color-gray-dark); margin-bottom: var(--spacing-lg);">
+                            M = C (1 + j/m)^(m×t)
+                        </p>
+                        
+                        <div class="calculadora-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                            <div class="form-group">
+                                <label for="capital-compuesto" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Capital (C)</label>
+                                <input type="number" id="capital-compuesto" step="0.01" min="0" placeholder="Ingrese el capital" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tasa-compuesto" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tasa Nominal Anual (j)</label>
+                                <input type="number" id="tasa-compuesto" step="0.01" min="0" placeholder="Ingrese la tasa anual" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="periodo-capitalizacion" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Período de Capitalización</label>
+                                <select id="periodo-capitalizacion" style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                                    <option value="12">Mensual</option>
+                                    <option value="4">Trimestral</option>
+                                    <option value="3">Cuatrimestral</option>
+                                    <option value="2">Semestral</option>
+                                    <option value="1">Anual</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tiempo-compuesto" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tiempo (t) en Años</label>
+                                <input type="number" id="tiempo-compuesto" step="0.01" min="0" placeholder="Ingrese el tiempo en años" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group" style="display: flex; align-items: end;">
+                                <button id="calcular-compuesto" class="btn btn--primary" style="width: 100%; padding: var(--spacing-md); font-size: var(--font-size-lg); font-weight: 600;">
+                                    Calcular Monto
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="resultado-compuesto" class="resultado" style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md); text-align: center; display: none;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Resultado:</h3>
+                            <p id="monto-compuesto" style="font-size: var(--font-size-xl); font-weight: 700; color: var(--color-secondary);"></p>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de Cuotas de Préstamo -->
+                    <div class="calculadora-card" style="background: var(--color-white); border-radius: var(--border-radius-lg); box-shadow: var(--shadow-md); padding: var(--spacing-xl); margin-bottom: var(--spacing-xl);">
+                        <h2 class="calculadora-title" style="color: var(--color-primary); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-lg); text-align: center;">
+                            💳 Calculadora de Cuotas de Préstamo
+                        </h2>
+                        <p class="calculadora-formula" style="text-align: center; font-style: italic; color: var(--color-gray-dark); margin-bottom: var(--spacing-lg);">
+                            R = P × (j/12) / (1 - (1 + j/12)^(-12×t))
+                        </p>
+                        
+                        <div class="calculadora-form" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-lg);">
+                            <div class="form-group">
+                                <label for="monto-prestamo" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Monto del Préstamo (P)</label>
+                                <input type="number" id="monto-prestamo" step="0.01" min="0" placeholder="Ingrese el monto" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tasa-prestamo" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tasa Nominal Anual (j)</label>
+                                <input type="number" id="tasa-prestamo" step="0.01" min="0" placeholder="Ingrese la tasa anual" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="tiempo-prestamo" style="display: block; margin-bottom: var(--spacing-sm); font-weight: 600; color: var(--color-primary);">Tiempo (t) en Años</label>
+                                <input type="number" id="tiempo-prestamo" step="0.01" min="0" placeholder="Ingrese el tiempo en años" 
+                                       style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                            </div>
+                            
+                            <div class="form-group" style="display: flex; align-items: end;">
+                                <button id="calcular-prestamo" class="btn btn--primary" style="width: 100%; padding: var(--spacing-md); font-size: var(--font-size-lg); font-weight: 600;">
+                                    Calcular Cuota
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="resultado-prestamo" class="resultado" style="margin-top: var(--spacing-lg); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md); text-align: center; display: none;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">Resultado:</h3>
+                            <p id="cuota-prestamo" style="font-size: var(--font-size-xl); font-weight: 700; color: var(--color-secondary);"></p>
+                        </div>
+                        
+                        <!-- Tabla de Amortización -->
+                        <div id="tabla-amortizacion" class="tabla-amortizacion" style="margin-top: var(--spacing-xl); display: none;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-lg); text-align: center;">📊 Tabla de Amortización</h3>
+                            <div style="overflow-x: auto; border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
+                                <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                                    <thead style="background: var(--color-primary); color: var(--color-white);">
+                                        <tr>
+                                            <th style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">Mes</th>
+                                            <th style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">Cuota Total</th>
+                                            <th style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">Interés Pagado</th>
+                                            <th style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">Amortización</th>
+                                            <th style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">Saldo Restante</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="amortizacion-body" style="background: var(--color-white);">
+                                        <!-- Filas generadas dinámicamente con JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-bottom: var(--spacing-md); color: var(--color-gray-dark);"><span id="resources-count">Cargando...</span></div>
+                <!-- Sección de Recursos (mantener la funcionalidad existente) -->
+                <div class="recursos-section">
+                    <h2 style="color: var(--color-primary); font-size: var(--font-size-2xl); margin-bottom: var(--spacing-lg); text-align: center;">
+                        📚 Recursos de Matemática Financiera
+                    </h2>
+                    
+                    <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md);">
+                        <div style="flex: 1; min-width: 250px;">
+                            <input type="text" id="search-resources" placeholder="Buscar recursos..." style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                        </div>
+                        <div style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                            <select id="sort-resources" style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                                <option value="date-newest">Más recientes</option>
+                                <option value="date-oldest">Más antiguos</option>
+                                <option value="name-asc">Nombre A-Z</option>
+                                <option value="name-desc">Nombre Z-A</option>
+                                <option value="type">Por tipo</option>
+                            </select>
+                            <div style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
+                                <button data-view="grid" class="btn-view active" style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer;">⊞</button>
+                                <button data-view="list" class="btn-view" style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer;">☰</button>
+                            </div>
+                        </div>
+                    </div>
 
-                <div id="resources-container" 
-                     data-resources='[
-                       {"title": "Fundamentos I", "type": "PDF", "date": "2024-10-20", "size": "1.1 MB", "url": "../resources/Matematica-Financiera/0.1 Fundamento I.pdf", "description": "Conceptos básicos de matemática financiera: valor del dinero en el tiempo"},
-                       {"title": "Fundamentos Parte II", "type": "PDF", "date": "2024-10-20", "size": "1.2 MB", "url": "../resources/Matematica-Financiera/0.2 Fundamento Parte II.pdf", "description": "Continuación de fundamentos: tasas de interés y equivalencias"},
-                       {"title": "Interés Simple 1", "type": "PDF", "date": "2024-10-20", "size": "980 KB", "url": "../resources/Matematica-Financiera/1. Interés Simple 1.pdf", "description": "Introducción al interés simple: fórmulas y aplicaciones"},
-                       {"title": "Interés Simple 2", "type": "PDF", "date": "2024-10-20", "size": "1.0 MB", "url": "../resources/Matematica-Financiera/2. Interés Simple 2.pdf", "description": "Continuación del interés simple: casos especiales y ejercicios"},
-                       {"title": "Descuento y Ecuaciones de Valores Equivalentes", "type": "PDF", "date": "2024-10-20", "size": "1.3 MB", "url": "../resources/Matematica-Financiera/3. Descuento y Ecuaciones de Valores Equivalentes V2.pdf", "description": "Descuento comercial y bancario, ecuaciones de valor"},
-                       {"title": "Interés Compuesto", "type": "PDF", "date": "2024-10-20", "size": "1.4 MB", "url": "../resources/Matematica-Financiera/4. Interes Compuesto 1. Rev 2.pdf", "description": "Interés compuesto: capitalización y aplicaciones financieras"}
-                     ]'>
+                    <div style="margin-bottom: var(--spacing-md); color: var(--color-gray-dark);"><span id="resources-count">Cargando...</span></div>
+
+                    <div id="resources-container" 
+                         data-resources='[
+                           {"title": "Fundamentos I", "type": "PDF", "date": "2024-10-20", "size": "1.1 MB", "url": "../resources/Matematica-Financiera/0.1 Fundamento I.pdf", "description": "Conceptos básicos de matemática financiera: valor del dinero en el tiempo"},
+                           {"title": "Fundamentos Parte II", "type": "PDF", "date": "2024-10-20", "size": "1.2 MB", "url": "../resources/Matematica-Financiera/0.2 Fundamento Parte II.pdf", "description": "Continuación de fundamentos: tasas de interés y equivalencias"},
+                           {"title": "Interés Simple 1", "type": "PDF", "date": "2024-10-20", "size": "980 KB", "url": "../resources/Matematica-Financiera/1. Interés Simple 1.pdf", "description": "Introducción al interés simple: fórmulas y aplicaciones"},
+                           {"title": "Interés Simple 2", "type": "PDF", "date": "2024-10-20", "size": "1.0 MB", "url": "../resources/Matematica-Financiera/2. Interés Simple 2.pdf", "description": "Continuación del interés simple: casos especiales y ejercicios"},
+                           {"title": "Descuento y Ecuaciones de Valores Equivalentes", "type": "PDF", "date": "2024-10-20", "size": "1.3 MB", "url": "../resources/Matematica-Financiera/3. Descuento y Ecuaciones de Valores Equivalentes V2.pdf", "description": "Descuento comercial y bancario, ecuaciones de valor"},
+                           {"title": "Interés Compuesto", "type": "PDF", "date": "2024-10-20", "size": "1.4 MB", "url": "../resources/Matematica-Financiera/4. Interes Compuesto 1. Rev 2.pdf", "description": "Interés compuesto: capitalización y aplicaciones financieras"}
+                         ]'>
+                    </div>
                 </div>
             </div>
         </section>
@@ -141,8 +323,180 @@
     <script src="../js/navigation.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/resources.js"></script>
-    <script>new ResourcesManager('../resources/Matematica-Financiera/');</script>
-    <style>.btn-view.active{background:var(--color-primary)!important;color:white!important}.btn-view:hover{background:var(--color-primary-light)!important;color:white!important}</style>
+    <script>
+        // Inicializar gestor de recursos
+        new ResourcesManager('../resources/Matematica-Financiera/');
+        
+        // Calculadoras Financieras
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Calculadora de Monto Simple
+            document.getElementById('calcular-simple').addEventListener('click', function() {
+                const capital = parseFloat(document.getElementById('capital-simple').value);
+                const tasa = parseFloat(document.getElementById('tasa-simple').value);
+                const tiempo = parseFloat(document.getElementById('tiempo-simple').value);
+                const tipoTasa = document.getElementById('tipo-tasa-simple').value;
+                const tipoTiempo = document.getElementById('tipo-tiempo-simple').value;
+                
+                if (!capital || !tasa || !tiempo) {
+                    alert('Por favor, complete todos los campos');
+                    return;
+                }
+                
+                // Convertir tasa y tiempo a la misma unidad (anual)
+                let tasaAnual = tasa;
+                let tiempoAnual = tiempo;
+                
+                if (tipoTasa === 'mensual') {
+                    tasaAnual = tasa * 12;
+                }
+                
+                if (tipoTiempo === 'meses') {
+                    tiempoAnual = tiempo / 12;
+                }
+                
+                // Calcular monto simple: M = C (1 + i × t)
+                const monto = capital * (1 + (tasaAnual / 100) * tiempoAnual);
+                
+                document.getElementById('monto-simple').textContent = `$${monto.toFixed(2)}`;
+                document.getElementById('resultado-simple').style.display = 'block';
+            });
+            
+            // Calculadora de Monto Compuesto
+            document.getElementById('calcular-compuesto').addEventListener('click', function() {
+                const capital = parseFloat(document.getElementById('capital-compuesto').value);
+                const tasaAnual = parseFloat(document.getElementById('tasa-compuesto').value);
+                const tiempo = parseFloat(document.getElementById('tiempo-compuesto').value);
+                const periodoCapitalizacion = parseInt(document.getElementById('periodo-capitalizacion').value);
+                
+                if (!capital || !tasaAnual || !tiempo) {
+                    alert('Por favor, complete todos los campos');
+                    return;
+                }
+                
+                // Calcular monto compuesto: M = C (1 + j/m)^(m×t)
+                const monto = capital * Math.pow(1 + (tasaAnual / 100) / periodoCapitalizacion, periodoCapitalizacion * tiempo);
+                
+                document.getElementById('monto-compuesto').textContent = `$${monto.toFixed(2)}`;
+                document.getElementById('resultado-compuesto').style.display = 'block';
+            });
+            
+            // Calculadora de Cuotas de Préstamo
+            document.getElementById('calcular-prestamo').addEventListener('click', function() {
+                const montoPrestamo = parseFloat(document.getElementById('monto-prestamo').value);
+                const tasaAnual = parseFloat(document.getElementById('tasa-prestamo').value);
+                const tiempoAnos = parseFloat(document.getElementById('tiempo-prestamo').value);
+                
+                if (!montoPrestamo || !tasaAnual || !tiempoAnos) {
+                    alert('Por favor, complete todos los campos');
+                    return;
+                }
+                
+                // Calcular cuota mensual: R = P × (j/12) / (1 - (1 + j/12)^(-12×t))
+                const tasaMensual = tasaAnual / 100 / 12;
+                const numeroPagos = tiempoAnos * 12;
+                
+                const cuota = montoPrestamo * (tasaMensual) / (1 - Math.pow(1 + tasaMensual, -numeroPagos));
+                
+                document.getElementById('cuota-prestamo').textContent = `$${cuota.toFixed(2)}`;
+                document.getElementById('resultado-prestamo').style.display = 'block';
+                
+                // Generar tabla de amortización
+                generarTablaAmortizacion(montoPrestamo, tasaMensual, cuota, numeroPagos);
+            });
+            
+            function generarTablaAmortizacion(montoPrestamo, tasaMensual, cuota, numeroPagos) {
+                const tbody = document.getElementById('amortizacion-body');
+                tbody.innerHTML = '';
+                
+                let saldoRestante = montoPrestamo;
+                
+                for (let mes = 1; mes <= numeroPagos; mes++) {
+                    const interesPagado = saldoRestante * tasaMensual;
+                    const amortizacion = cuota - interesPagado;
+                    saldoRestante = Math.max(0, saldoRestante - amortizacion);
+                    
+                    const fila = document.createElement('tr');
+                    fila.innerHTML = `
+                        <td style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">${mes}</td>
+                        <td style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">$${cuota.toFixed(2)}</td>
+                        <td style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">$${interesPagado.toFixed(2)}</td>
+                        <td style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">$${amortizacion.toFixed(2)}</td>
+                        <td style="padding: var(--spacing-sm); text-align: center; border: 1px solid var(--color-gray-medium);">$${saldoRestante.toFixed(2)}</td>
+                    `;
+                    tbody.appendChild(fila);
+                }
+                
+                document.getElementById('tabla-amortizacion').style.display = 'block';
+            }
+        });
+    </script>
+    <style>
+        .btn-view.active{background:var(--color-primary)!important;color:white!important}
+        .btn-view:hover{background:var(--color-primary-light)!important;color:white!important}
+        
+        /* Estilos adicionales para las calculadoras */
+        .calculadora-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .calculadora-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 59, 115, 0.15);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(0, 59, 115, 0.1);
+        }
+        
+        .btn {
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 59, 115, 0.3);
+        }
+        
+        .resultado {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tabla-amortizacion table {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tabla-amortizacion tbody tr:nth-child(even) {
+            background-color: var(--color-gray-light);
+        }
+        
+        .tabla-amortizacion tbody tr:hover {
+            background-color: rgba(0, 59, 115, 0.05);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calculadora-form {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .calculadora-card {
+                padding: var(--spacing-lg) !important;
+            }
+            
+            .tabla-amortizacion {
+                font-size: var(--font-size-xs) !important;
+            }
+        }
+    </style>
 </body>
 </html>
 
