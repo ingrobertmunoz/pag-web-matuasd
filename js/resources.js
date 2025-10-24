@@ -182,6 +182,8 @@ class ResourcesManager {
       'MP3': '🎵',
       'JPG': '🖼️',
       'PNG': '🖼️',
+      'JUPYTER': '📓',
+      'IPYNB': '📓',
       'default': '📁'
     };
 
