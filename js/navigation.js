@@ -47,7 +47,8 @@ class Navigation {
     const dropdownToggles = document.querySelectorAll('.nav__dropdown-toggle');
     
     dropdownToggles.forEach(toggle => {
-      toggle.addEventListener('click', (e) => {
+      // Función para manejar el toggle
+      const handleToggle = (e) => {
         e.preventDefault();
         e.stopPropagation();
         
@@ -64,7 +65,11 @@ class Navigation {
         // Toggle el actual
         dropdownItem.classList.toggle('active', !isActive);
         toggle.setAttribute('aria-expanded', !isActive);
-      });
+      };
+      
+      // Agregar event listeners para click y touch
+      toggle.addEventListener('click', handleToggle);
+      toggle.addEventListener('touchstart', handleToggle, { passive: false });
     });
 
     // Cerrar dropdown al hacer click fuera
