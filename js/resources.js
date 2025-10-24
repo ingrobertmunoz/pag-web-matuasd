@@ -136,7 +136,7 @@ class ResourcesManager {
             </div>
           </div>
           <div class="resource-item-list__actions">
-            <a href="${resource.url}" class="btn btn--primary" download>
+            <a href="${resource.url}" class="btn btn--primary" download target="_blank" rel="noopener noreferrer">
               Descargar
             </a>
           </div>
@@ -158,7 +158,7 @@ class ResourcesManager {
           </div>
           ${resource.description ? `<p class="card__description">${resource.description}</p>` : ''}
           <div class="card__footer">
-            <a href="${resource.url}" class="btn btn--outline" download>
+            <a href="${resource.url}" class="btn btn--outline" download target="_blank" rel="noopener noreferrer">
               Descargar
             </a>
           </div>
