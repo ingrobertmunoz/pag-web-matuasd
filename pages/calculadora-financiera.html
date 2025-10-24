@@ -58,14 +58,11 @@
                 <div class="section__header">
                     <h1 class="section__title">🧮 Calculadora Financiera</h1>
                     <p class="section__subtitle">
-                        Herramientas para cálculos de interés, amortización e inversiones
+                        Herramientas prácticas para cálculos financieros cotidianos
                     </p>
-                    <div class="badge badge--warning" style="font-size: var(--font-size-base); margin-top: var(--spacing-md);">
-                        🚧 En Desarrollo
-                    </div>
                 </div>
 
-                <!-- Grid de Calculadoras (Plantillas) -->
+                <!-- Grid de Calculadoras -->
                 <div class="grid grid--3">
                     <!-- Calculadora de Interés Compuesto -->
                     <div class="card">
@@ -73,78 +70,78 @@
                             <div style="font-size: 3rem; text-align: center; margin-bottom: var(--spacing-md);">💰</div>
                             <h3 class="card__title">Interés Compuesto</h3>
                             <p class="card__description">
-                                Calcula el valor futuro de una inversión con interés compuesto.
+                                Calcula cuánto crecerá tu dinero con el tiempo aplicando interés compuesto.
                             </p>
                             
                             <!-- Formulario deshabilitado -->
                             <div style="margin-top: var(--spacing-lg); opacity: 0.5;">
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Capital Inicial ($)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Dinero inicial</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 10000">
                                 </div>
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de Interés (%)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de interés anual</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 8">
                                 </div>
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tiempo (años)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Años de inversión</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 5">
                                 </div>
-                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Calcular</button>
+                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Calcular ganancia</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Calculadora de Amortización -->
+                    <!-- Calculadora de Préstamos -->
                     <div class="card">
                         <div class="card__content">
                             <div style="font-size: 3rem; text-align: center; margin-bottom: var(--spacing-md);">🏦</div>
-                            <h3 class="card__title">Amortización de Préstamos</h3>
+                            <h3 class="card__title">Calculadora de Préstamos</h3>
                             <p class="card__description">
-                                Genera tabla de amortización para préstamos con pagos fijos.
+                                Descubre cuánto pagarás mensualmente por tu préstamo y el total de intereses.
                             </p>
                             
                             <div style="margin-top: var(--spacing-lg); opacity: 0.5;">
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Monto del Préstamo ($)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Monto que necesitas</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 50000">
                                 </div>
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de Interés Anual (%)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de interés anual</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 12">
                                 </div>
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Plazo (meses)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Años para pagar</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 3">
                                 </div>
-                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Generar Tabla</button>
+                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Ver cuota mensual</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Calculadora de Inversiones -->
+                    <!-- Calculadora de Ahorros -->
                     <div class="card">
                         <div class="card__content">
                             <div style="font-size: 3rem; text-align: center; margin-bottom: var(--spacing-md);">📈</div>
-                            <h3 class="card__title">Análisis de Inversiones</h3>
+                            <h3 class="card__title">Planificador de Ahorros</h3>
                             <p class="card__description">
-                                Calcula VAN, TIR y periodo de recuperación de inversiones.
+                                Calcula cuánto necesitas ahorrar mensualmente para alcanzar tu meta financiera.
                             </p>
                             
                             <div style="margin-top: var(--spacing-lg); opacity: 0.5;">
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Inversión Inicial ($)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Meta de ahorro</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 100000">
                                 </div>
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Flujos de Efectivo</label>
-                                    <textarea disabled rows="3" style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);"></textarea>
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de interés anual</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 6">
                                 </div>
                                 <div style="margin-bottom: var(--spacing-md);">
-                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Tasa de Descuento (%)</label>
-                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);">
+                                    <label style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Años para lograr la meta</label>
+                                    <input type="number" disabled style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md);" placeholder="Ej: 10">
                                 </div>
-                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Analizar</button>
+                                <button class="btn btn--primary" disabled style="width: 100%; opacity: 0.5; cursor: not-allowed;">Calcular ahorro mensual</button>
                             </div>
                         </div>
                     </div>
@@ -155,12 +152,12 @@
                     <div class="placeholder__icon">⏳</div>
                     <h3>Próximamente</h3>
                     <p>
-                        Estamos trabajando en estas herramientas de cálculo financiero. 
-                        Pronto podrás realizar cálculos avanzados directamente desde el navegador.
+                        Estamos desarrollando estas herramientas de cálculo financiero para que puedas 
+                        hacer tus cálculos de manera rápida y sencilla.
                     </p>
                     <p style="margin-top: var(--spacing-md); font-size: var(--font-size-sm); color: var(--color-gray-dark);">
-                        Mientras tanto, puedes consultar nuestros <a href="./matematica-financiera.html" style="color: var(--color-secondary); font-weight: 600;">recursos de Matemática Financiera</a> 
-                        donde encontrarás fórmulas y ejemplos resueltos.
+                        Mientras tanto, puedes usar nuestras <a href="./matematica-financiera.html" style="color: var(--color-secondary); font-weight: 600;">calculadoras financieras</a> 
+                        que ya están disponibles en la sección de Matemática Financiera.
                     </p>
                 </div>
             </div>
