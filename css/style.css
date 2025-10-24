@@ -2,8 +2,7 @@
    ESTILOS GLOBALES - MATUASD
    ============================================== */
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+/* Google Fonts ahora se cargan desde el HTML para mejor performance */
 
 /* Reset y Base */
 * {
