@@ -43,6 +43,10 @@ pages/blog/
 - `[TITULO_IMAGEN]`: Texto para la imagen SVG
 - `[ALT_TEXT]`: Texto alternativo para la imagen
 
+#### Infografías
+- `[NOMBRE_IMAGEN]`: Nombre del archivo de imagen (sin extensión)
+- `[DESCRIPCIÓN_ALT]`: Descripción para accesibilidad
+
 #### Contenido del Artículo
 - `[RESUMEN_PRINCIPAL_DEL_ARTICULO]`: Resumen destacado
 - `[PÁRRAFO_DE_INTRODUCCIÓN]`: Introducción del artículo
@@ -87,6 +91,38 @@ Después de crear el artículo, agrégalo a `index.html`:
 - **Cajas destacadas**: Usar `background: var(--color-gray-light)` con `border-left: 4px solid var(--color-secondary)`
 - **Conclusión**: Usar `background: var(--color-primary)` con texto blanco
 - **Código matemático**: Usar `font-family: monospace` en divs con fondo gris
+
+## 📊 Infografías
+
+### Ubicación de Archivos
+- **Carpeta**: `pages/img/`
+- **Formato recomendado**: PNG, JPG, SVG
+- **Nomenclatura**: `infografia [nombre].png`
+
+### Cómo Agregar una Infografía
+
+#### 1. Subir la Imagen
+```bash
+# Colocar la imagen en pages/img/
+pages/img/infografia-mi-tema.png
+```
+
+#### 2. Código HTML
+```html
+<div style="padding: var(--spacing-lg); background: var(--color-gray-light); border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+    <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">💡 Infografía: [Título]</h3>
+    <img src="../img/infografia-mi-tema.png" alt="Descripción de la infografía" style="width: 100%; height: auto; border-radius: var(--border-radius-sm); margin-bottom: var(--spacing-md);">
+    <p style="font-size: var(--font-size-sm); color: var(--color-gray-dark);">
+        Descripción adicional de la infografía.
+    </p>
+</div>
+```
+
+#### 3. Características de las Infografías
+- ✅ **Responsive**: Se adaptan automáticamente al contenedor
+- ✅ **Accesible**: Incluyen alt text descriptivo
+- ✅ **Estilizadas**: Bordes redondeados y espaciado consistente
+- ✅ **Integradas**: Forman parte del flujo del artículo
 
 ## 🔗 Enlaces y Navegación
 
