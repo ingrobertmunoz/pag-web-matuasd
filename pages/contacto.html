@@ -300,100 +300,11 @@
                 <div class="section__header">
                     <h2 class="section__title">Contáctanos</h2>
                     <p class="section__subtitle">
-                        ¿Tienes preguntas, sugerencias o deseas colaborar? Nos encantaría escucharte
+                        Información de contacto y redes sociales para conectarte con nosotros
                     </p>
                 </div>
 
-                <div class="grid grid--2">
-                    <!-- Formulario de Contacto -->
-                    <div class="card">
-                        <div class="card__content">
-                            <h3 class="card__title">📬 Envíanos un Mensaje</h3>
-                            <p class="card__description" style="margin-bottom: var(--spacing-lg);">
-                                Completa el siguiente formulario y te responderemos a la brevedad posible.
-                            </p>
-
-                            <!-- Formulario -->
-                            <form id="contact-form" style="display: flex; flex-direction: column; gap: var(--spacing-md);">
-                                <div>
-                                    <label for="name" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600; color: var(--color-primary);">
-                                        Nombre Completo *
-                                    </label>
-                                    <input 
-                                        type="text" 
-                                        id="name" 
-                                        name="name" 
-                                        required 
-                                        placeholder="Tu nombre"
-                                        style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base); transition: border-color var(--transition-base);"
-                                        onfocus="this.style.borderColor='var(--color-primary)'"
-                                        onblur="this.style.borderColor='var(--color-gray-medium)'">
-                                </div>
-
-                                <div>
-                                    <label for="email" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600; color: var(--color-primary);">
-                                        Correo Electrónico *
-                                    </label>
-                                    <input 
-                                        type="email" 
-                                        id="email" 
-                                        name="email" 
-                                        required 
-                                        placeholder="tu@email.com"
-                                        style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base); transition: border-color var(--transition-base);"
-                                        onfocus="this.style.borderColor='var(--color-primary)'"
-                                        onblur="this.style.borderColor='var(--color-gray-medium)'">
-                                </div>
-
-                                <div>
-                                    <label for="subject" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600; color: var(--color-primary);">
-                                        Asunto *
-                                    </label>
-                                    <select 
-                                        id="subject" 
-                                        name="subject" 
-                                        required
-                                        style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base); transition: border-color var(--transition-base);"
-                                        onfocus="this.style.borderColor='var(--color-primary)'"
-                                        onblur="this.style.borderColor='var(--color-gray-medium)'">
-                                        <option value="">Selecciona un asunto</option>
-                                        <option value="consulta">Consulta General</option>
-                                        <option value="recursos">Solicitud de Recursos</option>
-                                        <option value="error">Reporte de Error</option>
-                                        <option value="sugerencia">Sugerencia</option>
-                                        <option value="colaboracion">Propuesta de Colaboración</option>
-                                        <option value="otro">Otro</option>
-                                    </select>
-                                </div>
-
-                                <div>
-                                    <label for="message" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600; color: var(--color-primary);">
-                                        Mensaje *
-                                    </label>
-                                    <textarea 
-                                        id="message" 
-                                        name="message" 
-                                        required 
-                                        rows="6"
-                                        placeholder="Escribe tu mensaje aquí..."
-                                        style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base); resize: vertical; transition: border-color var(--transition-base); font-family: inherit;"
-                                        onfocus="this.style.borderColor='var(--color-primary)'"
-                                        onblur="this.style.borderColor='var(--color-gray-medium)'"></textarea>
-                                </div>
-
-                                <button type="submit" class="btn btn--primary" style="width: 100%;">
-                                    Enviar Mensaje
-                                </button>
-
-                                <p style="font-size: var(--font-size-sm); color: var(--color-gray-dark); text-align: center; margin-top: var(--spacing-md);">
-                                    <strong>Nota:</strong> Para habilitar el envío de formularios, integra con 
-                                    <a href="https://formspree.io" target="_blank" rel="noopener" style="color: var(--color-secondary); font-weight: 600;">Formspree</a> o 
-                                    <a href="https://www.emailjs.com" target="_blank" rel="noopener" style="color: var(--color-secondary); font-weight: 600;">EmailJS</a>.
-                                </p>
-                            </form>
-                        </div>
-                    </div>
-
+                <div class="grid grid--1">
                     <!-- Información de Contacto y Redes -->
                     <div>
                         <!-- Información de Contacto -->
@@ -601,14 +512,6 @@
 
     <script src="../js/navigation.js"></script>
     <script src="../js/main.js"></script>
-    
-    <script>
-        // Prevenir envío del formulario (para demo)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Para habilitar el envío de formularios, integra con Formspree o EmailJS.\n\nPara Formspree: https://formspree.io\nPara EmailJS: https://www.emailjs.com');
-        });
-    </script>
 </body>
 </html>
 
