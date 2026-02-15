@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard educativo con Python y Dash para el análisis de datos académicos.">
+    <title>Learning Analytics: Dashboard con Python - Blog MATUASD</title>
+    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <img src="../../img/logo.png" alt="Logo MATUASD" class="header__logo-img">
+                <span class="header__logo-text">MATUASD</span>
+            </a>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation">
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span
+                        class="nav__toggle-line"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="../programas.html" class="nav__link">Programas</a></li>
+                    <li class="nav__item nav__item--dropdown">
+                        <button class="nav__link nav__dropdown-toggle" aria-expanded="false">
+                            Clases <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <ul class="nav__dropdown">
+                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a>
+                            </li>
+                            <li><a href="../calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
+                            <li><a href="../calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
+                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
+                    <li class="nav__item"><a href="../monibot014.html" class="nav__link">Monibot014</a></li>
+                    <li class="nav__item"><a href="../contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-height);">
+        <div class="container" style="padding-top: var(--spacing-lg);">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a href="../../index.html" class="breadcrumb__link">Inicio</a></li>
+                <li class="breadcrumb__item"><a href="./index.html" class="breadcrumb__link">Blog</a></li>
+                <li class="breadcrumb__item">Dashboard Educativo con Python</li>
+            </ul>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+                    <header style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                        <!-- IMAGEN DEL ARTÍCULO -->
+                        <img src="../../img/dashboard_educativo_cover.png" alt="Dashboard Educativo con Python"
+                            style="width: 100%; height: auto; border-radius: var(--border-radius-lg); margin-bottom: var(--spacing-xl); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+                        <div class="article-meta"
+                            style="display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap; margin-bottom: var(--spacing-lg);">
+                            <span style="color: var(--color-gray-dark);">📅 15 de febrero, 2026</span>
+                            <span class="badge badge--primary">Tecnología Educativa</span>
+                            <span style="color: var(--color-gray-dark);">Por: M.Sc. Robert Muñoz</span>
+                        </div>
+
+                        <h1 style="color: var(--color-primary); margin-bottom: var(--spacing-lg); line-height: 1.2;">
+                            Análisis Exploratorio de Datos Educativos: Un Enfoque Práctico con Python y Dash</h1>
+                    </header>
+
+                    <div class="article-content" style="line-height: 1.8; font-size: var(--font-size-lg);">
+
+                        <!-- META INFO BOX -->
+                        <div
+                            style="background: #f9f9f9; padding: var(--spacing-md); border-radius: var(--border-radius-md); font-size: 0.9em; margin-bottom: var(--spacing-xl); border-left: 3px solid var(--color-secondary);">
+                            <p style="margin-bottom: 5px;"><strong>🎓 Contexto Académico:</strong> Asignatura
+                                "Tecnología de Aprendizaje", Doctorado en Inteligencia Artificial (Convenio UASD-UMH).
+                            </p>
+                            <p style="margin-bottom: 5px;"><strong>👨‍🏫 Profesor:</strong> Dr. Óscar Martínez Bonastre.
+                            </p>
+                            <p style="margin: 0;"><strong>📊 Fuente de Datos:</strong> <a
+                                    href="https://zenodo.org/records/17239943" target="_blank"
+                                    style="color: var(--color-primary);">Zenodo (Dataset Público)</a></p>
+                        </div>
+
+                        <!-- RESUMEN PRINCIPAL -->
+                        <p
+                            style="font-size: var(--font-size-xl); color: var(--color-primary); font-weight: 600; margin-bottom: var(--spacing-xl);">
+                            En el marco del Doctorado en IA y Aprendizaje Automático (UASD-UMH), hemos desarrollado una
+                            herramienta de <em>Learning Analytics</em> para explorar fenómenos educativos mediante
+                            datos.
+                        </p>
+
+                        <!-- INTRODUCCIÓN -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Introducción</h2>
+                        <p>
+                            Este proyecto surge como una tarea práctica con el objetivo de demostrar cómo las
+                            tecnologías <em>open-source</em> y el análisis de datos pueden facilitar la comprensión de
+                            fenómenos educativos complejos de manera accesible.
+                        </p>
+
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            El Objetivo: De los Datos a la Visualización</h2>
+                        <p>
+                            El propósito principal fue realizar un <strong>Análisis Exploratorio de Datos (EDA)</strong>
+                            sobre un dataset educativo. Buscábamos responder preguntas clave como:
+                        </p>
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li>¿Cómo se distribuyen los estudiantes por campus y titulación?</li>
+                            <li>¿Existe una correlación visible entre la nota de acceso y el rendimiento universitario?
+                            </li>
+                            <li>¿Podemos identificar patrones tempranos de deserción estudiantil?</li>
+                        </ul>
+
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            La Herramienta: ¿Por qué Python y Dash?</h2>
+                        <p>
+                            En el ámbito del análisis de datos existen múltiples herramientas. A continuación, un breve
+                            contraste de por qué elegimos Python (Dash) frente a otras opciones:
+                        </p>
+
+                        <!-- COMPARISON TABLE -->
+                        <div style="overflow-x: auto; margin: var(--spacing-xl) 0;">
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+                                <thead>
+                                    <tr style="background-color: var(--color-gray-light);">
+                                        <th
+                                            style="border: 1px solid #ddd; padding: 12px; text-align: left; width: 25%;">
+                                            Plataforma</th>
+                                        <th
+                                            style="border: 1px solid #ddd; padding: 12px; text-align: left; width: 35%;">
+                                            Ventajas Principales</th>
+                                        <th
+                                            style="border: 1px solid #ddd; padding: 12px; text-align: left; width: 40%;">
+                                            Limitaciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 10px;"><strong>Excel</strong></td>
+                                        <td style="border: 1px solid #ddd; padding: 10px;">Omnipresente, fácil de usar
+                                            para datos pequeños.</td>
+                                        <td style="border: 1px solid #ddd; padding: 10px;">No escala con millones de
+                                            filas, visualización limitada.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="border: 1px solid #ddd; padding: 10px;"><strong>Power BI /
+                                                Tableau</strong></td>
+                                        <td style="border: 1px solid #ddd; padding: 10px;">Potentes, "drag & drop",
+                                            conectores nativos.</td>
+                                        <td style="border: 1px solid #ddd; padding: 10px;">Costos de licencia elevados,
+                                            menos flexibles para lógica personalizada.</td>
+                                    </tr>
+                                    <tr style="background-color: #e8f6fd;">
+                                        <td style="border: 1px solid #ddd; padding: 10px;"><strong>Python
+                                                (Dash)</strong><br><small><em>Opción elegida</em></small></td>
+                                        <td style="border: 1px solid #ddd; padding: 10px;"><strong>Flexibilidad
+                                                total</strong>, integración con Machine Learning, 100% Open Source.</td>
+                                        <td style="border: 1px solid #ddd; padding: 10px;">Curva de aprendizaje mayor
+                                            (requiere código).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            Para materializar este análisis, construimos un dashboard interactivo utilizando
+                            <strong>Pandas</strong> para el procesamiento de datos y <strong>Dash (by Plotly)</strong>
+                            para la interfaz web.
+                        </p>
+
+                        <!-- CAJA DESTACADA - DEMO -->
+                        <div
+                            style="padding: var(--spacing-xl); background: var(--color-gray-light); border: 2px solid var(--color-primary); border-radius: var(--border-radius-lg); margin: var(--spacing-2xl) 0; text-align: center;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">🚀 Ver Dashboard
+                                en Vivo</h3>
+                            <p style="margin-bottom: var(--spacing-lg);">
+                                Explora los datos interactivamente en la versión desplegada en Google Cloud Run.
+                            </p>
+                            <a href="https://dashboard-educativo-1058854486026.us-central1.run.app" target="_blank"
+                                class="btn btn--primary" style="font-size: 1.1em; padding: 12px 24px;">
+                                Acceder al Dashboard
+                            </a>
+                            <p
+                                style="font-size: 0.85em; color: var(--color-gray-dark); margin-top: var(--spacing-md); max-width: 600px; margin-left: auto; margin-right: auto;">
+                                ⚠️ <strong>Nota:</strong> Al estar en una instancia gratuita, puede tardar 10-15
+                                segundos en iniciar ("Cold Start").
+                            </p>
+                        </div>
+
+                        <!-- DISCLAIMER -->
+                        <div
+                            style="padding: var(--spacing-lg); background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: var(--border-radius-md); margin-top: 30px;">
+                            <strong>Nota Pedagógica:</strong> Las métricas y análisis presentados tienen fines puramente
+                            pedagógicos y de demostración. Los resultados no deben tomarse como un informe oficial.
+                        </div>
+
+                        <!-- CONCLUSIÓN -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Conclusión</h2>
+                        <p>
+                            Este ejercicio demuestra que la barrera de entrada para implementar estrategias de
+                            <em>Learning Analytics</em> es cada vez menor. La colaboración académica entre la UASD y la
+                            UMH nos permite explorar estas fronteras tecnológicas y prepararnos para aplicar la
+                            Inteligencia Artificial en la mejora sustancial de los procesos de enseñanza-aprendizaje.
+                        </p>
+
+                    </div>
+
+                    <footer
+                        style="margin-top: var(--spacing-3xl); padding-top: var(--spacing-xl); border-top: 2px solid var(--color-gray-light);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md);">
+                            <a href="./index.html" class="btn btn--outline">← Volver al Blog</a>
+
+                            <div style="display: flex; gap: var(--spacing-md);">
+                                <span
+                                    style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Compartir:</span>
+                                <a href="#" class="footer__social-link">📷 Instagram</a>
+                                <a href="#" class="footer__social-link">▶️ YouTube</a>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__section-title">MATUASD</h3>
+                    <p style="color: var(--color-gray-medium); line-height: 1.8;">Portal educativo de MATUASD.</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Enlaces Rápidos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../../index.html" class="footer__link">Inicio</a></li>
+                        <li class="footer__list-item"><a href="./index.html" class="footer__link">Blog</a></li>
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2026</span> MATUASD. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

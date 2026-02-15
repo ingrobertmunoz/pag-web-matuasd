@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
+
 <body>
     <header class="header">
         <div class="container header__container">
@@ -19,7 +21,8 @@
             </a>
             <nav class="nav">
                 <button class="nav__toggle" aria-label="Toggle navigation">
-                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span class="nav__toggle-line"></span>
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span
+                        class="nav__toggle-line"></span>
                 </button>
                 <ul class="nav__list">
                     <li class="nav__item"><a href="../../index.html" class="nav__link">Inicio</a></li>
@@ -30,14 +33,18 @@
                             Clases <span class="dropdown-arrow">▼</span>
                         </button>
                         <ul class="nav__dropdown">
-                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a></li>
+                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a>
+                            </li>
                             <li><a href="../calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
                             <li><a href="../calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
-                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a></li>
-                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a></li>
+                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora Financiera</a></li>
+                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
                     <li class="nav__item"><a href="../monibot014.html" class="nav__link">Monibot014</a></li>
                     <li class="nav__item"><a href="../contacto.html" class="nav__link">Contacto</a></li>
                 </ul>
@@ -65,47 +72,84 @@
         <section class="section">
             <div class="container">
                 <!-- Filtros de Categorías -->
-                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-xl);">
-                    <button class="badge badge--primary" data-filter="all" style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base);">
+                <div
+                    style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-xl);">
+                    <button class="badge badge--primary" data-filter="all"
+                        style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base);">
                         Todos
                     </button>
-                    <button class="badge badge--secondary" data-filter="inteligencia-artificial" style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base); background: transparent; color: var(--color-secondary); border: 2px solid var(--color-secondary);">
+                    <button class="badge badge--secondary" data-filter="inteligencia-artificial"
+                        style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base); background: transparent; color: var(--color-secondary); border: 2px solid var(--color-secondary);">
                         Inteligencia Artificial
                     </button>
-                    <button class="badge badge--secondary" data-filter="matematicas" style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base); background: transparent; color: var(--color-secondary); border: 2px solid var(--color-secondary);">
+                    <button class="badge badge--secondary" data-filter="matematicas"
+                        style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base); background: transparent; color: var(--color-secondary); border: 2px solid var(--color-secondary);">
                         Matemáticas
                     </button>
-                    <button class="badge badge--secondary" data-filter="bolsa-valores" style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base); background: transparent; color: var(--color-secondary); border: 2px solid var(--color-secondary);">
+                    <button class="badge badge--secondary" data-filter="bolsa-valores"
+                        style="cursor: pointer; padding: var(--spacing-sm) var(--spacing-lg); font-size: var(--font-size-base); background: transparent; color: var(--color-secondary); border: 2px solid var(--color-secondary);">
                         Bolsa de Valores
                     </button>
                 </div>
 
                 <!-- Blog Grid -->
                 <div class="grid grid--2" id="blog-container">
+                    <!-- Entrada Nueva: Dashboard Educativo -->
+                    <article class="card blog-post" data-category="inteligencia-artificial">
+                        <img src="../../img/dashboard_educativo_cover.png" alt="Dashboard Educativo con Python"
+                            class="card__image">
+                        <div class="card__content">
+                            <div class="card__meta">
+                                <span>📅 15 de febrero, 2026</span>
+                                <span class="badge badge--success">Inteligencia Artificial</span>
+                            </div>
+                            <h2 class="card__title">Analítica de Aprendizaje con Python y Dash</h2>
+                            <p class="card__description">
+                                Descubre cómo transformamos datos educativos en conocimiento accionable utilizando
+                                Python y Dash.
+                                Un proyecto práctico del Doctorado en IA que explora patrones de rendimiento y deserción
+                                estudiantil.
+                            </p>
+                            <div class="card__footer">
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc.
+                                    Robert Muñoz</span>
+                                <a href="./dashboard-educativo.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
+                            </div>
+                        </div>
+                    </article>
                     <!-- Entrada 1: Curso DL Medicina -->
                     <article class="card blog-post" data-category="inteligencia-artificial">
-                        <img src="../img/info Curso Técnicas DL.png" alt="Infografía: Curso Técnicas DL en Medicina" class="card__image">
+                        <img src="../img/info Curso Técnicas DL.png" alt="Infografía: Curso Técnicas DL en Medicina"
+                            class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 24 de octubre, 2025</span>
                                 <span class="badge badge--success">Inteligencia Artificial</span>
                             </div>
-                            <h2 class="card__title">Curso de Técnicas de DL aplicadas a Problemas en Ciencias de la Salud</h2>
+                            <h2 class="card__title">Curso de Técnicas de DL aplicadas a Problemas en Ciencias de la
+                                Salud</h2>
                             <p class="card__description">
-                                Un curso impartido por el Dr. Antonio Peñalver cubre los fundamentos de DL aplicados en Ciencias de la Salud. 
-                                Explora cómo el Deep Learning está revolucionando el diagnóstico médico, análisis de imágenes médicas y 
+                                Un curso impartido por el Dr. Antonio Peñalver cubre los fundamentos de DL aplicados en
+                                Ciencias de la Salud.
+                                Explora cómo el Deep Learning está revolucionando el diagnóstico médico, análisis de
+                                imágenes médicas y
                                 desarrollo de tratamientos personalizados.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc. Robert Muñoz</span>
-                                <a href="./curso-dl-medicina.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc.
+                                    Robert Muñoz</span>
+                                <a href="./curso-dl-medicina.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Entrada 2: Ecuaciones Diferenciales -->
                     <article class="card blog-post" data-category="matematicas">
-                        <img src="../img/infografia ecuaciones.png" alt="Infografía: La Belleza de las Ecuaciones Diferenciales - El Lenguaje Secreto de la Naturaleza" class="card__image">
+                        <img src="../img/infografia ecuaciones.png"
+                            alt="Infografía: La Belleza de las Ecuaciones Diferenciales - El Lenguaje Secreto de la Naturaleza"
+                            class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 15 de octubre, 2024</span>
@@ -113,21 +157,26 @@
                             </div>
                             <h2 class="card__title">La Belleza de las Ecuaciones Diferenciales</h2>
                             <p class="card__description">
-                                Las ecuaciones diferenciales son el lenguaje con el que la naturaleza nos habla. 
-                                Desde el movimiento de los planetas hasta el crecimiento de poblaciones, estas ecuaciones 
-                                modelan fenómenos que rigen nuestro universo. En este artículo exploramos su historia, 
+                                Las ecuaciones diferenciales son el lenguaje con el que la naturaleza nos habla.
+                                Desde el movimiento de los planetas hasta el crecimiento de poblaciones, estas
+                                ecuaciones
+                                modelan fenómenos que rigen nuestro universo. En este artículo exploramos su historia,
                                 aplicaciones y por qué son fundamentales en ciencia e ingeniería.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: Equipo MATUASD</span>
-                                <a href="./ecuaciones-diferenciales.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: Equipo
+                                    MATUASD</span>
+                                <a href="./ecuaciones-diferenciales.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Entrada 2: Análisis Real -->
                     <article class="card blog-post" data-category="matematicas">
-                        <img src="../img/info Analisis Real.png" alt="Infografía: Introducción al Análisis Real - El Fundamento Riguroso del Cálculo" class="card__image">
+                        <img src="../img/info Analisis Real.png"
+                            alt="Infografía: Introducción al Análisis Real - El Fundamento Riguroso del Cálculo"
+                            class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 10 de octubre, 2024</span>
@@ -135,20 +184,25 @@
                             </div>
                             <h2 class="card__title">Introducción al Análisis Real</h2>
                             <p class="card__description">
-                                El análisis real es la rama de las matemáticas que estudia las propiedades de los números reales, 
-                                sucesiones, series y funciones continuas. Es el fundamento riguroso del cálculo y esencial 
+                                El análisis real es la rama de las matemáticas que estudia las propiedades de los
+                                números reales,
+                                sucesiones, series y funciones continuas. Es el fundamento riguroso del cálculo y
+                                esencial
                                 para comprender conceptos avanzados en matemáticas puras y aplicadas.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc. Robert Muñoz</span>
-                                <a href="./analisis-real.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc.
+                                    Robert Muñoz</span>
+                                <a href="./analisis-real.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Entrada 3: IA y Matemáticas -->
                     <article class="card blog-post" data-category="inteligencia-artificial">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23FF6F00' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EMachine Learning%3C/text%3E%3C/svg%3E" alt="Machine Learning" class="card__image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23FF6F00' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EMachine Learning%3C/text%3E%3C/svg%3E"
+                            alt="Machine Learning" class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 5 de octubre, 2024</span>
@@ -156,20 +210,24 @@
                             </div>
                             <h2 class="card__title">Matemáticas en la Inteligencia Artificial</h2>
                             <p class="card__description">
-                                El álgebra lineal y el cálculo multivariable son la columna vertebral del Machine Learning. 
-                                Descubre cómo las matemáticas permiten a las computadoras aprender de los datos y hacer 
+                                El álgebra lineal y el cálculo multivariable son la columna vertebral del Machine
+                                Learning.
+                                Descubre cómo las matemáticas permiten a las computadoras aprender de los datos y hacer
                                 predicciones asombrosas.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc. Joel Macea</span>
-                                <a href="./matematicas-ia.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc.
+                                    Joel Macea</span>
+                                <a href="./matematicas-ia.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Entrada 4: Geometría No Euclidiana -->
                     <article class="card blog-post" data-category="matematicas">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23FF6F00' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EGeometría No Euclidiana%3C/text%3E%3C/svg%3E" alt="Geometría No Euclidiana" class="card__image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23FF6F00' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EGeometría No Euclidiana%3C/text%3E%3C/svg%3E"
+                            alt="Geometría No Euclidiana" class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 28 de septiembre, 2024</span>
@@ -177,20 +235,24 @@
                             </div>
                             <h2 class="card__title">Geometría No Euclidiana: Más Allá de las Líneas Rectas</h2>
                             <p class="card__description">
-                                Durante siglos, la geometría de Euclides fue la única conocida. Pero en el siglo XIX, 
-                                matemáticos visionarios descubrieron que existen otras geometrías igualmente válidas. 
-                                Exploramos las geometrías hiperbólica y elíptica, y su papel en la teoría de la relatividad.
+                                Durante siglos, la geometría de Euclides fue la única conocida. Pero en el siglo XIX,
+                                matemáticos visionarios descubrieron que existen otras geometrías igualmente válidas.
+                                Exploramos las geometrías hiperbólica y elíptica, y su papel en la teoría de la
+                                relatividad.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: Equipo MATUASD</span>
-                                <a href="./geometria-no-euclidiana.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: Equipo
+                                    MATUASD</span>
+                                <a href="./geometria-no-euclidiana.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Entrada 5: Problemas del Milenio -->
                     <article class="card blog-post" data-category="matematicas">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23003B73' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EHistoria de las Matemáticas%3C/text%3E%3C/svg%3E" alt="Historia Matemáticas" class="card__image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23003B73' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3EHistoria de las Matemáticas%3C/text%3E%3C/svg%3E"
+                            alt="Historia Matemáticas" class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 20 de septiembre, 2024</span>
@@ -198,20 +260,23 @@
                             </div>
                             <h2 class="card__title">Los Grandes Problemas del Milenio</h2>
                             <p class="card__description">
-                                En el año 2000, el Instituto Clay de Matemáticas propuso siete problemas fundamentales 
-                                sin resolver. Cada uno con un premio de un millón de dólares. Hasta la fecha, solo uno 
+                                En el año 2000, el Instituto Clay de Matemáticas propuso siete problemas fundamentales
+                                sin resolver. Cada uno con un premio de un millón de dólares. Hasta la fecha, solo uno
                                 ha sido resuelto: la conjetura de Poincaré por Grigori Perelman.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc. Robert Muñoz</span>
-                                <a href="./problemas-milenio.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc.
+                                    Robert Muñoz</span>
+                                <a href="./problemas-milenio.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
 
                     <!-- Entrada 6: Teorema Fundamental del Cálculo -->
                     <article class="card blog-post" data-category="matematicas">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23003B73' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3ETeorema Fundamental%3C/text%3E%3C/svg%3E" alt="Teorema Fundamental del Cálculo" class="card__image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%23f8f9fa' width='400' height='200'/%3E%3Ctext fill='%23003B73' font-family='Arial' font-size='16' font-weight='600' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3ETeorema Fundamental%3C/text%3E%3C/svg%3E"
+                            alt="Teorema Fundamental del Cálculo" class="card__image">
                         <div class="card__content">
                             <div class="card__meta">
                                 <span>📅 12 de septiembre, 2024</span>
@@ -219,22 +284,27 @@
                             </div>
                             <h2 class="card__title">El Teorema Fundamental del Cálculo</h2>
                             <p class="card__description">
-                                Este teorema es el puente que conecta dos conceptos aparentemente distintos: 
-                                la derivación y la integración. Descubierto independientemente por Newton y Leibniz, 
+                                Este teorema es el puente que conecta dos conceptos aparentemente distintos:
+                                la derivación y la integración. Descubierto independientemente por Newton y Leibniz,
                                 revolucionó las matemáticas y la física.
                             </p>
                             <div class="card__footer">
-                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc. Joel Macea</span>
-                                <a href="./teorema-fundamental-calculo.html" class="btn btn--primary" style="margin-top: var(--spacing-md);">Leer más</a>
+                                <span style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Por: M.Sc.
+                                    Joel Macea</span>
+                                <a href="./teorema-fundamental-calculo.html" class="btn btn--primary"
+                                    style="margin-top: var(--spacing-md);">Leer más</a>
                             </div>
                         </div>
                     </article>
                 </div>
 
                 <!-- Paginación -->
-                <div style="display: flex; justify-content: center; align-items: center; gap: var(--spacing-md); margin-top: var(--spacing-3xl);">
-                    <button class="btn btn--outline" disabled style="opacity: 0.5; cursor: not-allowed;">« Anterior</button>
-                    <span style="padding: var(--spacing-sm) var(--spacing-md); background: var(--color-primary); color: white; border-radius: var(--border-radius-md); font-weight: 600;">1</span>
+                <div
+                    style="display: flex; justify-content: center; align-items: center; gap: var(--spacing-md); margin-top: var(--spacing-3xl);">
+                    <button class="btn btn--outline" disabled style="opacity: 0.5; cursor: not-allowed;">«
+                        Anterior</button>
+                    <span
+                        style="padding: var(--spacing-sm) var(--spacing-md); background: var(--color-primary); color: white; border-radius: var(--border-radius-md); font-weight: 600;">1</span>
                     <span style="padding: var(--spacing-sm) var(--spacing-md);">2</span>
                     <span style="padding: var(--spacing-sm) var(--spacing-md);">3</span>
                     <button class="btn btn--outline">Siguiente »</button>
@@ -256,32 +326,43 @@
                         <li class="footer__list-item"><a href="../../index.html" class="footer__link">Inicio</a></li>
                         <li class="footer__list-item"><a href="./index.html" class="footer__link">Blog</a></li>
                         <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
-                        <li class="footer__list-item"><a href="../aviso-legal.html" class="footer__link">Aviso Legal</a></li>
+                        <li class="footer__list-item"><a href="../aviso-legal.html" class="footer__link">Aviso Legal</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__section-title">Recursos</h3>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="../matematica-basica.html" class="footer__link">Matemática Básica</a></li>
-                        <li class="footer__list-item"><a href="../calculo-1.html" class="footer__link">Cálculo I</a></li>
-                        <li class="footer__list-item"><a href="../calculo-2.html" class="footer__link">Cálculo II</a></li>
+                        <li class="footer__list-item"><a href="../matematica-basica.html"
+                                class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="../calculo-1.html" class="footer__link">Cálculo I</a>
+                        </li>
+                        <li class="footer__list-item"><a href="../calculo-2.html" class="footer__link">Cálculo II</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__section-title">Contacto</h3>
                     <ul class="footer__list">
                         <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
-                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo, RD</li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
+                            RD</li>
                     </ul>
                 </div>
             </div>
             <div class="footer__bottom">
                 <p>&copy; <span data-year>2024</span> MATUASD. Todos los derechos reservados.</p>
                 <div class="footer__social">
-                    <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer" class="footer__social-link" title="Instagram: @matuasdrd"><span style="font-size: 1.5rem;">📷</span></a>
-                    <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer" class="footer__social-link" title="YouTube: @matuasdrd"><span style="font-size: 1.5rem;">▶️</span></a>
-                    <a href="#" class="footer__social-link" title="LinkedIn: Próximamente"><span style="font-size: 1.5rem;">💼</span></a>
-                    <a href="mailto:matuasdrd@gmail.com" class="footer__social-link" title="Email: matuasdrd@gmail.com"><span style="font-size: 1.5rem;">✉️</span></a>
+                    <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="Instagram: @matuasdrd"><span
+                            style="font-size: 1.5rem;">📷</span></a>
+                    <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="YouTube: @matuasdrd"><span
+                            style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" title="LinkedIn: Próximamente"><span
+                            style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:matuasdrd@gmail.com" class="footer__social-link"
+                        title="Email: matuasdrd@gmail.com"><span style="font-size: 1.5rem;">✉️</span></a>
                 </div>
             </div>
         </div>
@@ -289,7 +370,7 @@
 
     <script src="../../js/navigation.js"></script>
     <script src="../../js/main.js"></script>
-    
+
     <script>
         // Sistema de filtrado simple para el blog
         document.addEventListener('DOMContentLoaded', () => {
@@ -324,4 +405,5 @@
         });
     </script>
 </body>
+
 </html>
