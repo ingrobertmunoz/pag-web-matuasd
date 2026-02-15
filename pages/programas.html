@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Programas de estudio de la MATUASD">
     <title>Programas de Matemáticas - MATUASD</title>
-    
+
     <link rel="icon" type="image/png" href="../img/logo.png">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
@@ -19,14 +21,14 @@
                 <img src="../img/logo.png" alt="Logo MATUASD" class="header__logo-img">
                 <span class="header__logo-text">MATUASD</span>
             </a>
-            
+
             <nav class="nav">
                 <button class="nav__toggle" aria-label="Toggle navigation">
                     <span class="nav__toggle-line"></span>
                     <span class="nav__toggle-line"></span>
                     <span class="nav__toggle-line"></span>
                 </button>
-                
+
                 <ul class="nav__list">
                     <li class="nav__item"><a href="../index.html" class="nav__link">Inicio</a></li>
                     <li class="nav__item"><a href="./blog/index.html" class="nav__link">Blog</a></li>
@@ -39,11 +41,14 @@
                             <li><a href="./matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a></li>
                             <li><a href="./calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
                             <li><a href="./calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
-                            <li><a href="./matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a></li>
-                            <li><a href="./matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a></li>
+                            <li><a href="./matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="./matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="nav__item"><a href="./calculadora-financiera.html" class="nav__link">Calculadora Financiera</a></li>
+                    <li class="nav__item"><a href="./calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
                     <li class="nav__item"><a href="./monibot014.html" class="nav__link">Monibot014</a></li>
                     <li class="nav__item"><a href="./contacto.html" class="nav__link">Contacto</a></li>
                 </ul>
@@ -77,17 +82,16 @@
         <section class="section">
             <div class="container">
                 <!-- Filters and Controls -->
-                <div style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md);">
+                <div
+                    style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md);">
                     <div style="flex: 1; min-width: 250px;">
-                        <input 
-                            type="text" 
-                            id="search-resources" 
-                            placeholder="Buscar recursos..." 
+                        <input type="text" id="search-resources" placeholder="Buscar recursos..."
                             style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
                     </div>
 
                     <div style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
-                        <select id="sort-resources" style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                        <select id="sort-resources"
+                            style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
                             <option value="date-newest">Más recientes</option>
                             <option value="date-oldest">Más antiguos</option>
                             <option value="name-asc">Nombre A-Z</option>
@@ -95,11 +99,16 @@
                             <option value="type">Por tipo</option>
                         </select>
 
-                        <div style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
-                            <button data-view="grid" class="btn-view" style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);" title="Vista en cuadrícula">
+                        <div
+                            style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
+                            <button data-view="grid" class="btn-view"
+                                style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
+                                title="Vista en cuadrícula">
                                 ⊞
                             </button>
-                            <button data-view="list" class="btn-view active" style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);" title="Vista en lista">
+                            <button data-view="list" class="btn-view active"
+                                style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
+                                title="Vista en lista">
                                 ☰
                             </button>
                         </div>
@@ -111,16 +120,17 @@
                 </div>
 
                 <!-- Resources Container -->
-                <div id="resources-container" 
-                     data-resources='[
+                <div id="resources-container" data-resources='[
                        {"title": "Mat-0140 Matemática Básica", "type": "PDF", "date": "2024-09-01", "size": "450 KB", "url": "../resources/Programas/Mat-0140 Matemática Básica Programa.pdf", "description": "Programa oficial del curso Matemática Básica"},
                        {"title": "Mat-1200 Trigonometría Plana y Esférica", "type": "PDF", "date": "2024-09-01", "size": "470 KB", "url": "../resources/Programas/Mat-1200 Trigonometria Plana y esférica.pdf", "description": "Programa oficial del curso Trigonometría Plana y Esférica"},
                        {"title": "Mat-1400 Matemática Financiera", "type": "PDF", "date": "2024-09-01", "size": "520 KB", "url": "../resources/Programas/Mat-1400 Matemática Financiera.pdf", "description": "Programa oficial del curso Matemática Financiera"},
+                       {"title": "Mat-1430 Matemática Financiera", "type": "PDF", "date": "2026-02-15", "size": "205 KB", "url": "../resources/Programas/Mat-1430 Matemática Financiera.pdf", "description": "Programa oficial del curso Matemática Financiera (Mat-1430)"},
                        {"title": "Mat-1840 Geometría Moderna", "type": "PDF", "date": "2024-09-01", "size": "485 KB", "url": "../resources/Programas/Mat-1840 Geometría Moderna.pdf", "description": "Programa oficial del curso Geometría Moderna"},
                        {"title": "Mat-2300 Álgebra Superior", "type": "PDF", "date": "2024-08-28", "size": "510 KB", "url": "../resources/Programas/Mat-2300 Algebra Superior.pdf", "description": "Programa oficial del curso Álgebra Superior"},
                        {"title": "Mat-2330 Análisis Lineal y Matricial", "type": "PDF", "date": "2024-08-28", "size": "495 KB", "url": "../resources/Programas/Mat-2330 Analisis Lineal y Matricial.pdf", "description": "Programa oficial del curso Análisis Lineal y Matricial"},
                        {"title": "Mat-2390 Álgebra Lineal y Matricial", "type": "PDF", "date": "2024-08-28", "size": "505 KB", "url": "../resources/Programas/Mat-2390 Algebra Lineal y Matricial.pdf", "description": "Programa oficial del curso Álgebra Lineal y Matricial"},
                        {"title": "Mat-2480 Cálculo Actuarial I", "type": "PDF", "date": "2024-08-25", "size": "475 KB", "url": "../resources/Programas/Mat-2480 Calculo Actuarial I.pdf", "description": "Programa oficial del curso Cálculo Actuarial I"},
+                       {"title": "Mat-2500 Cálculo y Analítica I", "type": "PDF", "date": "2026-02-15", "size": "500 KB", "url": "../resources/Programas/Mat-2500 Calculo y Analitica I.pdf", "description": "Programa oficial del curso Cálculo y Analítica I (Mat-2500)"},
                        {"title": "Mat-2510 Cálculo y Analítica I", "type": "PDF", "date": "2024-08-25", "size": "520 KB", "url": "../resources/Programas/Mat-2510 Calculo y Analitica I.pdf", "description": "Programa oficial del curso Cálculo y Analítica I"},
                        {"title": "Mat-2590 Cálculo y Analítica", "type": "PDF", "date": "2024-08-25", "size": "515 KB", "url": "../resources/Programas/Mat-2590 Calculo y Analitica.pdf", "description": "Programa oficial del curso Cálculo y Analítica"},
                        {"title": "Mat-2870 Lógica y Teoría de Conjuntos", "type": "PDF", "date": "2024-08-22", "size": "425 KB", "url": "../resources/Programas/Mat-2870 Lógica y Teoría de Conjuntos.pdf", "description": "Programa oficial del curso Lógica y Teoría de Conjuntos"},
@@ -175,25 +185,31 @@
                         <li class="footer__list-item"><a href="./blog/index.html" class="footer__link">Blog</a></li>
                         <li class="footer__list-item"><a href="./programas.html" class="footer__link">Programas</a></li>
                         <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Contacto</a></li>
-                        <li class="footer__list-item"><a href="./aviso-legal.html" class="footer__link">Aviso Legal</a></li>
+                        <li class="footer__list-item"><a href="./aviso-legal.html" class="footer__link">Aviso Legal</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="footer__section">
                     <h3 class="footer__section-title">Recursos</h3>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="./matematica-basica.html" class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="./matematica-basica.html" class="footer__link">Matemática
+                                Básica</a></li>
                         <li class="footer__list-item"><a href="./calculo-1.html" class="footer__link">Cálculo I</a></li>
-                        <li class="footer__list-item"><a href="./calculo-2.html" class="footer__link">Cálculo II</a></li>
-                        <li class="footer__list-item"><a href="./matematica-financiera.html" class="footer__link">Mat. Financiera</a></li>
+                        <li class="footer__list-item"><a href="./calculo-2.html" class="footer__link">Cálculo II</a>
+                        </li>
+                        <li class="footer__list-item"><a href="./matematica-financiera.html" class="footer__link">Mat.
+                                Financiera</a></li>
                     </ul>
                 </div>
 
                 <div class="footer__section">
                     <h3 class="footer__section-title">Contacto</h3>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Formulario de Contacto</a></li>
-                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo, RD</li>
+                        <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Formulario de
+                                Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
+                            RD</li>
                     </ul>
                 </div>
             </div>
@@ -201,10 +217,14 @@
             <div class="footer__bottom">
                 <p>&copy; <span data-year>2024</span> MATUASD - MATUASD. Todos los derechos reservados.</p>
                 <div class="footer__social">
-                    <a href="#" class="footer__social-link" aria-label="Instagram"><span style="font-size: 1.5rem;">📷</span></a>
-                    <a href="#" class="footer__social-link" aria-label="YouTube"><span style="font-size: 1.5rem;">▶️</span></a>
-                    <a href="#" class="footer__social-link" aria-label="LinkedIn"><span style="font-size: 1.5rem;">💼</span></a>
-                    <a href="mailto:info@MATUASD.edu.do" class="footer__social-link" aria-label="Email"><span style="font-size: 1.5rem;">✉️</span></a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram"><span
+                            style="font-size: 1.5rem;">📷</span></a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube"><span
+                            style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn"><span
+                            style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:info@MATUASD.edu.do" class="footer__social-link" aria-label="Email"><span
+                            style="font-size: 1.5rem;">✉️</span></a>
                 </div>
             </div>
         </div>
@@ -223,11 +243,12 @@
             background: var(--color-primary) !important;
             color: white !important;
         }
+
         .btn-view:hover {
             background: var(--color-primary-light) !important;
             color: white !important;
         }
     </style>
 </body>
-</html>
 
+</html>
