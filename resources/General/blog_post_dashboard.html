@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Analytics: Dashboard Educativo con Python y Dash</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+
+        .meta {
+            color: #7f8c8d;
+            font-style: italic;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        figcaption {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        ul {
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .disclaimer {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+            border: 1px solid #ffeeba;
+        }
+    </style>
+</head>
+
+<body>
+
+    <article>
+        <h1>Análisis Exploratorio de Datos Educativos: Un Enfoque Práctico con Python y Dash</h1>
+
+        <div class="meta">
+            <p><strong>Contexto Académico:</strong> Asignatura "Tecnología de Aprendizaje", Doctorado en Inteligencia
+                Artificial y Aprendizaje Automático (Convenio UASD-UMH).</p>
+            <p><strong>Profesor:</strong> Dr. Óscar Martínez Bonastre.</p>
+            <p><strong>Fuente de Datos:</strong> <a href="https://zenodo.org/records/17239943" target="_blank">Zenodo
+                    (Dataset Público)</a></p>
+        </div>
+
+        <h2>Introducción</h2>
+        <p>En el marco del programa de Doctorado en Inteligencia Artificial y Aprendizaje Automático, fruto del convenio
+            de colaboración entre la <strong>Universidad Autónoma de Santo Domingo (UASD)</strong> y la
+            <strong>Universidad Miguel Hernández (UMH)</strong>, hemos desarrollado una herramienta de <em>Learning
+                Analytics</em> orientada a la exploración de datos académicos.
+        </p>
+
+        <p>Este proyecto surge como una tarea práctica dentro de la asignatura impartida por el <strong>Dr. Óscar
+                Martínez Bonastre</strong>, con el objetivo de demostrar cómo las tecnologías <em>open-source</em> y el
+            análisis de datos pueden facilitar la comprensión de fenómenos educativos complejos de manera accesible.</p>
+
+        <h2>El Objetivo: De los Datos a la Visualización</h2>
+        <p>El propósito principal de este ejercicio fue realizar un <strong>Análisis Exploratorio de Datos
+                (EDA)</strong> sobre un dataset educativo. En esta primera fase de estadística descriptiva, buscábamos
+            responder preguntas clave mediante la visualización:</p>
+        <ul>
+            <li>¿Cómo se distribuyen los estudiantes por campus y titulación?</li>
+            <li>¿Existe una correlación visible entre la nota de acceso y el rendimiento universitario?</li>
+            <li>¿Podemos identificar patrones tempranos de deserción estudiantil?</li>
+        </ul>
+
+        <h2>La Herramienta: Dashboard Interactivo</h2>
+        <p>En el ámbito del análisis de datos existen múltiples herramientas poderosas para la visualización. A
+            continuación, un breve contraste de sus ventajas y desventajas en el contexto académico:</p>
+
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; table-layout: fixed;">
+            <thead>
+                <tr style="background-color: #f2f2f2;">
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: left; width: 25%;">Plataforma</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: left; width: 37%;">Ventajas
+                        Principales</th>
+                    <th style="border: 1px solid #ddd; padding: 12px; text-align: left; width: 37%;">Desventajas /
+                        Limitaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>Excel</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Omnipresente, curva de aprendizaje baja, ideal
+                        para datos pequeños y análisis rápidos.</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">No escala bien con grandes volúmenes (>1M filas),
+                        visualizaciones limitadas, difícil reproducibilidad.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>Power BI / Tableau</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Potentes gráficos "drag & drop", conectores
+                        nativos a bases de datos, estándar en Business Intelligence.</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Costos de licencia elevados para publicación,
+                        "cajas negras" (poca flexibilidad en lógica personalizada).</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px;"><strong>Shiny (R)</strong></td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Excelente para estadística avanzada y gráficos
+                        académicos (ggplot2), prototipado rápido.</td>
+                    <td style="border: 1px solid #ddd; padding: 10px;">Requiere saber R (menos común en industria
+                        general), despliegue a veces complejo.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid #ddd; padding: 10px; background-color: #e8f6fd;"><strong>Python
+                            (Dash)</strong><br><small><em>Opción elegida</em></small></td>
+                    <td style="border: 1px solid #ddd; padding: 10px; background-color: #e8f6fd;">Flexibilidad total
+                        (todo es código), integración directa con Machine Learning (Scikit-Learn, PyTorch), 100% Open
+                        Source.</td>
+                    <td style="border: 1px solid #ddd; padding: 10px; background-color: #e8f6fd;">Curva de aprendizaje
+                        inicial mayor (HTML/CSS/Callbacks), tiempo de desarrollo más largo que herramientas visuales.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Para materializar este análisis, construimos un dashboard interactivo utilizando:</p>
+        <ul>
+            <li><strong>Python (Pandas)</strong>: Para el procesamiento y limpieza de datos.</li>
+            <li><strong>Dash (by Plotly)</strong>: Para crear una interfaz web dinámica y visualizaciones interactivas.
+            </li>
+        </ul>
+
+        <p>Esta combinación permite no solo presentar gráficos estáticos, sino ofrecer una herramienta donde el usuario
+            puede filtrar y "conversar" con los datos en tiempo real, facilitando el descubrimiento de
+            <em>insights</em>.
+        </p>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="https://dashboard-educativo-1058854486026.us-central1.run.app" target="_blank"
+                style="background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                🚀 Ver Dashboard en Vivo
+            </a>
+            <p
+                style="font-size: 0.85em; color: #7f8c8d; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                ⚠️ <strong>Nota de Rendimiento:</strong> Al estar alojado en una instancia de nube gratuita (Google
+                Cloud Run), es posible que experimente un retraso inicial de hasta 10-15 segundos al cargar ("Cold
+                Start"). Una vez cargado, la navegación es fluida.
+            </p>
+        </div>
+
+        <figure>
+            <!-- Nota: Asegúrate de subir la imagen 'fig1.png' a tu servidor y actualizar la ruta src -->
+            <img src="assets/images/dashboard_overview.png" alt="Vista General del Dashboard Educativo"
+                title="Dashboard desarrollado en el curso">
+            <figcaption>Figura 1: Vista general del dashboard mostrando KPIs y distribución de estudiantes.</figcaption>
+        </figure>
+
+        <div class="disclaimer">
+            <strong>Nota Pedagógica:</strong> Es importante destacar que las métricas y análisis presentados en este
+            dashboard tienen fines puramente pedagógicos y de demostración. Los datos pueden contener simplificaciones y
+            los resultados no deben tomarse como un informe oficial, sino como una prueba de concepto sobre el potencial
+            del análisis de datos en educación.
+        </div>
+
+        <h2>Conclusión</h2>
+        <p>Este ejercicio demuestra que la barrera de entrada para implementar estrategias de <em>Learning
+                Analytics</em> es cada vez menor gracias a herramientas como Python. La colaboración académica entre la
+            UASD y la UMH nos permite explorar estas fronteras tecnológicas y prepararnos para aplicar la Inteligencia
+            Artificial en la mejora sustancial de los procesos de enseñanza-aprendizaje.</p>
+    </article>
+
+</body>
+
+</html>

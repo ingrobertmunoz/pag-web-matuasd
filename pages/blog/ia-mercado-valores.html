@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="¿Puede el Deep Learning predecir las finanzas? Analizamos arquitecturas como LSTM, Transformer, xLSTM y Mamba en la predicción del mercado de valores.">
+    <title>IA y el Mercado de Valores - Blog MATUASD</title>
+    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <img src="../../img/logo.png" alt="Logo MATUASD" class="header__logo-img">
+                <span class="header__logo-text">MATUASD</span>
+            </a>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation">
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span
+                        class="nav__toggle-line"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="../programas.html" class="nav__link">Programas</a></li>
+                    <li class="nav__item nav__item--dropdown">
+                        <button class="nav__link nav__dropdown-toggle" aria-expanded="false">
+                            Clases <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <ul class="nav__dropdown">
+                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a>
+                            </li>
+                            <li><a href="../calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
+                            <li><a href="../calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
+                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
+                    <li class="nav__item"><a href="../monibot014.html" class="nav__link">Monibot014</a></li>
+                    <li class="nav__item"><a href="../contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-height);">
+        <div class="container" style="padding-top: var(--spacing-lg);">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a href="../../index.html" class="breadcrumb__link">Inicio</a></li>
+                <li class="breadcrumb__item"><a href="./index.html" class="breadcrumb__link">Blog</a></li>
+                <li class="breadcrumb__item">IA y el Mercado de Valores</li>
+            </ul>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+                    <header style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                        <!-- IMAGEN DEL ARTÍCULO -->
+                        <img src="../../pages/img/ia_mercado_valores.png"
+                            alt="IA y el Mercado de Valores: Deep Learning Prediction"
+                            style="width: 100%; height: auto; border-radius: var(--border-radius-lg); margin-bottom: var(--spacing-xl);">
+
+                        <div class="article-meta"
+                            style="display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap; margin-bottom: var(--spacing-lg);">
+                            <span style="color: var(--color-gray-dark);">📅 26 de febrero, 2026</span>
+                            <span class="badge badge--secondary">Inteligencia Artificial</span>
+                            <span style="color: var(--color-gray-dark);">Por: M.Sc. Robert Muñoz</span>
+                        </div>
+
+                        <h1 style="color: var(--color-primary); margin-bottom: var(--spacing-lg);">IA y el Mercado de
+                            Valores: ¿Puede el Deep Learning Predecir las Finanzas?</h1>
+                    </header>
+
+                    <div class="article-content" style="line-height: 1.8; font-size: var(--font-size-lg);">
+                        <!-- RESUMEN PRINCIPAL -->
+                        <p
+                            style="font-size: var(--font-size-xl); color: var(--color-primary); font-weight: 600; margin-bottom: var(--spacing-xl);">
+                            El mercado de valores es uno de los sistemas más complejos e impredecibles. Analizamos cómo
+                            las arquitecturas más recientes de Deep Learning se enfrentan a este desafío y descubrimos
+                            que la forma en que formulamos el problema importa tanto como el modelo que elegimos.
+                        </p>
+
+                        <!-- INTRODUCCIÓN -->
+                        <p>
+                            <strong>🎓 Contexto Académico:</strong> Asignatura "Aplicaciones de IA Generativa",
+                            Doctorado en Inteligencia Artificial (Convenio UASD-UMH). <br>
+
+                        </p>
+
+                        <!-- SECCIÓN 1 -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            El Gran Desafío</h2>
+
+                        <p>
+                            El mercado de valores es uno de los sistemas más complejos e impredecibles que existen.
+                            ¿Puede la inteligencia artificial realmente superar los modelos financieros tradicionales
+                            para lidiar con todo ese caos? Esta es la pregunta central que abordamos en nuestra
+                            investigación doctoral.
+                        </p>
+
+                        <p>
+                            Para intentar responderla, analizamos cómo las arquitecturas más recientes de <strong>Deep
+                                Learning</strong> se enfrentan a la predicción financiera, y descubrimos que la forma en
+                            que formulamos el problema importa tanto como el modelo que elegimos.
+                        </p>
+
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Regresión vs. Clasificación: Dos Filosofías Distintas</h2>
+
+                        <p>Existen dos enfoques fundamentalmente diferentes para atacar la predicción bursátil:</p>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>Regresión:</strong> Busca predecir un número exacto, como el precio de cierre
+                                del día siguiente. Se optimiza minimizando el error cuadrático medio (MSE).</li>
+                            <li><strong>Clasificación:</strong> Se concentra únicamente en predecir la
+                                <em>dirección</em>: ¿subirá o bajará? Se optimiza mediante Cross-Entropy y se evalúa con
+                                métricas como F1-Score.
+                            </li>
+                        </ul>
+
+                        <p>
+                            La diferencia parece sutil, pero tiene implicaciones enormes para el trading algorítmico
+                            real: un modelo que predice la dirección correcta el 60% de las veces puede ser más rentable
+                            que uno que predice el precio con un error muy bajo pero oscila alrededor del valor real sin
+                            capturar la tendencia.
+                        </p>
+
+                        <!-- LISTA -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Las Arquitecturas en Competencia</h2>
+
+                        <p>
+                            Evaluamos cuatro familias de modelos de Deep Learning, cada una con fortalezas únicas:
+                        </p>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>LSTM (Long Short-Term Memory):</strong> El veterano de las series temporales. Su
+                                sistema de compuertas le permite recordar patrones a largo plazo, filtrando información
+                                irrelevante.</li>
+                            <li><strong>Transformer:</strong> Revolucionó el procesamiento del lenguaje natural y ahora
+                                irrumpe en finanzas. Su mecanismo de <em>self-attention</em> le permite capturar el
+                                contexto global de una secuencia de una sola vez.</li>
+                            <li><strong>xLSTM (Extended LSTM):</strong> Una evolución reciente (2024) del LSTM clásico,
+                                propuesta por el propio Hochreiter. Introduce compuertas exponenciales y memoria
+                                matricial, logrando una capacidad de almacenamiento mucho más sofisticada.</li>
+                            <li><strong>Mamba (State Space Model):</strong> Un competidor diseñado para la eficiencia.
+                                Procesa secuencias en tiempo lineal y utiliza selección selectiva, enfocándose solo en
+                                las señales relevantes e ignorando el ruido del mercado.</li>
+                        </ul>
+
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Resultados: No Hay un Campeón Definitivo</h2>
+
+                        <p>Los hallazgos de la literatura revelan un panorama complejo y contradictorio:</p>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li>El <strong>LSTM</strong> mostró buenos resultados en predicción de precios (regresión).
+                            </li>
+                            <li>El <strong>AC-Former</strong> (basado en Transformer) alcanzó una precisión del
+                                <strong>69%</strong> en clasificación de dirección.
+                            </li>
+                            <li><strong>SAMBA</strong> (Graph-Mamba) logró el error más bajo en pruebas de regresión
+                                específicas.</li>
+                            <li><strong>xLSTM</strong> demostró mejoras consistentes sobre el LSTM original en
+                                forecasting.</li>
+                        </ul>
+
+                        <!-- CAJA DESTACADA -->
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-gray-light); border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">💡 La Conclusión
+                                Más Importante</h3>
+                            <p>
+                                No existe un modelo campeón universal, porque los estudios actuales no son comparables
+                                entre sí. Cada uno utiliza datos distintos (S&P 500 vs. NASDAQ vs. Dow Jones), métricas
+                                diferentes y horizontes temporales variables. <strong>Este vacío de comparación
+                                    estandarizada es precisamente el gap de investigación que nuestra tesis doctoral
+                                    busca llenar.</strong>
+                            </p>
+                        </div>
+
+                        <!-- VIDEO -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            🎬 Video: Deep Learning vs. el Mercado de Valores</h2>
+
+                        <p>
+                            Este análisis fue sintetizado en un video generado con <strong>Google NotebookLM</strong> a
+                            partir de 12 artículos científicos revisados. En él, dos presentadores de IA debaten las
+                            fortalezas y debilidades de cada arquitectura con un enfoque accesible y dinámico.
+                        </p>
+
+                        <div class="video-container"
+                            style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius-md); box-shadow: 0 8px 32px rgba(0, 59, 115, 0.15);">
+                            <iframe src="https://www.youtube.com/embed/tqffvw1x0OY" title="IA y el Mercado de Valores"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--border-radius-md);">
+                            </iframe>
+                        </div>
+
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Referencias Académicas</h2>
+
+                        <p>Este contenido está fundamentado en los siguientes artículos científicos indexados:</p>
+
+                        <ol style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li>López Gil, Duhamel-Sebline, McCarren (2024). <em>An Evaluation of Deep Learning Models
+                                    for Stock Market Trend Prediction (xLSTM-TS)</em>. <a
+                                    href="https://arxiv.org/abs/2408.12408" target="_blank">arXiv:2408.12408</a></li>
+                            <li>Shi (2024). <em>MambaStock: Selective State Space Model for Stock Prediction</em>. <a
+                                    href="https://arxiv.org/abs/2402.18959" target="_blank">arXiv:2402.18959</a></li>
+                            <li>Gu, Kelly, Xiu (2020). <em>Empirical Asset Pricing via Machine Learning</em>. Review of
+                                Financial Studies / NBER.</li>
+                            <li>Alharthi, Mahmood (2024). <em>xLSTMTime: Long-term Time Series Forecasting With
+                                    xLSTM</em>. <a href="https://arxiv.org/abs/2407.10240"
+                                    target="_blank">arXiv:2407.10240</a></li>
+                            <li>SAMBA (2024). <em>Mamba Meets Financial Markets (Graph-Mamba)</em>. ICASSP 2025.</li>
+                            <li>Zhang, Ye, Lai (2023). <em>Stock Price Prediction Using CNN-BiLSTM-Attention Model</em>.
+                                MDPI Mathematics.</li>
+                            <li>Transformers versus LSTMs for Electronic Trading (2023). <a
+                                    href="https://arxiv.org/abs/2309.11400" target="_blank">arXiv:2309.11400</a></li>
+                            <li>Beck, Hochreiter et al. (2024). <em>xLSTM: Extended Long Short-Term Memory</em>. <a
+                                    href="https://arxiv.org/abs/2405.04517" target="_blank">arXiv:2405.04517</a></li>
+                            <li>Gu, Dao (2023). <em>Mamba: Linear-Time Sequence Modeling with Selective State
+                                    Spaces</em>. <a href="https://arxiv.org/abs/2312.00752"
+                                    target="_blank">arXiv:2312.00752</a></li>
+                            <li>HIGSTM (2025). <em>Hierarchical Information-Guided Spatio-Temporal Mamba</em>. <a
+                                    href="https://arxiv.org/abs/2503.11387" target="_blank">arXiv:2503.11387</a></li>
+                            <li>ACEFormer (2024). <em>End-to-End Structure with Novel Position Mechanism and Improved
+                                    EMD</em>. <a href="https://arxiv.org/abs/2404.07969"
+                                    target="_blank">arXiv:2404.07969</a></li>
+                            <li>Xie, Chen, Yu (2024). <em>Deep Convolutional Transformer Network for Stock Movement
+                                    Prediction</em>. MDPI Electronics.</li>
+                        </ol>
+
+                        <!-- AVISO LEGAL ACADÉMICO -->
+                        <div
+                            style="padding: var(--spacing-md); background: #fff3cd; border-left: 4px solid #ffc107; border-radius: var(--border-radius-sm); margin-top: var(--spacing-2xl); font-size: var(--font-size-sm); color: #856404;">
+                            ⚠️ <strong>Nota Aclaratoria:</strong> El contenido de este artículo y el material asociado
+                            tienen fines estrictamente <strong>académicos y educativos</strong>. La información aquí
+                            presentada no constituye asesoramiento financiero ni recomendaciones de inversión de ningún
+                            tipo. Operar en el mercado de valores conlleva riesgos significativos.
+                        </div>
+
+                    </div>
+
+                    <footer
+                        style="margin-top: var(--spacing-3xl); padding-top: var(--spacing-xl); border-top: 2px solid var(--color-gray-light);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md);">
+                            <a href="./index.html" class="btn btn--outline">← Volver al Blog</a>
+
+                            <div style="display: flex; gap: var(--spacing-md);">
+                                <span
+                                    style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Compartir:</span>
+                                <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">📷 Instagram</a>
+                                <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">▶️ YouTube</a>
+                                <a href="mailto:matuasdrd@gmail.com"
+                                    style="color: var(--color-secondary); text-decoration: none;">✉️ Email</a>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__section-title">MATUASD</h3>
+                    <p style="color: var(--color-gray-medium); line-height: 1.8;">Portal educativo de MATUASD.</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Enlaces Rápidos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../../index.html" class="footer__link">Inicio</a></li>
+                        <li class="footer__list-item"><a href="./index.html" class="footer__link">Blog</a></li>
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item"><a href="../aviso-legal.html" class="footer__link">Aviso Legal</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Recursos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../matematica-basica.html"
+                                class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="../calculo-1.html" class="footer__link">Cálculo I</a>
+                        </li>
+                        <li class="footer__list-item"><a href="../calculo-2.html" class="footer__link">Cálculo II</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Contacto</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
+                            RD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2024</span> MATUASD. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="Instagram: @matuasdrd"><span
+                            style="font-size: 1.5rem;">📷</span></a>
+                    <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="YouTube: @matuasdrd"><span
+                            style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" title="LinkedIn: Próximamente"><span
+                            style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:matuasdrd@gmail.com" class="footer__social-link"
+                        title="Email: matuasdrd@gmail.com"><span style="font-size: 1.5rem;">✉️</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>
