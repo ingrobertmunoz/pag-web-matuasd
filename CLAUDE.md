@@ -24,6 +24,8 @@ No build, lint, or test commands exist — this is a static site.
 - `css/responsive.css` — media queries (Mobile First approach).
 
 Primary brand colors: `--color-primary: #003B73` (UASD blue), `--color-secondary: #FF6F00` (orange/CTA).
+Extended palette: `--color-primary-subtle: #E8F0F8` (section backgrounds), `--color-accent-warm: #FFF3E0`, `--gradient-primary` (hero/page-hero).
+Fonts: `--font-heading` (DM Serif Display), `--font-body` (Source Sans 3), `--font-mono` (JetBrains Mono — used in badges).
 
 ### JavaScript
 - `js/navigation.js` — responsive hamburger menu and dropdown logic.
@@ -51,6 +53,34 @@ Follow the pattern in `Ejemplo Prompt Nueva Entrada.md`:
 - Infographic box uses `border: 4px solid var(--color-secondary)`.
 - YouTube embeds need a responsive 16:9 container with `max-width: 800px`.
 - Breadcrumbs, header, and footer must match existing articles exactly.
+- Wrap card images in `<div class="card__image-wrapper">` for hover zoom effect.
+- Every new HTML file must include Google Fonts in `<head>`:
+  ```html
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  ```
+- Every subpage must have a `page-hero` section after the header:
+  ```html
+  <section class="page-hero">
+      <div class="container">
+          <h1 class="page-hero__title">Page Title</h1>
+          <p class="page-hero__subtitle">Page subtitle</p>
+      </div>
+  </section>
+  ```
+- Add Open Graph meta tags with absolute URLs for social sharing:
+  ```html
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Article Title - Blog MATUASD">
+  <meta property="og:description" content="Short description">
+  <meta property="og:image" content="https://www.matuasd.com/pages/img/cover.png">
+  <meta property="og:url" content="https://www.matuasd.com/pages/blog/slug.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Article Title - Blog MATUASD">
+  <meta name="twitter:description" content="Short description">
+  <meta name="twitter:image" content="https://www.matuasd.com/pages/img/cover.png">
+  ```
 
 ### Adding downloadable resources
 In the subject page (`pages/calculo-1.html`, etc.), update the `data-resources` JSON on `#resources-container`:
@@ -72,10 +102,12 @@ Supported types: `PDF`, `PPT`, `PPTX`, `DOC`, `DOCX`, `XLS`, `XLSX`, `ZIP`, `MP4
 ## Component conventions (BEM)
 
 All UI uses BEM naming. Key shared components:
-- `.card` / `.card__image` / `.card__content` / `.card__meta` / `.card__title` / `.card__description` / `.card__footer`
+- `.card` / `.card__image-wrapper` / `.card__image` / `.card__content` / `.card__meta` / `.card__title` / `.card__description` / `.card__footer`
 - `.btn btn--outline` for secondary CTA buttons
 - `.badge badge--primary` / `.badge badge--secondary` for category labels
 - `.breadcrumb` for page navigation trails
+- `.page-hero` / `.page-hero__title` / `.page-hero__subtitle` for inner page headers
+- `.scroll-progress` — SVG circle progress indicator around back-to-top button
 - Navigation is copy-pasted identically across all pages (no templating engine)
 
 ## Deployment
