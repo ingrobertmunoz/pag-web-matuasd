@@ -32,11 +32,11 @@
 
     <!-- Google Fonts - Carga optimizada y asíncrona -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
         <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
             rel="stylesheet">
     </noscript>
 
@@ -105,16 +105,52 @@
     <section class="hero">
         <div class="container">
             <div class="hero__content">
-                <h1 class="hero__title">MATUASD</h1>
-                <p class="hero__subtitle">Portal de Matemáticos UASDIANOS</p>
-                <p class="hero__description">
-                    Divulgación científica, recursos educativos, programas y herramientas de IA para estudiantes y
-                    profesores universitarios.
-                    Un espacio dedicado a la excelencia en la educación matemática.
-                </p>
-                <div class="hero__cta">
-                    <a href="./pages/blog/index.html" class="btn btn--primary">Explorar Blog</a>
-                    <a href="./pages/programas.html" class="btn btn--secondary">Programas de Matemáticas UASD</a>
+                <div class="hero__text">
+                    <h1 class="hero__title">MATUASD</h1>
+                    <p class="hero__subtitle">Portal de Matemáticos UASDIANOS</p>
+                    <p class="hero__description">
+                        Divulgación científica, recursos educativos, programas y herramientas de IA para estudiantes y
+                        profesores universitarios.
+                        Un espacio dedicado a la excelencia en la educación matemática.
+                    </p>
+                    <div class="hero__cta">
+                        <a href="./pages/blog/index.html" class="btn btn--primary">Explorar Blog</a>
+                        <a href="./pages/programas.html" class="btn btn--secondary">Programas de Matemáticas UASD</a>
+                    </div>
+                </div>
+                <div class="hero__decoration" aria-hidden="true">
+                    <!-- Patrón geométrico: grafo + curvas matemáticas -->
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Grid de nodos -->
+                        <circle cx="200" cy="200" r="120" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+                        <circle cx="200" cy="200" r="80" fill="none" stroke="white" stroke-width="0.5" opacity="0.2"/>
+                        <circle cx="200" cy="200" r="160" fill="none" stroke="white" stroke-width="0.5" opacity="0.15"/>
+                        <!-- Nodos -->
+                        <circle cx="200" cy="80" r="6" fill="#FF6F00" opacity="0.8"/>
+                        <circle cx="304" cy="140" r="5" fill="white" opacity="0.6"/>
+                        <circle cx="320" cy="260" r="4" fill="#FF6F00" opacity="0.6"/>
+                        <circle cx="200" cy="320" r="6" fill="white" opacity="0.5"/>
+                        <circle cx="96" cy="260" r="5" fill="#FF6F00" opacity="0.7"/>
+                        <circle cx="80" cy="140" r="4" fill="white" opacity="0.5"/>
+                        <circle cx="200" cy="200" r="8" fill="#FF6F00" opacity="0.9"/>
+                        <!-- Conexiones -->
+                        <line x1="200" y1="80" x2="304" y2="140" stroke="white" stroke-width="0.8" opacity="0.25"/>
+                        <line x1="304" y1="140" x2="320" y2="260" stroke="white" stroke-width="0.8" opacity="0.25"/>
+                        <line x1="320" y1="260" x2="200" y2="320" stroke="white" stroke-width="0.8" opacity="0.25"/>
+                        <line x1="200" y1="320" x2="96" y2="260" stroke="white" stroke-width="0.8" opacity="0.25"/>
+                        <line x1="96" y1="260" x2="80" y2="140" stroke="white" stroke-width="0.8" opacity="0.25"/>
+                        <line x1="80" y1="140" x2="200" y2="80" stroke="white" stroke-width="0.8" opacity="0.25"/>
+                        <!-- Conexiones al centro -->
+                        <line x1="200" y1="200" x2="200" y2="80" stroke="#FF6F00" stroke-width="0.6" opacity="0.3"/>
+                        <line x1="200" y1="200" x2="304" y2="140" stroke="#FF6F00" stroke-width="0.6" opacity="0.3"/>
+                        <line x1="200" y1="200" x2="320" y2="260" stroke="#FF6F00" stroke-width="0.6" opacity="0.3"/>
+                        <line x1="200" y1="200" x2="200" y2="320" stroke="#FF6F00" stroke-width="0.6" opacity="0.3"/>
+                        <line x1="200" y1="200" x2="96" y2="260" stroke="#FF6F00" stroke-width="0.6" opacity="0.3"/>
+                        <line x1="200" y1="200" x2="80" y2="140" stroke="#FF6F00" stroke-width="0.6" opacity="0.3"/>
+                        <!-- Curva sinusoidal -->
+                        <path d="M40,200 C80,160 120,240 160,200 S240,160 280,200 S360,240 400,200" fill="none" stroke="#FF6F00" stroke-width="1.5" opacity="0.25"/>
+                    </svg>
+                    <span class="hero__phi">φ</span>
                 </div>
             </div>
         </div>
@@ -209,8 +245,8 @@
             <div class="grid grid--2">
                 <!-- Blog Entry Nueva: Alerta Temprana -->
                 <article class="card">
-                    <img src="./pages/img/alerta_temprana_cover.png"
-                        alt="Sistema de Alerta Temprana con IA" class="card__image">
+                    <div class="card__image-wrapper"><img src="./pages/img/alerta_temprana_cover.png"
+                        alt="Sistema de Alerta Temprana con IA" class="card__image"></div>
                     <div class="card__content">
                         <div class="card__meta">
                             <span>📅 21 de marzo, 2026</span>
@@ -228,8 +264,8 @@
 
                 <!-- Blog Entry 1: Más reciente -->
                 <article class="card">
-                    <img src="./pages/img/uat_blog_cover.png"
-                        alt="El Teorema de Aproximación Universal: El Corazón Matemático de la IA" class="card__image">
+                    <div class="card__image-wrapper"><img src="./pages/img/uat_blog_cover.png"
+                        alt="El Teorema de Aproximación Universal: El Corazón Matemático de la IA" class="card__image"></div>
                     <div class="card__content">
                         <div class="card__meta">
                             <span>📅 12 de marzo, 2026</span>
@@ -247,8 +283,8 @@
 
                 <!-- Blog Entry 2 -->
                 <article class="card">
-                    <img src="./pages/img/ia_mercado_valores.png"
-                        alt="IA y el Mercado de Valores: Predicción Deep Learning" class="card__image">
+                    <div class="card__image-wrapper"><img src="./pages/img/ia_mercado_valores.png"
+                        alt="IA y el Mercado de Valores: Predicción Deep Learning" class="card__image"></div>
                     <div class="card__content">
                         <div class="card__meta">
                             <span>📅 26 de febrero, 2026</span>
@@ -267,8 +303,8 @@
 
                 <!-- Blog Entry 3 -->
                 <article class="card">
-                    <img src="./pages/img/info Curso Técnicas DL.png" alt="Infografía: Curso Técnicas DL en Medicina"
-                        class="card__image">
+                    <div class="card__image-wrapper"><img src="./pages/img/info Curso Técnicas DL.png" alt="Infografía: Curso Técnicas DL en Medicina"
+                        class="card__image"></div>
                     <div class="card__content">
                         <div class="card__meta">
                             <span>📅 24 de octubre, 2025</span>

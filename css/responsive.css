@@ -107,6 +107,14 @@
     padding: var(--spacing-3xl) 0;
   }
 
+  .hero__decoration {
+    display: none;
+  }
+
+  .hero__phi {
+    display: none;
+  }
+
   .hero__title {
     font-size: var(--font-size-3xl);
   }

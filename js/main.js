@@ -25,7 +25,7 @@ class MATUASD {
     this.updateCopyrightYear();
   }
 
-  // Back to Top Button
+  // Back to Top Button with scroll progress
   setupBackToTop() {
     // Crear botón si no existe
     if (!document.querySelector('.back-to-top')) {
@@ -38,18 +38,30 @@ class MATUASD {
       this.backToTopBtn = document.querySelector('.back-to-top');
     }
 
-    // Mostrar/ocultar botón según scroll
-    let scrollTimeout;
+    // Crear indicador de progreso circular
+    const progressSvg = document.createElement('div');
+    progressSvg.className = 'scroll-progress';
+    const circumference = 2 * Math.PI * 25;
+    progressSvg.innerHTML = `<svg viewBox="0 0 58 58"><circle class="progress-bg" cx="29" cy="29" r="25"/><circle class="progress-bar" cx="29" cy="29" r="25" stroke-dasharray="${circumference}" stroke-dashoffset="${circumference}"/></svg>`;
+    document.body.appendChild(progressSvg);
+    const progressBar = progressSvg.querySelector('.progress-bar');
+
+    // Mostrar/ocultar y actualizar progreso según scroll
     window.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      
-      scrollTimeout = setTimeout(() => {
-        if (window.pageYOffset > 300) {
-          this.backToTopBtn.classList.add('visible');
-        } else {
-          this.backToTopBtn.classList.remove('visible');
-        }
-      }, 100);
+      const scrollTop = window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
+
+      if (scrollTop > 300) {
+        this.backToTopBtn.classList.add('visible');
+        progressSvg.classList.add('visible');
+      } else {
+        this.backToTopBtn.classList.remove('visible');
+        progressSvg.classList.remove('visible');
+      }
+
+      const offset = circumference - (scrollPercent * circumference);
+      progressBar.style.strokeDashoffset = offset;
     });
 
     // Funcionalidad de scroll al hacer click
@@ -88,35 +100,36 @@ class MATUASD {
     }
   }
 
-  // Animaciones al hacer scroll
+  // Scroll reveal animations
   setupScrollAnimations() {
-    const elements = document.querySelectorAll('.card, .section__header');
-    
-    if ('IntersectionObserver' in window) {
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      };
+    const elements = document.querySelectorAll('.card, .section__header, .video-container');
 
+    // Add reveal class to elements
+    elements.forEach(el => el.classList.add('reveal'));
+
+    // Stagger cards within the same grid
+    document.querySelectorAll('.grid').forEach(grid => {
+      grid.querySelectorAll('.card.reveal').forEach((card, i) => {
+        if (i < 4) card.classList.add(`reveal-delay-${i + 1}`);
+      });
+    });
+
+    if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '0';
-            entry.target.style.transform = 'translateY(20px)';
-            entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            
-            setTimeout(() => {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-            }, 100);
-            
+            entry.target.classList.add('revealed');
             observer.unobserve(entry.target);
           }
         });
-      }, observerOptions);
+      }, { threshold: 0.05, rootMargin: '50px 0px 50px 0px' });
 
-      elements.forEach(el => observer.observe(el));
+      // Enable reveal CSS only after observer is set up
+      document.documentElement.classList.add('reveal-ready');
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     }
+    // If no IntersectionObserver, reveal-ready never added = everything stays visible
   }
 
   // Theme Toggle (Modo Oscuro/Claro)

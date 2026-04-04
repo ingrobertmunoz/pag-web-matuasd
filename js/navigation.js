@@ -127,6 +127,13 @@ class Navigation {
           this.header.classList.remove('hidden');
         }
 
+        // Efecto de sombra elevada al scroll
+        if (currentScroll > 50) {
+          this.header.classList.add('scrolled');
+        } else {
+          this.header.classList.remove('scrolled');
+        }
+
         this.lastScroll = currentScroll;
       }, 50);
     });
