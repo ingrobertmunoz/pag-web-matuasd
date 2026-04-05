@@ -26,6 +26,9 @@ $RECYCLE.BIN/
 # Editores e IDEs
 # ============================================
 
+# Claude Code (skills, local config)
+.claude/
+
 # Visual Studio Code
 .vscode/
 *.code-workspace
