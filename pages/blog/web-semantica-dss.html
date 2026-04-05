@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Resumen de la clase doctoral sobre Web Semántica y Sistemas de Soporte a la Decisión (DSS), impartida por el Dr. Manuel Quesada Martínez (UMH) en la UASD.">
+    <title>Web Semántica y Sistemas de Decisión - Blog MATUASD</title>
+    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Del Dato al Razonamiento: Web Semántica y DSS - Blog MATUASD">
+    <meta property="og:description" content="Resumen de la clase doctoral sobre Web Semántica y Sistemas de Soporte a la Decisión, impartida por el Dr. Manuel Quesada Martínez (UMH) en la UASD.">
+    <meta property="og:image" content="https://www.matuasd.com/pages/img/web_semantica_dss_conceptual.png">
+    <meta property="og:url" content="https://www.matuasd.com/pages/blog/web-semantica-dss.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Del Dato al Razonamiento: Web Semántica y DSS - Blog MATUASD">
+    <meta name="twitter:description" content="Resumen de la clase doctoral sobre Web Semántica y Sistemas de Soporte a la Decisión, impartida por el Dr. Manuel Quesada Martínez (UMH) en la UASD.">
+    <meta name="twitter:image" content="https://www.matuasd.com/pages/img/web_semantica_dss_conceptual.png">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <img src="../../img/logo.png" alt="Logo MATUASD" class="header__logo-img">
+                <span class="header__logo-text">MATUASD</span>
+            </a>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation">
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span
+                        class="nav__toggle-line"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="../programas.html" class="nav__link">Programas</a></li>
+                    <li class="nav__item nav__item--dropdown">
+                        <button class="nav__link nav__dropdown-toggle" aria-expanded="false">
+                            Clases <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <ul class="nav__dropdown">
+                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a>
+                            </li>
+                            <li><a href="../calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
+                            <li><a href="../calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
+                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
+                    <li class="nav__item"><a href="../monibot014.html" class="nav__link">Monibot014</a></li>
+                    <li class="nav__item"><a href="../contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-height);">
+        <div class="container" style="padding-top: var(--spacing-lg);">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a href="../../index.html" class="breadcrumb__link">Inicio</a></li>
+                <li class="breadcrumb__item"><a href="./index.html" class="breadcrumb__link">Blog</a></li>
+                <li class="breadcrumb__item">Web Semántica y DSS</li>
+            </ul>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+                    <header style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                        <!-- IMAGEN DEL ARTÍCULO -->
+                        <img src="../img/web_semantica_dss_conceptual.png"
+                            alt="Mapa conceptual de Web Semántica y Sistemas de Soporte a la Decisión: TBox, ABox, OWL y Razonadores"
+                            style="width: 100%; height: auto; border-radius: var(--border-radius-lg); margin-bottom: var(--spacing-xl);">
+
+                        <div class="article-meta"
+                            style="display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap; margin-bottom: var(--spacing-lg);">
+                            <span style="color: var(--color-gray-dark);">📅 4 de abril, 2026</span>
+                            <span class="badge badge--secondary">Inteligencia Artificial</span>
+                            <span style="color: var(--color-gray-dark);">Por: M.Sc. Robert Muñoz</span>
+                        </div>
+
+                        <h1 style="color: var(--color-primary); margin-bottom: var(--spacing-lg);">Del Dato al
+                            Razonamiento: Cómo la Web Semántica está Transformando los Sistemas de Decisión</h1>
+                    </header>
+
+                    <div class="article-content" style="line-height: 1.8; font-size: var(--font-size-lg);">
+                        <!-- RESUMEN PRINCIPAL -->
+                        <p
+                            style="font-size: var(--font-size-xl); color: var(--color-primary); font-weight: 600; margin-bottom: var(--spacing-xl);">
+                            Resumen de la clase doctoral impartida por el Dr. Manuel Quesada Martínez de la Universidad
+                            Miguel Hernández (UMH, España) en la Universidad Autónoma de Santo Domingo (UASD), sobre
+                            cómo las ontologías y la Web Semántica están revolucionando los Sistemas de Soporte a la
+                            Decisión.
+                        </p>
+
+                        <!-- INTRODUCCIÓN -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            1. ¿Adivinar o Razonar?</h2>
+
+                        <p>
+                            Históricamente, los Sistemas de Soporte a la Decisión (DSS) han operado bajo un enfoque
+                            basado en patrones estadísticos. En este modelo, el sistema intenta "adivinar" un resultado
+                            basándose en la repetición de datos pasados. Sin embargo, la ingeniería del conocimiento
+                            moderna está dando un salto cualitativo hacia los <strong>DSS basados en modelos</strong>,
+                            donde el objetivo no es la predicción probabilística, sino el razonamiento lógico
+                            fundamentado en el conocimiento experto.
+                        </p>
+
+                        <!-- CAJA DESTACADA: Pirámide DIKW -->
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-gray-light); border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">💡 Pirámide del
+                                Conocimiento (DIKW)</h3>
+                            <ul style="margin: 0; padding-left: var(--spacing-xl);">
+                                <li><strong>Datos:</strong> Elementos brutos (ej. una cifra de tensión).</li>
+                                <li><strong>Información:</strong> Datos con contexto.</li>
+                                <li><strong>Conocimiento:</strong> Información organizada y modelada para la acción.
+                                </li>
+                                <li><strong>Sabiduría:</strong> Aplicación superior de ese conocimiento.</li>
+                            </ul>
+                            <p style="margin-top: var(--spacing-md);">
+                                La Web Semántica busca dotar a las máquinas de un "cerebro" capaz de procesar el nivel
+                                de <strong>Conocimiento</strong>. Hoy vemos esta tecnología en acción en el
+                                <strong>Google Knowledge Graph</strong>, que entiende entidades y no solo palabras
+                                clave, o en la nube de <strong>Linked Data</strong>, que convierte a Internet en una
+                                inmensa base de datos global interconectada mediante el estándar RDF.
+                            </p>
+                        </div>
+
+                        <!-- SECCIÓN 2: Ontologías -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            2. ¿Qué es realmente una Ontología? (De la Filosofía a la IA)</h2>
+
+                        <p>
+                            El término "Ontología" nace con Aristóteles como la rama de la metafísica que estudia "lo
+                            que existe". En los años 90, la IA "robó" el concepto para resolver un problema práctico:
+                            ¿Cómo explicarle a una máquina los elementos de un dominio (como la farmacología) para que
+                            pueda razonar sobre ellos?
+                        </p>
+
+                        <h3
+                            style="color: var(--color-secondary); margin-top: var(--spacing-xl); margin-bottom: var(--spacing-md);">
+                            📖 Definiciones Fundamentales</h3>
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>Tom Gruber (1993):</strong> "Una ontología es una especificación explícita de una
+                                conceptualización". Es el paso del modelo mental abstracto a un formato formal.</li>
+                            <li><strong>Studer (1998):</strong> Añadió que debe ser una "conceptualización
+                                <strong>compartida</strong>". El consenso es vital; si cada sistema usa su propia
+                                ontología inventada, la comunicación se rompe.
+                            </li>
+                        </ul>
+
+                        <!-- BLOCKQUOTE -->
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-primary-subtle, #E8F0F8); border-left: 4px solid var(--color-primary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0; font-style: italic;">
+                            <p style="margin: 0; color: var(--color-primary);">
+                                "Una ontología es un artefacto de ingeniería diseñado con un propósito: restringir la
+                                interpretación lógica de un vocabulario dentro de un sistema informático."
+                                <br><strong style="font-style: normal;">— Guarino, 1998</strong>
+                            </p>
+                        </div>
+
+                        <p>
+                            Sin formalización, el DSS corre riesgos: para un médico, la "presión" es sanguínea; para un
+                            físico, son pascales. La ontología elimina esa ambigüedad.
+                        </p>
+
+                        <!-- SECCIÓN 3: Bloques de Construcción -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            3. Los Bloques de Construcción: Clases, Propiedades e Individuos</h2>
+
+                        <p>
+                            Siguiendo la metodología de Noy y McGuinness (2001), cualquier mapa de conocimiento se
+                            construye sobre tres pilares que orquestamos mediante herramientas como <strong>Protégé</strong>
+                            (Stanford):
+                        </p>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>Clases (Conceptos):</strong> Categorías jerárquicas del dominio (ej.
+                                <strong>Medicamento</strong>, <strong>Enfermedad</strong>).
+                            </li>
+                            <li><strong>Relaciones (Propiedades):</strong> Conexiones lógicas que vinculan entidades (ej.
+                                <em>tiene_alergia_a</em>).
+                            </li>
+                            <li><strong>Individuos (Instancias):</strong> Objetos reales que habitan las clases (ej.
+                                <strong>Paciente_Juan</strong>, <strong>Ibuprofeno_600mg</strong>).
+                            </li>
+                        </ul>
+
+                        <!-- SECCIÓN 4: TBox, ABox y Reasoner -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            4. El Corazón del Sistema: TBox, ABox y el Reasoner</h2>
+
+                        <p>
+                            El poder de una ontología reside en la <strong>Lógica Descriptiva (DL)</strong>, que el
+                            lenguaje <strong>OWL (Web Ontology Language)</strong> traduce a un formato web. Un Sistema
+                            de Conocimiento se divide en dos compartimentos críticos:
+                        </p>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>TBox (Terminological Box):</strong> El esquema. Contiene las clases y las reglas
+                                lógicas (la "receta").</li>
+                            <li><strong>ABox (Assertion Box):</strong> Los datos reales. Contiene los individuos y sus
+                                síntomas específicos.</li>
+                        </ul>
+
+                        <!-- TABLA: Tipos de Clases -->
+                        <div style="overflow-x: auto; margin: var(--spacing-xl) 0;">
+                            <table
+                                style="width: 100%; border-collapse: collapse; border-radius: var(--border-radius-md); overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                <thead>
+                                    <tr style="background: var(--color-primary); color: white;">
+                                        <th
+                                            style="padding: var(--spacing-md) var(--spacing-lg); text-align: left; font-weight: 600;">
+                                            Tipo de Clase</th>
+                                        <th
+                                            style="padding: var(--spacing-md) var(--spacing-lg); text-align: left; font-weight: 600;">
+                                            Notación DL</th>
+                                        <th
+                                            style="padding: var(--spacing-md) var(--spacing-lg); text-align: left; font-weight: 600;">
+                                            Significado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background: var(--color-gray-light);">
+                                        <td style="padding: var(--spacing-md) var(--spacing-lg);"><strong>Clases
+                                                Primitivas</strong></td>
+                                        <td
+                                            style="padding: var(--spacing-md) var(--spacing-lg); font-family: var(--font-mono);">
+                                            A ⊑ B</td>
+                                        <td style="padding: var(--spacing-md) var(--spacing-lg);">Condiciones Necesarias.
+                                            Si es Penicilina, es Antibiótico, pero no viceversa.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: var(--spacing-md) var(--spacing-lg);"><strong>Clases
+                                                Definidas</strong></td>
+                                        <td
+                                            style="padding: var(--spacing-md) var(--spacing-lg); font-family: var(--font-mono);">
+                                            A ≡ B ⊓ C</td>
+                                        <td style="padding: var(--spacing-md) var(--spacing-lg);">Condiciones Necesarias y
+                                            Suficientes. Una "receta" que clasifica individuos automáticamente.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>
+                            El <strong>Motor de Inferencia o Razonador</strong> (ej. HermiT o Pellet) es el software que
+                            ejecuta las matemáticas para derivar conocimiento oculto. Sus tareas son:
+                        </p>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>Clasificación:</strong> Asignar individuos a clases según sus propiedades.</li>
+                            <li><strong>Cálculo de Jerarquía (Subsunción):</strong> Reorganizar el árbol de conceptos.
+                            </li>
+                            <li><strong>Chequeo de Consistencia:</strong> Detectar contradicciones (ej. un fármaco que es
+                                Antibiótico y Antiviral a la vez si estas clases son disjuntas).</li>
+                        </ul>
+
+                        <!-- SECCIÓN 5: Caso Práctico -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            5. Caso Práctico: El DSS Semántico en la Clínica</h2>
+
+                        <p>
+                            Consideremos el sistema <strong>PITeS-TiiSS</strong>, diseñado para pacientes crónicos
+                            complejos. A diferencia de un software tradicional con miles de líneas de "IF-THEN" rígidas,
+                            este DSS separa la interfaz del conocimiento.
+                        </p>
+
+                        <h3
+                            style="color: var(--color-secondary); margin-top: var(--spacing-xl); margin-bottom: var(--spacing-md);">
+                            🏥 El flujo con el paciente "Juan"</h3>
+
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-gray-light); border: 2px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+                            <ol style="margin: 0; padding-left: var(--spacing-xl);">
+                                <li style="margin-bottom: var(--spacing-sm);"><strong>Dato:</strong> El médico receta
+                                    Ibuprofeno.</li>
+                                <li style="margin-bottom: var(--spacing-sm);"><strong>Instanciación:</strong> El sistema
+                                    crea en el ABox: <code
+                                        style="background: rgba(0,59,115,0.1); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">[Juan]
+                                        → tiene_prescripcion → [Ibuprofeno]</code>. Juan ya tenía
+                                    <code
+                                        style="background: rgba(0,59,115,0.1); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.9em;">[Juan]
+                                        → tiene_patologia → [Ulcera_Gastrica]</code>.
+                                </li>
+                                <li style="margin-bottom: var(--spacing-sm);"><strong>Inferencia:</strong> El Reasoner
+                                    procesa la regla del TBox: "Todo paciente con úlcera que tome AINEs es un Paciente en
+                                    Riesgo de Hemorragia".</li>
+                                <li><strong>Acción:</strong> Como el Ibuprofeno es un AINE, el sistema clasifica a Juan en
+                                    <strong>Riesgo_Hemorragia</strong> y dispara una alerta.
+                                </li>
+                            </ol>
+                        </div>
+
+                        <p>
+                            Esta alerta es una <strong>consecuencia matemática natural</strong> del modelo biológico, no
+                            una regla programada a mano. Además, gracias a la interoperabilidad, esta lógica funciona
+                            igual si Juan es atendido en Madrid o en Barcelona, ya que ambos sistemas comparten el mismo
+                            estándar formal.
+                        </p>
+
+                        <!-- SECCIÓN 6: Ventajas -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            6. Ventajas y el Desafío de la Calidad</h2>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li><strong>Mantenibilidad:</strong> Los protocolos médicos se actualizan en el archivo OWL
+                                sin tocar una sola línea de código fuente.</li>
+                            <li><strong>Explicabilidad (White-Box AI):</strong> Es éticamente obligatorio que un DSS
+                                justifique sus decisiones. Plugins como <em>Justifications</em> permiten auditar
+                                exactamente qué camino lógico siguió el Reasoner.</li>
+                            <li><strong>Interoperabilidad:</strong> Uso de estándares globales como SNOMED CT.</li>
+                        </ul>
+
+                        <!-- CAJA DE PRECAUCIÓN -->
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-accent-warm, #FFF3E0); border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+                            <h3 style="color: var(--color-secondary); margin-bottom: var(--spacing-md);">⚠️ Nota de
+                                Precaución: La Calidad</h3>
+                            <p style="margin: 0;">
+                                En dominios críticos, una ontología mal diseñada no "explota" ni detiene el sistema;
+                                simplemente genera deducciones incorrectas de forma silenciosa. Por ello, es vital
+                                aplicar métricas de ingeniería como <strong>OQuaRE</strong> (basada en <strong>ISO/IEC
+                                    25000</strong>) para evaluar la mantenibilidad y fiabilidad del modelo antes de su
+                                despliegue.
+                            </p>
+                        </div>
+
+                        <!-- SECCIÓN 7: Ecosistema -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            7. Más allá de Protégé: El Ecosistema Global</h2>
+
+                        <p>
+                            Para los desarrolladores, existen librerías como <strong>Owlready2</strong> (Python) y
+                            <strong>OWL API</strong> (Java) que permiten manipular archivos OWL de forma nativa. Para
+                            interrogar estos grafos de conocimiento, utilizamos <strong>SPARQL</strong>, el lenguaje que
+                            permite realizar consultas semánticas que entienden jerarquías:
+                        </p>
+
+                        <!-- CÓDIGO SPARQL -->
+                        <div
+                            style="background: #1e293b; color: #e2e8f0; padding: var(--spacing-lg); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0; overflow-x: auto;">
+                            <p style="color: #94a3b8; margin: 0 0 var(--spacing-sm) 0; font-size: var(--font-size-sm);">
+                                <!-- SPARQL Query -->
+                            </p>
+                            <pre
+                                style="margin: 0; font-family: var(--font-mono); font-size: 0.9em; line-height: 1.6;"><code><span style="color: #7dd3fc;">SELECT</span> ?paciente ?sustancia <span style="color: #7dd3fc;">WHERE</span> {
+  ?paciente <span style="color: #fbbf24;">:tieneAlergia</span> ?alergia .
+  ?alergia <span style="color: #fbbf24;">:causadaPor</span> ?sustancia .
+  ?sustancia <span style="color: #a78bfa;">rdfs:subClassOf</span> <span style="color: #fbbf24;">:FrutosSecos</span> .
+}</code></pre>
+                        </div>
+
+                        <p>
+                            Este lenguaje permite la <strong>Federación</strong>, cruzando datos locales del hospital con
+                            repositorios globales. Un ejemplo de escala masiva es <strong>OntoPharma</strong>, un sistema
+                            de prescripción segura con más de <strong>34,000 clases</strong>, demostrando que esta
+                            tecnología es robusta y escalable para entornos hospitalarios reales.
+                        </p>
+
+                        <!-- INFOGRAFÍA CONCEPTUAL -->
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-gray-light); border: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0; text-align: center;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">🗺️ Mapa
+                                Conceptual: Web Semántica y DSS</h3>
+                            <img src="../img/web_semantica_dss_conceptual.png"
+                                alt="Mapa conceptual mostrando la arquitectura de TBox, ABox, OWL y Razonadores en un DSS Semántico"
+                                style="width: 100%; height: auto; border-radius: var(--border-radius-sm); margin-bottom: var(--spacing-md);">
+                            <p style="color: var(--color-gray-dark); font-size: var(--font-size-sm); margin: 0;">
+                                Arquitectura de un DSS Semántico: desde el esquema (TBox) hasta los datos (ABox),
+                                procesados mediante OWL y motores de inferencia.
+                            </p>
+                        </div>
+
+                        <!-- CONCLUSIÓN -->
+                        <div
+                            style="padding: var(--spacing-xl); background: var(--color-primary); color: white; border-radius: var(--border-radius-lg); margin: var(--spacing-2xl) 0; text-align: center;">
+                            <h3 style="margin-bottom: var(--spacing-md);">🎯 Conclusión y Puntos Clave</h3>
+                            <p style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg);">
+                                Migrar hacia sistemas semánticos es el camino hacia una IA transparente, mantenible y
+                                fundamentada en el conocimiento compartido.
+                            </p>
+                        </div>
+
+                        <!-- PUNTOS CLAVE -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Puntos Clave para Recordar</h2>
+
+                        <ul style="margin: var(--spacing-lg) 0; padding-left: var(--spacing-xl);">
+                            <li>Las ontologías permiten que las máquinas <strong>razonen</strong> sobre el significado, no
+                                solo que procesen cadenas de texto.</li>
+                            <li>El <strong>Reasoner</strong> automatiza la clasificación y garantiza que no existan
+                                contradicciones lógicas (consistencia).</li>
+                            <li>La separación entre <strong>TBox</strong> (esquema) y <strong>ABox</strong> (datos) es la
+                                clave para la flexibilidad del sistema.</li>
+                            <li>La <strong>calidad ontológica</strong> (OQuaRE) es indispensable para evitar errores
+                                lógicos silenciosos en entornos críticos.</li>
+                        </ul>
+
+                        <p>
+                            El futuro del Linked Data promete una web donde la información no solo esté disponible, sino
+                            que sea profundamente comprendida por la tecnología que nos asiste.
+                        </p>
+
+                        <!-- VIDEO -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg); text-align: center;">
+                            Clase Doctoral: Web Semántica y DSS</h2>
+                        <p style="text-align: center; color: var(--color-gray-dark); margin-bottom: var(--spacing-lg);">
+                            Clase impartida por el Dr. Manuel Quesada Martínez (UMH) en la UASD
+                        </p>
+                        <div class="video-container"
+                            style="position: relative; width: 100%; max-width: 800px; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius-md); box-shadow: 0 8px 32px rgba(0, 59, 115, 0.15); margin: 0 auto var(--spacing-xl);">
+                            <iframe src="https://www.youtube.com/embed/A0aQk6qgzEY"
+                                title="Clase Doctoral: Web Semántica y DSS - Dr. Manuel Quesada Martínez (UMH) en UASD"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: var(--border-radius-md);">
+                            </iframe>
+                        </div>
+
+                    </div>
+
+                    <footer
+                        style="margin-top: var(--spacing-3xl); padding-top: var(--spacing-xl); border-top: 2px solid var(--color-gray-light);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md);">
+                            <a href="./index.html" class="btn btn--outline">← Volver al Blog</a>
+
+                            <div style="display: flex; gap: var(--spacing-md);">
+                                <span
+                                    style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Compartir:</span>
+                                <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">📷 Instagram</a>
+                                <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">▶️ YouTube</a>
+                                <a href="mailto:matuasdrd@gmail.com"
+                                    style="color: var(--color-secondary); text-decoration: none;">✉️ Email</a>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__section-title">MATUASD</h3>
+                    <p style="color: var(--color-gray-medium); line-height: 1.8;">Portal educativo de MATUASD.</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Enlaces Rápidos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../../index.html" class="footer__link">Inicio</a></li>
+                        <li class="footer__list-item"><a href="./index.html" class="footer__link">Blog</a></li>
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item"><a href="../aviso-legal.html" class="footer__link">Aviso Legal</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Recursos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../matematica-basica.html"
+                                class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="../calculo-1.html" class="footer__link">Cálculo I</a>
+                        </li>
+                        <li class="footer__list-item"><a href="../calculo-2.html" class="footer__link">Cálculo II</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Contacto</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
+                            RD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2024</span> MATUASD. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="Instagram: @matuasdrd"><span
+                            style="font-size: 1.5rem;">📷</span></a>
+                    <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="YouTube: @matuasdrd"><span
+                            style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" title="LinkedIn: Próximamente"><span
+                            style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:matuasdrd@gmail.com" class="footer__social-link"
+                        title="Email: matuasdrd@gmail.com"><span style="font-size: 1.5rem;">✉️</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>
