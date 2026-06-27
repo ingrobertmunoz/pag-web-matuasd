@@ -44,14 +44,11 @@
                             <li><a href="./matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a></li>
                             <li><a href="./calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
                             <li><a href="./calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
-                            <li><a href="./matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
-                            </li>
-                            <li><a href="./matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
-                            </li>
+                            <li><a href="./matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a></li>
+                            <li><a href="./matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a></li>
                         </ul>
                     </li>
-                    <li class="nav__item"><a href="./calculadora-financiera.html" class="nav__link">Calculadora
-                            Financiera</a></li>
+                    <li class="nav__item"><a href="./calculadora-financiera.html" class="nav__link">Calculadora Financiera</a></li>
                     <li class="nav__item"><a href="./monibot014.html" class="nav__link">Monibot014</a></li>
                     <li class="nav__item"><a href="./contacto.html" class="nav__link">Contacto</a></li>
                 </ul>
@@ -84,88 +81,191 @@
         <!-- Main Content -->
         <section class="section">
             <div class="container">
-                <!-- Filters and Controls -->
-                <div
-                    style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-xl); padding: var(--spacing-lg); background: var(--color-gray-light); border-radius: var(--border-radius-md);">
-                    <div style="flex: 1; min-width: 250px;">
-                        <input type="text" id="search-resources" placeholder="Buscar recursos..."
-                            style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+
+                <!-- Tab Buttons -->
+                <div class="prog-tabs" role="tablist">
+                    <button class="prog-tabs__btn prog-tabs__btn--active" data-tab="competencias" role="tab" aria-selected="true" aria-controls="tab-competencias">
+                        Programas por Competencias
+                        <span class="prog-tabs__badge">VIGENTE</span>
+                    </button>
+                    <button class="prog-tabs__btn" data-tab="tradicionales" role="tab" aria-selected="false" aria-controls="tab-tradicionales">
+                        Programas Tradicionales
+                    </button>
+                </div>
+
+                <!-- TAB: Por Competencias -->
+                <div id="tab-competencias" class="prog-tab-panel" role="tabpanel">
+                    <div class="prog-tab-panel__info">
+                        Programas actualizados bajo el enfoque por competencias — vigentes a partir del año académico 2024-2025.
                     </div>
 
-                    <div style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
-                        <select id="sort-resources"
-                            style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
-                            <option value="date-newest">Más recientes</option>
-                            <option value="date-oldest">Más antiguos</option>
-                            <option value="name-asc">Nombre A-Z</option>
-                            <option value="name-desc">Nombre Z-A</option>
-                            <option value="type">Por tipo</option>
-                        </select>
-
-                        <div
-                            style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
-                            <button data-view="grid" class="btn-view"
-                                style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
-                                title="Vista en cuadrícula">
-                                ⊞
-                            </button>
-                            <button data-view="list" class="btn-view active"
-                                style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
-                                title="Vista en lista">
-                                ☰
-                            </button>
+                    <div class="prog-controls">
+                        <div style="flex: 1; min-width: 250px;">
+                            <input type="text" id="search-resources-comp" placeholder="Buscar programa..."
+                                style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                        </div>
+                        <div style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                            <select id="sort-resources-comp"
+                                style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                                <option value="name-asc">Nombre A-Z</option>
+                                <option value="name-desc">Nombre Z-A</option>
+                                <option value="date-newest">Más recientes</option>
+                                <option value="date-oldest">Más antiguos</option>
+                            </select>
+                            <div style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
+                                <button data-view="grid" class="btn-view-comp"
+                                    style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
+                                    title="Vista en cuadrícula">⊞</button>
+                                <button data-view="list" class="btn-view-comp active"
+                                    style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
+                                    title="Vista en lista">☰</button>
+                            </div>
                         </div>
                     </div>
+                    <div style="margin-bottom: var(--spacing-md); color: var(--color-gray-dark);">
+                        <span id="resources-count-comp">Cargando...</span>
+                    </div>
+                    <div id="resources-container-comp" data-resources='[
+                        {"title": "MAT-0081 Geometría y Trigonometría", "type": "PDF", "date": "2024-11-01", "size": "280 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-0081 Geometría y Trigonometría.pdf", "description": "Programa por competencias del curso Geometría y Trigonometría"},
+                        {"title": "MAT-0140 Matemática Básica", "type": "PDF", "date": "2025-03-05", "size": "274 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-0140 Matemática Básica.pdf", "description": "Programa por competencias del curso Matemática Básica"},
+                        {"title": "MAT-1204 Trigonometría Plana y Esférica", "type": "PDF", "date": "2024-11-22", "size": "282 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-1204 Trigonometría Plana y Esférica.pdf", "description": "Programa por competencias del curso Trigonometría Plana y Esférica"},
+                        {"title": "MAT-1301 Precálculo", "type": "PDF", "date": "2025-06-05", "size": "279 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-1301 Precálculo.pdf", "description": "Programa por competencias del curso Precálculo"},
+                        {"title": "MAT-1404 Matemática Financiera", "type": "PDF", "date": "2024-12-14", "size": "275 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-1404 Matemática Financiera.pdf", "description": "Programa por competencias del curso Matemática Financiera"},
+                        {"title": "MAT-1404 Matemática Financiera ECN", "type": "PDF", "date": "2025-11-25", "size": "341 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-1404 Matemática Financiera ECN.pdf", "description": "Programa por competencias del curso Matemática Financiera (Economía)"},
+                        {"title": "MAT-1424 Matemática para Administración", "type": "PDF", "date": "2024-12-14", "size": "301 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-1424 Matemática para Administración.pdf", "description": "Programa por competencias del curso Matemática para Administración"},
+                        {"title": "MAT-1442 Matemática Financiera para Computación", "type": "PDF", "date": "2024-11-15", "size": "285 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-1442 Matemática Financiera para Computación.pdf", "description": "Programa por competencias del curso Matemática Financiera para Computación"},
+                        {"title": "MAT-2124 Fund. Histórica y Epist. de las Matemáticas", "type": "PDF", "date": "2024-12-14", "size": "289 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2124 Fund. Histórica y Epist. de las Matemáticas.pdf", "description": "Programa por competencias: Fundamentos Históricos y Epistemológicos de las Matemáticas"},
+                        {"title": "MAT-2208 Geometría Diferencial", "type": "PDF", "date": "2024-12-14", "size": "283 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2208 Geometría Diferencial.pdf", "description": "Programa por competencias del curso Geometría Diferencial"},
+                        {"title": "MAT-2322 Algebra Lineal", "type": "PDF", "date": "2025-05-21", "size": "299 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2322 Algebra Lineal.pdf", "description": "Programa por competencias del curso Álgebra Lineal"},
+                        {"title": "MAT-2332 Algebra Superior", "type": "PDF", "date": "2024-12-01", "size": "278 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2332 Algebra Superior.pdf", "description": "Programa por competencias del curso Álgebra Superior"},
+                        {"title": "MAT-2362 Algebra Lineal I", "type": "PDF", "date": "2024-12-14", "size": "288 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2362 Algebra Lineal I.pdf", "description": "Programa por competencias del curso Álgebra Lineal I"},
+                        {"title": "MAT-2363 Algebra Lineal II", "type": "PDF", "date": "2024-12-14", "size": "278 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2363 Algebra Lineal II.pdf", "description": "Programa por competencias del curso Álgebra Lineal II"},
+                        {"title": "MAT-2445 Análisis Real I", "type": "PDF", "date": "2024-12-14", "size": "294 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2445 Análisis Real I.pdf", "description": "Programa por competencias del curso Análisis Real I"},
+                        {"title": "MAT-2446 Análisis Real II", "type": "PDF", "date": "2024-12-01", "size": "282 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2446 Análisis Real II.pdf", "description": "Programa por competencias del curso Análisis Real II"},
+                        {"title": "MAT-2482 Cálculo Vectorial", "type": "PDF", "date": "2024-11-20", "size": "276 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2482 Cálculo Vectorial.pdf", "description": "Programa por competencias del curso Cálculo Vectorial"},
+                        {"title": "MAT-2482 Cálculo Vectorial FIA", "type": "PDF", "date": "2025-09-16", "size": "357 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2482 Cálculo Vectorial FIA.pdf", "description": "Programa por competencias del curso Cálculo Vectorial (FIA)"},
+                        {"title": "MAT-2487 Calculo Actuarial I", "type": "PDF", "date": "2024-12-15", "size": "294 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2487 Calculo Actuarial I.pdf", "description": "Programa por competencias del curso Cálculo Actuarial I"},
+                        {"title": "MAT-2496 Variable Compleja", "type": "PDF", "date": "2024-12-14", "size": "296 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2496 Variable Compleja.pdf", "description": "Programa por competencias del curso Variable Compleja"},
+                        {"title": "MAT-2501 Analítica y Calculo I", "type": "PDF", "date": "2024-12-14", "size": "278 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2501 Analítica y Calculo I.pdf", "description": "Programa por competencias del curso Analítica y Cálculo I"},
+                        {"title": "MAT-2511 Calculo y Geometría Analítica I", "type": "PDF", "date": "2024-11-09", "size": "277 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2511 Calculo y Geometría Analítica I.pdf", "description": "Programa por competencias del curso Cálculo y Geometría Analítica I"},
+                        {"title": "MAT-2512 Cálculo I LM", "type": "PDF", "date": "2024-12-14", "size": "281 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2512 Cálculo I LM.pdf", "description": "Programa por competencias del curso Cálculo I (Licenciatura en Matemáticas)"},
+                        {"title": "MAT-2513 Cálculo II LM", "type": "PDF", "date": "2024-12-14", "size": "285 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2513 Cálculo II LM.pdf", "description": "Programa por competencias del curso Cálculo II (Licenciatura en Matemáticas)"},
+                        {"title": "MAT-2514 Cálculo III LM", "type": "PDF", "date": "2024-12-14", "size": "287 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2514 Cálculo III LM.pdf", "description": "Programa por competencias del curso Cálculo III (Licenciatura en Matemáticas)"},
+                        {"title": "MAT-2573 Cálculo y Analítica I", "type": "PDF", "date": "2024-11-09", "size": "277 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2573 Cálculo y Analítica I.pdf", "description": "Programa por competencias del curso Cálculo y Analítica I"},
+                        {"title": "MAT-2837 Nociones de topología algebraica", "type": "PDF", "date": "2024-12-14", "size": "290 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2837 Nociones de topología algebraica.pdf", "description": "Programa por competencias del curso Nociones de Topología Algebraica"},
+                        {"title": "MAT-2838 Algebra Conmutativa", "type": "PDF", "date": "2024-12-15", "size": "292 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2838 Algebra Conmutativa.pdf", "description": "Programa por competencias del curso Álgebra Conmutativa"},
+                        {"title": "MAT-2864 Algebra Abstracta I", "type": "PDF", "date": "2024-12-14", "size": "281 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2864 Algebra Abstracta I.pdf", "description": "Programa por competencias del curso Álgebra Abstracta I"},
+                        {"title": "MAT-2865 Algebra Abstracta II", "type": "PDF", "date": "2024-12-14", "size": "282 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2865 Algebra Abstracta II.pdf", "description": "Programa por competencias del curso Álgebra Abstracta II"},
+                        {"title": "MAT-2872 Lógica y Teoría de Conjuntos", "type": "PDF", "date": "2024-12-01", "size": "278 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2872 Lógica y Teoría de Conjuntos.pdf", "description": "Programa por competencias del curso Lógica y Teoría de Conjuntos"},
+                        {"title": "MAT-2886 Introducción a la Topología", "type": "PDF", "date": "2024-12-14", "size": "277 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2886 Introducción a la Topología.pdf", "description": "Programa por competencias del curso Introducción a la Topología"},
+                        {"title": "MAT-2936 Matemática y Tecnología", "type": "PDF", "date": "2024-12-14", "size": "285 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2936 Matemática y Tecnología.pdf", "description": "Programa por competencias del curso Matemática y Tecnología"},
+                        {"title": "MAT-2958 Matemática Discreta para Comp.", "type": "PDF", "date": "2024-11-15", "size": "279 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-2958 Matemática Discreta para Comp.pdf", "description": "Programa por competencias del curso Matemática Discreta para Computación"},
+                        {"title": "MAT-3118 Introducción al Análisis Funcional", "type": "PDF", "date": "2024-12-01", "size": "284 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3118 Introducción al Análisis Funcional.pdf", "description": "Programa por competencias del curso Introducción al Análisis Funcional"},
+                        {"title": "MAT-3227 Introducción a la Teoría de Números", "type": "PDF", "date": "2024-12-14", "size": "288 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3227 Introducción a la Teoría de Números.pdf", "description": "Programa por competencias del curso Introducción a la Teoría de Números"},
+                        {"title": "MAT-3406 Calculo Actuarial II", "type": "PDF", "date": "2024-12-15", "size": "301 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3406 Calculo Actuarial II.pdf", "description": "Programa por competencias del curso Cálculo Actuarial II"},
+                        {"title": "MAT-3408 Calculo Actuarial III", "type": "PDF", "date": "2024-12-15", "size": "293 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3408 Calculo Actuarial III.pdf", "description": "Programa por competencias del curso Cálculo Actuarial III"},
+                        {"title": "MAT-3413 Matemática Estadística I", "type": "PDF", "date": "2024-12-14", "size": "282 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3413 Matemática Estadística I.pdf", "description": "Programa por competencias del curso Matemática Estadística I"},
+                        {"title": "MAT-3424 Matemática Estadística II", "type": "PDF", "date": "2024-12-01", "size": "280 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3424 Matemática Estadística II.pdf", "description": "Programa por competencias del curso Matemática Estadística II"},
+                        {"title": "MAT-3436 Matemática Estadística III", "type": "PDF", "date": "2024-12-01", "size": "281 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3436 Matemática Estadística III.pdf", "description": "Programa por competencias del curso Matemática Estadística III"},
+                        {"title": "MAT-3447 Matemática Estadística IV", "type": "PDF", "date": "2024-12-15", "size": "285 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3447 Matemática Estadística IV.pdf", "description": "Programa por competencias del curso Matemática Estadística IV"},
+                        {"title": "MAT-3458 Matemática Estadística V", "type": "PDF", "date": "2024-12-15", "size": "276 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3458 Matemática Estadística V.pdf", "description": "Programa por competencias del curso Matemática Estadística V"},
+                        {"title": "MAT-3477 Métodos de Optimización", "type": "PDF", "date": "2024-11-15", "size": "282 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3477 Métodos de Optimización.pdf", "description": "Programa por competencias del curso Métodos de Optimización"},
+                        {"title": "MAT-3512 Cálculo y Geometría Analítica II", "type": "PDF", "date": "2024-12-01", "size": "283 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3512 Cálculo y Geometría Analítica II.pdf", "description": "Programa por competencias del curso Cálculo y Geometría Analítica II"},
+                        {"title": "MAT-3574 Cálculo y Analítica II", "type": "PDF", "date": "2024-11-09", "size": "292 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3574 Cálculo y Analítica II.pdf", "description": "Programa por competencias del curso Cálculo y Analítica II"},
+                        {"title": "MAT-3603 Ecuaciones Diferenciales", "type": "PDF", "date": "2026-06-25", "size": "274 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3603 Ecuaciones Diferenciales.pdf", "description": "Programa por competencias del curso Ecuaciones Diferenciales"},
+                        {"title": "MAT-3603 Ecuaciones Diferenciales LM", "type": "PDF", "date": "2026-06-25", "size": "284 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3603 Ecuaciones Diferenciales LM.pdf", "description": "Programa por competencias del curso Ecuaciones Diferenciales (Licenciatura en Matemáticas)"},
+                        {"title": "MAT-3606 Teoría de Galois", "type": "PDF", "date": "2024-12-15", "size": "286 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3606 Teoría de Galois.pdf", "description": "Programa por competencias del curso Teoría de Galois"},
+                        {"title": "MAT-3608 Teoría Analítica de Números", "type": "PDF", "date": "2024-12-15", "size": "304 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3608 Teoría Analítica de Números.pdf", "description": "Programa por competencias del curso Teoría Analítica de Números"},
+                        {"title": "MAT-3616 Teoría Cualitativa de Ecuaciones Diferenciales", "type": "PDF", "date": "2024-12-01", "size": "283 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3616 Teoría Cualitativa de Ecuaciones Diferenciales.pdf", "description": "Programa por competencias del curso Teoría Cualitativa de Ecuaciones Diferenciales"},
+                        {"title": "MAT-3617 Teoría de la Medida", "type": "PDF", "date": "2024-12-01", "size": "281 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3617 Teoría de la Medida.pdf", "description": "Programa por competencias del curso Teoría de la Medida"},
+                        {"title": "MAT-3627 Ecuaciones Diferenciales Parciales", "type": "PDF", "date": "2024-12-14", "size": "272 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3627 Ecuaciones Diferenciales Parciales.pdf", "description": "Programa por competencias del curso Ecuaciones Diferenciales Parciales"},
+                        {"title": "MAT-3627 Teoría de representaciones de grupos finitos", "type": "PDF", "date": "2024-12-14", "size": "276 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3627 Teoría de representaciones de grupos finitos.pdf", "description": "Programa por competencias del curso Teoría de Representaciones de Grupos Finitos"},
+                        {"title": "MAT-3896 Introd. teoría comb. y teoría grafos", "type": "PDF", "date": "2024-12-01", "size": "280 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3896 Introd teoría comb y teoría grafos.pdf", "description": "Programa por competencias: Introducción a la Teoría Combinatoria y de Grafos"},
+                        {"title": "MAT-3947 Análisis Numérico I", "type": "PDF", "date": "2024-12-14", "size": "280 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3947 Análisis Numérico I.pdf", "description": "Programa por competencias del curso Análisis Numérico I"},
+                        {"title": "MAT-3948 Análisis Numérico II", "type": "PDF", "date": "2024-12-01", "size": "281 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3948 Análisis Numérico II.pdf", "description": "Programa por competencias del curso Análisis Numérico II"},
+                        {"title": "MAT-3957 Análisis no lineal de EDP", "type": "PDF", "date": "2024-12-15", "size": "279 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3957 Análisis no lineal de EDP.pdf", "description": "Programa por competencias del curso Análisis No Lineal de EDP"},
+                        {"title": "MAT-3958 Análisis Armónico", "type": "PDF", "date": "2024-12-15", "size": "304 KB", "url": "../resources/Programas Enfoque Competencias/Programa MAT-3958 Análisis Armónico.pdf", "description": "Programa por competencias del curso Análisis Armónico"}
+                    ]'>
+                    </div>
                 </div>
 
-                <div style="margin-bottom: var(--spacing-md); color: var(--color-gray-dark);">
-                    <span id="resources-count">Cargando...</span>
+                <!-- TAB: Tradicionales -->
+                <div id="tab-tradicionales" class="prog-tab-panel" role="tabpanel" hidden>
+                    <div class="prog-tab-panel__info prog-tab-panel__info--historic">
+                        Programas de estudio del plan anterior — conservados como referencia histórica.
+                    </div>
+
+                    <div class="prog-controls">
+                        <div style="flex: 1; min-width: 250px;">
+                            <input type="text" id="search-resources-trad" placeholder="Buscar programa..."
+                                style="width: 100%; padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                        </div>
+                        <div style="display: flex; gap: var(--spacing-md); align-items: center; flex-wrap: wrap;">
+                            <select id="sort-resources-trad"
+                                style="padding: var(--spacing-sm) var(--spacing-md); border: 2px solid var(--color-gray-medium); border-radius: var(--border-radius-md); font-size: var(--font-size-base);">
+                                <option value="name-asc">Nombre A-Z</option>
+                                <option value="name-desc">Nombre Z-A</option>
+                                <option value="date-newest">Más recientes</option>
+                                <option value="date-oldest">Más antiguos</option>
+                            </select>
+                            <div style="display: flex; gap: var(--spacing-xs); background: white; padding: var(--spacing-xs); border-radius: var(--border-radius-md); border: 2px solid var(--color-gray-medium);">
+                                <button data-view="grid" class="btn-view-trad"
+                                    style="padding: var(--spacing-sm); background: transparent; color: var(--color-primary); border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
+                                    title="Vista en cuadrícula">⊞</button>
+                                <button data-view="list" class="btn-view-trad active"
+                                    style="padding: var(--spacing-sm); background: var(--color-primary); color: white; border: none; border-radius: var(--border-radius-sm); cursor: pointer; transition: all var(--transition-base);"
+                                    title="Vista en lista">☰</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: var(--spacing-md); color: var(--color-gray-dark);">
+                        <span id="resources-count-trad">Cargando...</span>
+                    </div>
+                    <div id="resources-container-trad" data-resources='[
+                        {"title": "Mat-0140 Matemática Básica", "type": "PDF", "date": "2024-09-01", "size": "450 KB", "url": "../resources/Programas/Mat-0140 Matemática Básica Programa.pdf", "description": "Programa oficial del curso Matemática Básica"},
+                        {"title": "Mat-1200 Trigonometría Plana y Esférica", "type": "PDF", "date": "2024-09-01", "size": "470 KB", "url": "../resources/Programas/Mat-1200 Trigonometria Plana y esférica.pdf", "description": "Programa oficial del curso Trigonometría Plana y Esférica"},
+                        {"title": "Mat-1400 Matemática Financiera", "type": "PDF", "date": "2024-09-01", "size": "520 KB", "url": "../resources/Programas/Mat-1400 Matemática Financiera.pdf", "description": "Programa oficial del curso Matemática Financiera"},
+                        {"title": "Mat-1430 Matemática Financiera", "type": "PDF", "date": "2026-02-15", "size": "205 KB", "url": "../resources/Programas/Mat-1430 Matemática Financiera.pdf", "description": "Programa oficial del curso Matemática Financiera (Mat-1430)"},
+                        {"title": "Mat-1840 Geometría Moderna", "type": "PDF", "date": "2024-09-01", "size": "485 KB", "url": "../resources/Programas/Mat-1840 Geometría Moderna.pdf", "description": "Programa oficial del curso Geometría Moderna"},
+                        {"title": "Mat-2300 Álgebra Superior", "type": "PDF", "date": "2024-08-28", "size": "510 KB", "url": "../resources/Programas/Mat-2300 Algebra Superior.pdf", "description": "Programa oficial del curso Álgebra Superior"},
+                        {"title": "Mat-2330 Análisis Lineal y Matricial", "type": "PDF", "date": "2024-08-28", "size": "495 KB", "url": "../resources/Programas/Mat-2330 Analisis Lineal y Matricial.pdf", "description": "Programa oficial del curso Análisis Lineal y Matricial"},
+                        {"title": "Mat-2390 Álgebra Lineal y Matricial", "type": "PDF", "date": "2024-08-28", "size": "505 KB", "url": "../resources/Programas/Mat-2390 Algebra Lineal y Matricial.pdf", "description": "Programa oficial del curso Álgebra Lineal y Matricial"},
+                        {"title": "Mat-2480 Cálculo Actuarial I", "type": "PDF", "date": "2024-08-25", "size": "475 KB", "url": "../resources/Programas/Mat-2480 Calculo Actuarial I.pdf", "description": "Programa oficial del curso Cálculo Actuarial I"},
+                        {"title": "Mat-2500 Cálculo y Analítica I", "type": "PDF", "date": "2026-02-15", "size": "500 KB", "url": "../resources/Programas/Mat-2500 Calculo y Analitica I.pdf", "description": "Programa oficial del curso Cálculo y Analítica I (Mat-2500)"},
+                        {"title": "Mat-2510 Cálculo y Analítica I", "type": "PDF", "date": "2024-08-25", "size": "520 KB", "url": "../resources/Programas/Mat-2510 Calculo y Analitica I.pdf", "description": "Programa oficial del curso Cálculo y Analítica I"},
+                        {"title": "Mat-2590 Cálculo y Analítica", "type": "PDF", "date": "2024-08-25", "size": "515 KB", "url": "../resources/Programas/Mat-2590 Calculo y Analitica.pdf", "description": "Programa oficial del curso Cálculo y Analítica"},
+                        {"title": "Mat-2870 Lógica y Teoría de Conjuntos", "type": "PDF", "date": "2024-08-22", "size": "425 KB", "url": "../resources/Programas/Mat-2870 Lógica y Teoría de Conjuntos.pdf", "description": "Programa oficial del curso Lógica y Teoría de Conjuntos"},
+                        {"title": "Mat-2880 Topología", "type": "PDF", "date": "2024-08-22", "size": "465 KB", "url": "../resources/Programas/Mat-2880 Topología.pdf", "description": "Programa oficial del curso Topología"},
+                        {"title": "Mat-2890 Historia de las Matemáticas", "type": "PDF", "date": "2024-08-22", "size": "445 KB", "url": "../resources/Programas/Mat-2890 Historia de las Matemáticas.pdf", "description": "Programa oficial del curso Historia de las Matemáticas"},
+                        {"title": "Mat-3400 Cálculo Actuarial II", "type": "PDF", "date": "2024-08-20", "size": "480 KB", "url": "../resources/Programas/Mat-3400 Calculo Actuarial II.pdf", "description": "Programa oficial del curso Cálculo Actuarial II"},
+                        {"title": "Mat-3410 Matemática Estadística I", "type": "PDF", "date": "2024-08-20", "size": "455 KB", "url": "../resources/Programas/Mat-3410 Matemática Estadística I.pdf", "description": "Programa oficial del curso Matemática Estadística I"},
+                        {"title": "Mat-3420 Matemática Estadística II", "type": "PDF", "date": "2024-08-20", "size": "460 KB", "url": "../resources/Programas/Mat-3420 Matemática Estadística II.pdf", "description": "Programa oficial del curso Matemática Estadística II"},
+                        {"title": "Mat-3430 Matemática Estadística III", "type": "PDF", "date": "2024-08-18", "size": "465 KB", "url": "../resources/Programas/Mat-3430 Matemática Estadística III.pdf", "description": "Programa oficial del curso Matemática Estadística III"},
+                        {"title": "Mat-3440 Matemática Estadística IV", "type": "PDF", "date": "2024-08-18", "size": "470 KB", "url": "../resources/Programas/Mat-3440 Matemática Estadística IV.pdf", "description": "Programa oficial del curso Matemática Estadística IV"},
+                        {"title": "Mat-3450 Matemática Estadística V", "type": "PDF", "date": "2024-08-18", "size": "475 KB", "url": "../resources/Programas/Mat-3450 Matemática Estadística V.pdf", "description": "Programa oficial del curso Matemática Estadística V"},
+                        {"title": "Mat-3460 Matemática Estadística VI", "type": "PDF", "date": "2024-08-18", "size": "480 KB", "url": "../resources/Programas/Mat-3460 Matemática Estadística VI.pdf", "description": "Programa oficial del curso Matemática Estadística VI"},
+                        {"title": "Mat-3480 Matemática para Administración", "type": "PDF", "date": "2024-08-15", "size": "440 KB", "url": "../resources/Programas/Mat-3480 Matemática para Administración.pdf", "description": "Programa oficial del curso Matemática para Administración"},
+                        {"title": "Mat-3490 Cálculo Actuarial III", "type": "PDF", "date": "2024-08-15", "size": "485 KB", "url": "../resources/Programas/Mat-3490 Cálculo Actuarial III.pdf", "description": "Programa oficial del curso Cálculo Actuarial III"},
+                        {"title": "Mat-3500 Cálculo y Analítica", "type": "PDF", "date": "2024-08-15", "size": "520 KB", "url": "../resources/Programas/Mat-3500 Cálculo y Analitica.pdf", "description": "Programa oficial del curso Cálculo y Analítica"},
+                        {"title": "Mat-3560 Cálculo I", "type": "PDF", "date": "2024-08-12", "size": "530 KB", "url": "../resources/Programas/Mat-3560 Calculo I.pdf", "description": "Programa oficial del curso Cálculo I"},
+                        {"title": "Mat-3570 Cálculo II", "type": "PDF", "date": "2024-08-12", "size": "535 KB", "url": "../resources/Programas/Mat-3570 Calculo II.pdf", "description": "Programa oficial del curso Cálculo II"},
+                        {"title": "Mat-3600 Ecuaciones Diferenciales", "type": "PDF", "date": "2024-08-12", "size": "545 KB", "url": "../resources/Programas/Mat-3600 Ecuaciones Diferenciales.pdf", "description": "Programa oficial del curso Ecuaciones Diferenciales"},
+                        {"title": "Mat-3620 Ecuaciones Diferenciales Parciales", "type": "PDF", "date": "2024-08-10", "size": "550 KB", "url": "../resources/Programas/Mat-3620 Ecuaciones Diferenciales Parciales.pdf", "description": "Programa oficial del curso Ecuaciones Diferenciales Parciales"},
+                        {"title": "Mat-3650 Análisis Numérico", "type": "PDF", "date": "2024-08-10", "size": "505 KB", "url": "../resources/Programas/Mat-3650 Análisis Numérico.pdf", "description": "Programa oficial del curso Análisis Numérico"},
+                        {"title": "Mat-3700 Cálculo Vectorial y Álgebra Matricial", "type": "PDF", "date": "2024-08-10", "size": "540 KB", "url": "../resources/Programas/Mat-3700 Calculo Vectorial y ALgebra Matricial.pdf", "description": "Programa oficial del curso Cálculo Vectorial y Álgebra Matricial"},
+                        {"title": "Mat-3730 Cálculo Vectorial", "type": "PDF", "date": "2024-08-08", "size": "525 KB", "url": "../resources/Programas/Mat-3730 Calculo Vectorial.pdf", "description": "Programa oficial del curso Cálculo Vectorial"},
+                        {"title": "Mat-3750 Análisis de una Variable Real I", "type": "PDF", "date": "2024-08-08", "size": "515 KB", "url": "../resources/Programas/Mat-3750 Analisis de una Variable Real I.pdf", "description": "Programa oficial del curso Análisis de una Variable Real I"},
+                        {"title": "Mat-3760 Análisis de una Variable Real II", "type": "PDF", "date": "2024-08-08", "size": "520 KB", "url": "../resources/Programas/Mat-3760 Analisis de una Variable Real II.pdf", "description": "Programa oficial del curso Análisis de una Variable Real II"},
+                        {"title": "Mat-3770 Variable Compleja", "type": "PDF", "date": "2024-08-05", "size": "510 KB", "url": "../resources/Programas/Mat-3770 Variable Compleja.pdf", "description": "Programa oficial del curso Variable Compleja"},
+                        {"title": "Mat-3790 Matemáticas Avanzadas", "type": "PDF", "date": "2024-08-05", "size": "555 KB", "url": "../resources/Programas/Mat-3790 Matemáticas Avanzadas.pdf", "description": "Programa oficial del curso Matemáticas Avanzadas"},
+                        {"title": "Mat-3800 Fundamentos de las Matemáticas", "type": "PDF", "date": "2024-08-05", "size": "490 KB", "url": "../resources/Programas/Mat-3800 Fundamentos de las Matemáticas.pdf", "description": "Programa oficial del curso Fundamentos de las Matemáticas"},
+                        {"title": "Mat-3810 Seminario Elemental de las Matemáticas", "type": "PDF", "date": "2024-08-03", "size": "475 KB", "url": "../resources/Programas/Mat-3810 Seminario Elemental de las Matemáticas.pdf", "description": "Programa oficial del curso Seminario Elemental de las Matemáticas"},
+                        {"title": "Mat-3880 Elementos de Álgebra Moderna", "type": "PDF", "date": "2024-08-03", "size": "500 KB", "url": "../resources/Programas/Mat-3880 Elementos de Algebra Moderna.pdf", "description": "Programa oficial del curso Elementos de Álgebra Moderna"},
+                        {"title": "Mat-3920 Matemática Discreta", "type": "PDF", "date": "2024-08-03", "size": "495 KB", "url": "../resources/Programas/Mat-3920 Matemáticas Discreta.pdf", "description": "Programa oficial del curso Matemática Discreta"}
+                    ]'>
+                    </div>
                 </div>
 
-                <!-- Resources Container -->
-                <div id="resources-container" data-resources='[
-                       {"title": "Mat-0140 Matemática Básica", "type": "PDF", "date": "2024-09-01", "size": "450 KB", "url": "../resources/Programas/Mat-0140 Matemática Básica Programa.pdf", "description": "Programa oficial del curso Matemática Básica"},
-                       {"title": "Mat-1200 Trigonometría Plana y Esférica", "type": "PDF", "date": "2024-09-01", "size": "470 KB", "url": "../resources/Programas/Mat-1200 Trigonometria Plana y esférica.pdf", "description": "Programa oficial del curso Trigonometría Plana y Esférica"},
-                       {"title": "Mat-1400 Matemática Financiera", "type": "PDF", "date": "2024-09-01", "size": "520 KB", "url": "../resources/Programas/Mat-1400 Matemática Financiera.pdf", "description": "Programa oficial del curso Matemática Financiera"},
-                       {"title": "Mat-1430 Matemática Financiera", "type": "PDF", "date": "2026-02-15", "size": "205 KB", "url": "../resources/Programas/Mat-1430 Matemática Financiera.pdf", "description": "Programa oficial del curso Matemática Financiera (Mat-1430)"},
-                       {"title": "Mat-1840 Geometría Moderna", "type": "PDF", "date": "2024-09-01", "size": "485 KB", "url": "../resources/Programas/Mat-1840 Geometría Moderna.pdf", "description": "Programa oficial del curso Geometría Moderna"},
-                       {"title": "Mat-2300 Álgebra Superior", "type": "PDF", "date": "2024-08-28", "size": "510 KB", "url": "../resources/Programas/Mat-2300 Algebra Superior.pdf", "description": "Programa oficial del curso Álgebra Superior"},
-                       {"title": "Mat-2330 Análisis Lineal y Matricial", "type": "PDF", "date": "2024-08-28", "size": "495 KB", "url": "../resources/Programas/Mat-2330 Analisis Lineal y Matricial.pdf", "description": "Programa oficial del curso Análisis Lineal y Matricial"},
-                       {"title": "Mat-2390 Álgebra Lineal y Matricial", "type": "PDF", "date": "2024-08-28", "size": "505 KB", "url": "../resources/Programas/Mat-2390 Algebra Lineal y Matricial.pdf", "description": "Programa oficial del curso Álgebra Lineal y Matricial"},
-                       {"title": "Mat-2480 Cálculo Actuarial I", "type": "PDF", "date": "2024-08-25", "size": "475 KB", "url": "../resources/Programas/Mat-2480 Calculo Actuarial I.pdf", "description": "Programa oficial del curso Cálculo Actuarial I"},
-                       {"title": "Mat-2500 Cálculo y Analítica I", "type": "PDF", "date": "2026-02-15", "size": "500 KB", "url": "../resources/Programas/Mat-2500 Calculo y Analitica I.pdf", "description": "Programa oficial del curso Cálculo y Analítica I (Mat-2500)"},
-                       {"title": "Mat-2510 Cálculo y Analítica I", "type": "PDF", "date": "2024-08-25", "size": "520 KB", "url": "../resources/Programas/Mat-2510 Calculo y Analitica I.pdf", "description": "Programa oficial del curso Cálculo y Analítica I"},
-                       {"title": "Mat-2590 Cálculo y Analítica", "type": "PDF", "date": "2024-08-25", "size": "515 KB", "url": "../resources/Programas/Mat-2590 Calculo y Analitica.pdf", "description": "Programa oficial del curso Cálculo y Analítica"},
-                       {"title": "Mat-2870 Lógica y Teoría de Conjuntos", "type": "PDF", "date": "2024-08-22", "size": "425 KB", "url": "../resources/Programas/Mat-2870 Lógica y Teoría de Conjuntos.pdf", "description": "Programa oficial del curso Lógica y Teoría de Conjuntos"},
-                       {"title": "Mat-2880 Topología", "type": "PDF", "date": "2024-08-22", "size": "465 KB", "url": "../resources/Programas/Mat-2880 Topología.pdf", "description": "Programa oficial del curso Topología"},
-                       {"title": "Mat-2890 Historia de las Matemáticas", "type": "PDF", "date": "2024-08-22", "size": "445 KB", "url": "../resources/Programas/Mat-2890 Historia de las Matemáticas.pdf", "description": "Programa oficial del curso Historia de las Matemáticas"},
-                       {"title": "Mat-3400 Cálculo Actuarial II", "type": "PDF", "date": "2024-08-20", "size": "480 KB", "url": "../resources/Programas/Mat-3400 Calculo Actuarial II.pdf", "description": "Programa oficial del curso Cálculo Actuarial II"},
-                       {"title": "Mat-3410 Matemática Estadística I", "type": "PDF", "date": "2024-08-20", "size": "455 KB", "url": "../resources/Programas/Mat-3410 Matemática Estadística I.pdf", "description": "Programa oficial del curso Matemática Estadística I"},
-                       {"title": "Mat-3420 Matemática Estadística II", "type": "PDF", "date": "2024-08-20", "size": "460 KB", "url": "../resources/Programas/Mat-3420 Matemática Estadística II.pdf", "description": "Programa oficial del curso Matemática Estadística II"},
-                       {"title": "Mat-3430 Matemática Estadística III", "type": "PDF", "date": "2024-08-18", "size": "465 KB", "url": "../resources/Programas/Mat-3430 Matemática Estadística III.pdf", "description": "Programa oficial del curso Matemática Estadística III"},
-                       {"title": "Mat-3440 Matemática Estadística IV", "type": "PDF", "date": "2024-08-18", "size": "470 KB", "url": "../resources/Programas/Mat-3440 Matemática Estadística IV.pdf", "description": "Programa oficial del curso Matemática Estadística IV"},
-                       {"title": "Mat-3450 Matemática Estadística V", "type": "PDF", "date": "2024-08-18", "size": "475 KB", "url": "../resources/Programas/Mat-3450 Matemática Estadística V.pdf", "description": "Programa oficial del curso Matemática Estadística V"},
-                       {"title": "Mat-3460 Matemática Estadística VI", "type": "PDF", "date": "2024-08-18", "size": "480 KB", "url": "../resources/Programas/Mat-3460 Matemática Estadística VI.pdf", "description": "Programa oficial del curso Matemática Estadística VI"},
-                       {"title": "Mat-3480 Matemática para Administración", "type": "PDF", "date": "2024-08-15", "size": "440 KB", "url": "../resources/Programas/Mat-3480 Matemática para Administración.pdf", "description": "Programa oficial del curso Matemática para Administración"},
-                       {"title": "Mat-3490 Cálculo Actuarial III", "type": "PDF", "date": "2024-08-15", "size": "485 KB", "url": "../resources/Programas/Mat-3490 Cálculo Actuarial III.pdf", "description": "Programa oficial del curso Cálculo Actuarial III"},
-                       {"title": "Mat-3500 Cálculo y Analítica", "type": "PDF", "date": "2024-08-15", "size": "520 KB", "url": "../resources/Programas/Mat-3500 Cálculo y Analitica.pdf", "description": "Programa oficial del curso Cálculo y Analítica"},
-                       {"title": "Mat-3560 Cálculo I", "type": "PDF", "date": "2024-08-12", "size": "530 KB", "url": "../resources/Programas/Mat-3560 Calculo I.pdf", "description": "Programa oficial del curso Cálculo I"},
-                       {"title": "Mat-3570 Cálculo II", "type": "PDF", "date": "2024-08-12", "size": "535 KB", "url": "../resources/Programas/Mat-3570 Calculo II.pdf", "description": "Programa oficial del curso Cálculo II"},
-                       {"title": "Mat-3600 Ecuaciones Diferenciales", "type": "PDF", "date": "2024-08-12", "size": "545 KB", "url": "../resources/Programas/Mat-3600 Ecuaciones Diferenciales.pdf", "description": "Programa oficial del curso Ecuaciones Diferenciales"},
-                       {"title": "Mat-3620 Ecuaciones Diferenciales Parciales", "type": "PDF", "date": "2024-08-10", "size": "550 KB", "url": "../resources/Programas/Mat-3620 Ecuaciones Diferenciales Parciales.pdf", "description": "Programa oficial del curso Ecuaciones Diferenciales Parciales"},
-                       {"title": "Mat-3650 Análisis Numérico", "type": "PDF", "date": "2024-08-10", "size": "505 KB", "url": "../resources/Programas/Mat-3650 Análisis Numérico.pdf", "description": "Programa oficial del curso Análisis Numérico"},
-                       {"title": "Mat-3700 Cálculo Vectorial y Álgebra Matricial", "type": "PDF", "date": "2024-08-10", "size": "540 KB", "url": "../resources/Programas/Mat-3700 Calculo Vectorial y ALgebra Matricial.pdf", "description": "Programa oficial del curso Cálculo Vectorial y Álgebra Matricial"},
-                       {"title": "Mat-3730 Cálculo Vectorial", "type": "PDF", "date": "2024-08-08", "size": "525 KB", "url": "../resources/Programas/Mat-3730 Calculo Vectorial.pdf", "description": "Programa oficial del curso Cálculo Vectorial"},
-                       {"title": "Mat-3750 Análisis de una Variable Real I", "type": "PDF", "date": "2024-08-08", "size": "515 KB", "url": "../resources/Programas/Mat-3750 Analisis de una Variable Real I.pdf", "description": "Programa oficial del curso Análisis de una Variable Real I"},
-                       {"title": "Mat-3760 Análisis de una Variable Real II", "type": "PDF", "date": "2024-08-08", "size": "520 KB", "url": "../resources/Programas/Mat-3760 Analisis de una Variable Real II.pdf", "description": "Programa oficial del curso Análisis de una Variable Real II"},
-                       {"title": "Mat-3770 Variable Compleja", "type": "PDF", "date": "2024-08-05", "size": "510 KB", "url": "../resources/Programas/Mat-3770 Variable Compleja.pdf", "description": "Programa oficial del curso Variable Compleja"},
-                       {"title": "Mat-3790 Matemáticas Avanzadas", "type": "PDF", "date": "2024-08-05", "size": "555 KB", "url": "../resources/Programas/Mat-3790 Matemáticas Avanzadas.pdf", "description": "Programa oficial del curso Matemáticas Avanzadas"},
-                       {"title": "Mat-3800 Fundamentos de las Matemáticas", "type": "PDF", "date": "2024-08-05", "size": "490 KB", "url": "../resources/Programas/Mat-3800 Fundamentos de las Matemáticas.pdf", "description": "Programa oficial del curso Fundamentos de las Matemáticas"},
-                       {"title": "Mat-3810 Seminario Elemental de las Matemáticas", "type": "PDF", "date": "2024-08-03", "size": "475 KB", "url": "../resources/Programas/Mat-3810 Seminario Elemental de las Matemáticas.pdf", "description": "Programa oficial del curso Seminario Elemental de las Matemáticas"},
-                       {"title": "Mat-3880 Elementos de Álgebra Moderna", "type": "PDF", "date": "2024-08-03", "size": "500 KB", "url": "../resources/Programas/Mat-3880 Elementos de Algebra Moderna.pdf", "description": "Programa oficial del curso Elementos de Álgebra Moderna"},
-                       {"title": "Mat-3920 Matemática Discreta", "type": "PDF", "date": "2024-08-03", "size": "495 KB", "url": "../resources/Programas/Mat-3920 Matemáticas Discreta.pdf", "description": "Programa oficial del curso Matemática Discreta"}
-                     ]'>
-                </div>
             </div>
         </section>
     </main>
@@ -188,31 +288,25 @@
                         <li class="footer__list-item"><a href="./blog/index.html" class="footer__link">Blog</a></li>
                         <li class="footer__list-item"><a href="./programas.html" class="footer__link">Programas</a></li>
                         <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Contacto</a></li>
-                        <li class="footer__list-item"><a href="./aviso-legal.html" class="footer__link">Aviso Legal</a>
-                        </li>
+                        <li class="footer__list-item"><a href="./aviso-legal.html" class="footer__link">Aviso Legal</a></li>
                     </ul>
                 </div>
 
                 <div class="footer__section">
                     <h3 class="footer__section-title">Recursos</h3>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="./matematica-basica.html" class="footer__link">Matemática
-                                Básica</a></li>
+                        <li class="footer__list-item"><a href="./matematica-basica.html" class="footer__link">Matemática Básica</a></li>
                         <li class="footer__list-item"><a href="./calculo-1.html" class="footer__link">Cálculo I</a></li>
-                        <li class="footer__list-item"><a href="./calculo-2.html" class="footer__link">Cálculo II</a>
-                        </li>
-                        <li class="footer__list-item"><a href="./matematica-financiera.html" class="footer__link">Mat.
-                                Financiera</a></li>
+                        <li class="footer__list-item"><a href="./calculo-2.html" class="footer__link">Cálculo II</a></li>
+                        <li class="footer__list-item"><a href="./matematica-financiera.html" class="footer__link">Mat. Financiera</a></li>
                     </ul>
                 </div>
 
                 <div class="footer__section">
                     <h3 class="footer__section-title">Contacto</h3>
                     <ul class="footer__list">
-                        <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Formulario de
-                                Contacto</a></li>
-                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
-                            RD</li>
+                        <li class="footer__list-item"><a href="./contacto.html" class="footer__link">Formulario de Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo, RD</li>
                     </ul>
                 </div>
             </div>
@@ -220,14 +314,10 @@
             <div class="footer__bottom">
                 <p>&copy; <span data-year>2024</span> MATUASD - MATUASD. Todos los derechos reservados.</p>
                 <div class="footer__social">
-                    <a href="#" class="footer__social-link" aria-label="Instagram"><span
-                            style="font-size: 1.5rem;">📷</span></a>
-                    <a href="#" class="footer__social-link" aria-label="YouTube"><span
-                            style="font-size: 1.5rem;">▶️</span></a>
-                    <a href="#" class="footer__social-link" aria-label="LinkedIn"><span
-                            style="font-size: 1.5rem;">💼</span></a>
-                    <a href="mailto:info@MATUASD.edu.do" class="footer__social-link" aria-label="Email"><span
-                            style="font-size: 1.5rem;">✉️</span></a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram"><span style="font-size: 1.5rem;">📷</span></a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube"><span style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" aria-label="LinkedIn"><span style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:info@MATUASD.edu.do" class="footer__social-link" aria-label="Email"><span style="font-size: 1.5rem;">✉️</span></a>
                 </div>
             </div>
         </div>
@@ -237,19 +327,121 @@
     <script src="../js/main.js"></script>
     <script src="../js/resources.js"></script>
     <script>
-        // Inicializar gestor de recursos
-        new ResourcesManager('../resources/Programas/');
+        // Inicializar los dos gestores de recursos
+        new ResourcesManager('../resources/Programas Enfoque Competencias/', 'resources-container-comp', 'search-resources-comp', 'sort-resources-comp', 'btn-view-comp', 'resources-count-comp');
+        new ResourcesManager('../resources/Programas/', 'resources-container-trad', 'search-resources-trad', 'sort-resources-trad', 'btn-view-trad', 'resources-count-trad');
+
+        // Tab switching
+        document.querySelectorAll('.prog-tabs__btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var target = this.dataset.tab;
+                document.querySelectorAll('.prog-tabs__btn').forEach(function(b) {
+                    b.classList.remove('prog-tabs__btn--active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.prog-tab-panel').forEach(function(p) {
+                    p.hidden = true;
+                });
+                this.classList.add('prog-tabs__btn--active');
+                this.setAttribute('aria-selected', 'true');
+                document.getElementById('tab-' + target).hidden = false;
+            });
+        });
     </script>
 
     <style>
-        .btn-view.active {
+        .prog-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 3px solid var(--color-gray-medium);
+        }
+
+        .prog-tabs__btn {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -3px;
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            color: var(--color-gray-dark);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .prog-tabs__btn:hover {
+            color: var(--color-primary);
+            background: var(--color-primary-subtle);
+        }
+
+        .prog-tabs__btn--active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+            background: var(--color-primary-subtle);
+        }
+
+        .prog-tabs__badge {
+            display: inline-block;
+            padding: 2px 8px;
+            background: var(--color-secondary);
+            color: white;
+            font-size: 0.65rem;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+        }
+
+        .prog-tab-panel__info {
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: var(--color-primary-subtle);
+            border-left: 4px solid var(--color-primary);
+            border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+            color: var(--color-primary);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .prog-tab-panel__info--historic {
+            background: var(--color-gray-light);
+            border-left-color: var(--color-gray-dark);
+            color: var(--color-gray-dark);
+        }
+
+        .prog-controls {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg);
+            background: var(--color-gray-light);
+            border-radius: var(--border-radius-md);
+        }
+
+        .btn-view-comp.active,
+        .btn-view-trad.active {
             background: var(--color-primary) !important;
             color: white !important;
         }
 
-        .btn-view:hover {
-            background: var(--color-primary-light) !important;
+        .btn-view-comp:hover,
+        .btn-view-trad:hover {
+            background: var(--color-primary-light, #1a5fa8) !important;
             color: white !important;
+        }
+
+        @media (max-width: 600px) {
+            .prog-tabs__btn {
+                padding: var(--spacing-sm) var(--spacing-md);
+                font-size: var(--font-size-sm);
+            }
         }
     </style>
 </body>

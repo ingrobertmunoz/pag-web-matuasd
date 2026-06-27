@@ -4,18 +4,23 @@
    ============================================== */
 
 class ResourcesManager {
-  constructor(resourcesPath, containerId = 'resources-container') {
+  constructor(resourcesPath, containerId = 'resources-container', searchId, sortId, viewClass, countId) {
     this.resourcesPath = resourcesPath;
+    this.containerId = containerId;
     this.container = document.getElementById(containerId);
     this.resources = [];
     this.filteredResources = [];
-    this.searchInput = document.getElementById('search-resources');
-    this.viewToggle = document.querySelectorAll('[data-view]');
-    // Detectar la vista activa del HTML o usar 'list' por defecto
-    const activeBtn = document.querySelector('[data-view].active');
+    this.searchInput = document.getElementById(searchId || 'search-resources');
+    this.viewToggle = viewClass
+      ? document.querySelectorAll('.' + viewClass)
+      : document.querySelectorAll('[data-view]');
+    const activeBtn = this.viewToggle.length
+      ? Array.from(this.viewToggle).find(b => b.classList.contains('active'))
+      : null;
     this.currentView = activeBtn ? activeBtn.getAttribute('data-view') : 'list';
-    this.sortSelect = document.getElementById('sort-resources');
-    
+    this.sortSelect = document.getElementById(sortId || 'sort-resources');
+    this.countId = countId || 'resources-count';
+
     this.init();
   }
 
@@ -112,7 +117,7 @@ class ResourcesManager {
     `;
 
     // Actualizar contador
-    const counter = document.getElementById('resources-count');
+    const counter = document.getElementById(this.countId);
     if (counter) {
       counter.textContent = `${this.filteredResources.length} recurso${this.filteredResources.length !== 1 ? 's' : ''}`;
     }

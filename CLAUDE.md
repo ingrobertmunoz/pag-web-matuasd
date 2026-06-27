@@ -113,3 +113,8 @@ All UI uses BEM naming. Key shared components:
 ## Deployment
 
 Pushes to `main` automatically deploy via GitHub Pages. The `CNAME` file contains the custom domain. No CI/CD pipeline exists.
+
+## Available Skills (slash commands)
+
+- `/frontend-design` — Create distinctive, production-grade frontend interfaces (websites, landing pages, dashboards, components).
+- `/notebooklm` — Programmatic access to Google NotebookLM: create notebooks, add sources, generate podcasts/videos/quizzes/reports, download results. (Solo disponible en este proyecto).
