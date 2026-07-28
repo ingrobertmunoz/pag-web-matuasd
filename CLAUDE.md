@@ -16,6 +16,21 @@ python -m http.server 8000
 
 No build, lint, or test commands exist — this is a static site.
 
+### Verifying a bulk edit
+There is no test suite, so when a script edits many HTML files at once, confirm the diff touched only what it should:
+
+```bash
+# Debe listar SOLO las líneas que esperabas cambiar
+git diff -U0 -- '*.html' | grep '^[+-]' | grep -v '^[+-][+-]' | grep -viE '<patrón esperado>'
+
+# Integridad estructural: un solo <head> y un solo <title> por archivo
+for f in index.html pages/*.html pages/blog/*.html; do
+  [ "$(grep -c '</head>' "$f")" = 1 ] && [ "$(grep -c '<title>' "$f")" = 1 ] || echo "ROTO $f"
+done
+```
+
+Scripts that rewrite HTML must be **idempotent** — running twice produces no second diff. Verify it; a non-idempotent script is a bug (it usually means the removal regex doesn't fully match what the insertion writes).
+
 ## Architecture
 
 ### CSS System
@@ -31,6 +46,12 @@ Fonts: `--font-heading` (DM Serif Display), `--font-body` (Source Sans 3), `--fo
 - `js/navigation.js` — responsive hamburger menu and dropdown logic.
 - `js/main.js` — smooth scroll, back-to-top button, lazy loading, scroll animations.
 - `js/resources.js` — reads `data-resources` JSON attribute from `#resources-container` and dynamically renders downloadable resource cards with search/filter.
+
+### Asset naming
+Name every file in `img/` and `pages/img/` in lowercase `kebab-case`, ASCII only — no spaces, no accents (`analisis-real.png`, not `info Analisis Real.png`). Spaces and accents must be percent-encoded in any absolute URL; unencoded, social scrapers and some CDNs fail to fetch the file and the preview silently falls back to the logo. Several legacy filenames still violate this and are handled by encoding at generation time.
+
+### Tooling
+`tools/` holds maintenance scripts. They are the only "build" the project has — everything else is hand-authored. Run them from the repo root. See "Social sharing previews" for what they do.
 
 ### Path conventions
 - From `index.html` (root): use `./pages/...`, `./css/...`, `./img/...`
@@ -69,18 +90,7 @@ Follow the pattern in `Ejemplo Prompt Nueva Entrada.md`:
       </div>
   </section>
   ```
-- Add Open Graph meta tags with absolute URLs for social sharing:
-  ```html
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Article Title - Blog MATUASD">
-  <meta property="og:description" content="Short description">
-  <meta property="og:image" content="https://www.matuasd.com/pages/img/cover.png">
-  <meta property="og:url" content="https://www.matuasd.com/pages/blog/slug.html">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Article Title - Blog MATUASD">
-  <meta name="twitter:description" content="Short description">
-  <meta name="twitter:image" content="https://www.matuasd.com/pages/img/cover.png">
-  ```
+- Do **not** hand-write Open Graph tags — they are generated. See "Social sharing previews" below.
 
 ### Adding downloadable resources
 In the subject page (`pages/calculo-1.html`, etc.), update the `data-resources` JSON on `#resources-container`:
@@ -98,6 +108,35 @@ In the subject page (`pages/calculo-1.html`, etc.), update the `data-resources` 
 </div>
 ```
 Supported types: `PDF`, `PPT`, `PPTX`, `DOC`, `DOCX`, `XLS`, `XLSX`, `ZIP`, `MP4`.
+
+## Social sharing previews (Open Graph)
+
+Social platforms only read `<meta property="og:*">` from the `<head>`. A page without them falls back to the header logo, which is why every link used to preview as the logo. These tags are **generated, never hand-written**.
+
+Two scripts own this, and both are idempotent — safe to re-run:
+
+```bash
+python3 tools/generate-og-images.py     # crea las imágenes sociales faltantes
+python3 tools/sync-og-tags.py --check   # reporta qué falta, sin escribir
+python3 tools/sync-og-tags.py           # aplica las etiquetas
+```
+
+**`tools/generate-og-images.py`** renders `tools/og/template.html` with headless Chrome into branded 1200×630 PNGs in `pages/img/og/`. Pages that have no cover image of their own get one here. Add a `slug: (eyebrow, título, subtítulo, motivo)` entry to the `PAGES` dict, then run it. Use `--force` to regenerate, `--only <slug>` for one.
+
+**`tools/sync-og-tags.py`** rewrites the `og:`/`twitter:` block in every page, taking `<title>` and `<meta name="description">` as the source of truth. It picks the image in this order:
+1. the page's existing `og:image`, if it isn't the logo;
+2. `pages/img/og/<slug>.png` (the branded image);
+3. the first real `<img>` in the body.
+
+It always emits **absolute, URL-encoded** URLs — filenames with spaces or accents (`info Analisis Real.png`) break scrapers unless encoded as `%20`.
+
+### Workflow when adding any new page
+1. Write the page with a good `<title>` and `<meta name="description">` — these become the preview text.
+2. If it has no cover image, add its slug to `PAGES` in `generate-og-images.py` and run it.
+3. Run `python3 tools/sync-og-tags.py`.
+
+### After deploying
+Facebook and WhatsApp cache previews aggressively. Refresh each changed URL in the [Sharing Debugger](https://developers.facebook.com/tools/debug/) or the old preview persists.
 
 ## Component conventions (BEM)
 
