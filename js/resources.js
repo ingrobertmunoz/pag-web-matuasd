@@ -4,8 +4,15 @@
    ============================================== */
 
 class ResourcesManager {
-  constructor(resourcesPath, containerId = 'resources-container', searchId, sortId, viewClass, countId) {
+  constructor(resourcesPath, containerId = 'resources-container', searchId, sortId, viewClass, countId, options = {}) {
     this.resourcesPath = resourcesPath;
+    // Agrupación opcional: si se pasa options.groupBy los recursos se pintan
+    // en acordeones por ese campo, con chips de filtro en options.chipsId.
+    this.groupBy = options.groupBy || null;
+    this.chipsContainer = options.chipsId ? document.getElementById(options.chipsId) : null;
+    this.activeGroup = null;
+    this.query = '';
+    this.openGroups = new Set();
     this.containerId = containerId;
     this.container = document.getElementById(containerId);
     this.resources = [];
@@ -55,6 +62,7 @@ class ResourcesManager {
         try {
           this.resources = JSON.parse(resourcesData);
           this.filteredResources = [...this.resources];
+          this.renderChips();
           this.renderResources();
         } catch (e) {
           console.error('Error parsing resources:', e);
@@ -105,22 +113,117 @@ class ResourcesManager {
           <p>Intenta con otros términos de búsqueda.</p>
         </div>
       `;
+      this.updateCount();
       return;
     }
 
     const viewClass = this.currentView === 'grid' ? 'grid grid--3' : 'resources-list';
-    
-    this.container.innerHTML = `
-      <div class="${viewClass}">
-        ${this.filteredResources.map(resource => this.createResourceCard(resource)).join('')}
-      </div>
-    `;
 
-    // Actualizar contador
+    if (this.groupBy) {
+      this.container.innerHTML = this.groupNames().map(name => {
+        const items = this.filteredResources.filter(r => r[this.groupBy] === name);
+        // Al buscar, se abren solos los grupos con coincidencias.
+        const open = this.query ? true : this.openGroups.has(name);
+        return `
+          <section class="res-group${open ? ' res-group--open' : ''}" data-group="${name}">
+            <button class="res-group__head" type="button" aria-expanded="${open}">
+              <span class="res-group__arrow" aria-hidden="true">▸</span>
+              <span class="res-group__name">Cátedra ${name}</span>
+              <span class="res-group__count">${items.length}</span>
+            </button>
+            <div class="res-group__body" ${open ? '' : 'hidden'}>
+              <div class="${viewClass}">
+                ${items.map(r => this.createResourceCard(r)).join('')}
+              </div>
+            </div>
+          </section>
+        `;
+      }).join('');
+      this.setupGroupToggles();
+    } else {
+      this.container.innerHTML = `
+        <div class="${viewClass}">
+          ${this.filteredResources.map(resource => this.createResourceCard(resource)).join('')}
+        </div>
+      `;
+    }
+
+    this.updateCount();
+  }
+
+  updateCount() {
     const counter = document.getElementById(this.countId);
     if (counter) {
-      counter.textContent = `${this.filteredResources.length} recurso${this.filteredResources.length !== 1 ? 's' : ''}`;
+      const n = this.filteredResources.length;
+      counter.textContent = `${n} recurso${n !== 1 ? 's' : ''}`;
     }
+  }
+
+  // Nombres de grupo presentes en los resultados, en el orden del JSON.
+  groupNames() {
+    const seen = [];
+    this.filteredResources.forEach(r => {
+      const name = r[this.groupBy];
+      if (name && !seen.includes(name)) seen.push(name);
+    });
+    return seen;
+  }
+
+  setupGroupToggles() {
+    this.container.querySelectorAll('.res-group__head').forEach(head => {
+      head.addEventListener('click', () => {
+        const group = head.closest('.res-group');
+        const name = group.dataset.group;
+        const open = !group.classList.contains('res-group--open');
+        group.classList.toggle('res-group--open', open);
+        group.querySelector('.res-group__body').hidden = !open;
+        head.setAttribute('aria-expanded', String(open));
+        if (open) this.openGroups.add(name); else this.openGroups.delete(name);
+      });
+    });
+  }
+
+  renderChips() {
+    if (!this.chipsContainer || !this.groupBy) return;
+
+    const counts = new Map();
+    this.resources.forEach(r => {
+      const name = r[this.groupBy];
+      if (name) counts.set(name, (counts.get(name) || 0) + 1);
+    });
+
+    const chip = (name, label, count) =>
+      `<button type="button" class="res-chip${this.activeGroup === name ? ' res-chip--active' : ''}"
+        data-group="${name === null ? '' : name}">${label}<span class="res-chip__count">${count}</span></button>`;
+
+    this.chipsContainer.innerHTML =
+      chip(null, 'Todas', this.resources.length) +
+      Array.from(counts, ([name, count]) => chip(name, name, count)).join('');
+
+    this.chipsContainer.querySelectorAll('.res-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        this.activeGroup = btn.dataset.group || null;
+        // Al elegir una cátedra concreta se abre para no dejarla plegada.
+        if (this.activeGroup) this.openGroups.add(this.activeGroup);
+        this.renderChips();
+        this.applyFilters();
+      });
+    });
+  }
+
+  // Combina el texto del buscador con el chip de cátedra activo.
+  applyFilters() {
+    const query = this.query;
+    this.filteredResources = this.resources.filter(resource => {
+      if (this.activeGroup && resource[this.groupBy] !== this.activeGroup) return false;
+      if (!query) return true;
+      return resource.title.toLowerCase().includes(query) ||
+        (resource.description && resource.description.toLowerCase().includes(query)) ||
+        (resource.catedra && resource.catedra.toLowerCase().includes(query)) ||
+        (resource.catedraCode && resource.catedraCode.toLowerCase().includes(query)) ||
+        resource.type.toLowerCase().includes(query);
+    });
+    this.renderResources();
   }
 
   createResourceCard(resource) {
@@ -199,19 +302,8 @@ class ResourcesManager {
     if (!this.searchInput) return;
 
     this.searchInput.addEventListener('input', Utils.debounce((e) => {
-      const query = e.target.value.toLowerCase().trim();
-      
-      if (query === '') {
-        this.filteredResources = [...this.resources];
-      } else {
-        this.filteredResources = this.resources.filter(resource => 
-          resource.title.toLowerCase().includes(query) ||
-          (resource.description && resource.description.toLowerCase().includes(query)) ||
-          resource.type.toLowerCase().includes(query)
-        );
-      }
-
-      this.renderResources();
+      this.query = e.target.value.toLowerCase().trim();
+      this.applyFilters();
     }, 300));
   }
 
@@ -307,6 +399,99 @@ const listViewStyles = `
 
   .resource-item-list__actions {
     flex-shrink: 0;
+  }
+
+  /* Agrupación por cátedra (acordeones + chips) */
+  .res-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .res-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-white);
+    border: 2px solid var(--color-gray-medium);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-dark);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .res-chip:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .res-chip--active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .res-chip__count {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    opacity: 0.75;
+  }
+
+  .res-group {
+    border: 2px solid var(--color-gray-medium);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    overflow: hidden;
+  }
+
+  .res-group__head {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-primary-subtle);
+    border: none;
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: left;
+    cursor: pointer;
+    transition: background var(--transition-base);
+  }
+
+  .res-group__head:hover {
+    background: var(--color-accent-warm);
+  }
+
+  .res-group__arrow {
+    transition: transform var(--transition-base);
+  }
+
+  .res-group--open .res-group__arrow {
+    transform: rotate(90deg);
+  }
+
+  .res-group__name {
+    flex-grow: 1;
+  }
+
+  .res-group__count {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 999px;
+  }
+
+  .res-group__body {
+    padding: var(--spacing-lg);
   }
 
   .resource-card__icon {
