@@ -100,6 +100,16 @@
     "catedraCode": "MAT-AC"
   },
   {
+    "title": "Mat-3920 Matemáticas Discreta",
+    "type": "PDF",
+    "date": "2024-08-03",
+    "size": "360 KB",
+    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-3920%20Matem%C3%A1ticas%20Discreta.pdf",
+    "description": "Programa oficial · Análisis Matemático I",
+    "catedra": "Análisis Matemático I",
+    "catedraCode": "MAT-AC"
+  },
+  {
     "title": "Mat-155 Calculo III",
     "type": "PDF",
     "date": "2024-01-01",
@@ -145,6 +155,16 @@
     "date": "2024-08-12",
     "size": "121 KB",
     "url": "../resources/Programas/3.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20II%20%28MAT-AD%29/Mat-3570%20Calculo%20II.pdf",
+    "description": "Programa oficial · Análisis Matemático II",
+    "catedra": "Análisis Matemático II",
+    "catedraCode": "MAT-AD"
+  },
+  {
+    "title": "Mat-3650 Análisis Numérico",
+    "type": "PDF",
+    "date": "2024-08-10",
+    "size": "267 KB",
+    "url": "../resources/Programas/3.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20II%20%28MAT-AD%29/Mat-3650%20An%C3%A1lisis%20Num%C3%A9rico.pdf",
     "description": "Programa oficial · Análisis Matemático II",
     "catedra": "Análisis Matemático II",
     "catedraCode": "MAT-AD"
@@ -330,26 +350,6 @@
     "catedraCode": "MAT-AB"
   },
   {
-    "title": "Mat-3920 Matemáticas Discreta",
-    "type": "PDF",
-    "date": "2024-08-03",
-    "size": "360 KB",
-    "url": "../resources/Programas/4.%20C%C3%A1tedra%20Matem%C3%A1tica%20Moderna%20%28MAT-AB%29/Mat-3920%20Matem%C3%A1ticas%20Discreta.pdf",
-    "description": "Programa oficial · Matemática Moderna",
-    "catedra": "Matemática Moderna",
-    "catedraCode": "MAT-AB"
-  },
-  {
-    "title": "Mat-3940 Investigación de Operaciones",
-    "type": "PDF",
-    "date": "2026-09-01",
-    "size": "858 KB",
-    "url": "../resources/Programas/4.%20C%C3%A1tedra%20Matem%C3%A1tica%20Moderna%20%28MAT-AB%29/Mat-3940%20Investigaci%C3%B3n%20de%20Operaciones.pdf",
-    "description": "Programa oficial · Matemática Moderna",
-    "catedra": "Matemática Moderna",
-    "catedraCode": "MAT-AB"
-  },
-  {
     "title": "Mat-2300 Algebra Superior",
     "type": "PDF",
     "date": "2024-08-28",
@@ -510,6 +510,16 @@
     "catedraCode": "MAT-AF"
   },
   {
+    "title": "Mat-3940 Investigación de Operaciones",
+    "type": "PDF",
+    "date": "2026-09-01",
+    "size": "858 KB",
+    "url": "../resources/Programas/6.%20C%C3%A1tedra%20Matem%C3%A1tica%20para%20Financieros%20y%20Economistas%20%28MAT-AF%29/Mat-3940%20Investigaci%C3%B3n%20de%20Operaciones.pdf",
+    "description": "Programa oficial · Mat. Financieros y Economistas",
+    "catedra": "Mat. Financieros y Economistas",
+    "catedraCode": "MAT-AF"
+  },
+  {
     "title": "Mat-3600 Ecuaciones Diferenciales",
     "type": "PDF",
     "date": "2024-08-12",
@@ -525,16 +535,6 @@
     "date": "2024-08-10",
     "size": "281 KB",
     "url": "../resources/Programas/7.%20C%C3%A1tedra%20Ecuaciones%20Diferenciales%20%28MAT-AH%29/Mat-3620%20Ecuaciones%20Diferenciales%20Parciales.pdf",
-    "description": "Programa oficial · Ecuaciones Diferenciales",
-    "catedra": "Ecuaciones Diferenciales",
-    "catedraCode": "MAT-AH"
-  },
-  {
-    "title": "Mat-3650 Análisis Numérico",
-    "type": "PDF",
-    "date": "2024-08-10",
-    "size": "267 KB",
-    "url": "../resources/Programas/7.%20C%C3%A1tedra%20Ecuaciones%20Diferenciales%20%28MAT-AH%29/Mat-3650%20An%C3%A1lisis%20Num%C3%A9rico.pdf",
     "description": "Programa oficial · Ecuaciones Diferenciales",
     "catedra": "Ecuaciones Diferenciales",
     "catedraCode": "MAT-AH"

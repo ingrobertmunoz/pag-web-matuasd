@@ -56,8 +56,10 @@ OVERRIDES = {
     "3570": "AD",
     # No traen campo "Cátedra:" o dicen una cátedra sin carpeta propia.
     "3710": "AI",  # Métodos Matemáticos para Ingenieros (sin campo Cátedra)
-    "3920": "AB",  # el PDF dice "Matemáticas Aplicadas"
-    "3940": "AB",  # el PDF dice "Matemáticas Aplicadas"
+    "3920": "AC",  # el PDF dice "Matemáticas Aplicadas"; ubicación indicada por la Escuela
+    "3940": "AF",  # el PDF dice "Matemáticas Aplicadas"; ubicación indicada por la Escuela
+    # El PDF dice "Ecuaciones Diferenciales", pero la Escuela lo ubica en Análisis II.
+    "3650": "AD",
     # Escaneados sin capa de texto (cátedra leída de la imagen).
     "255": "AC",
     "2500": "AC",
