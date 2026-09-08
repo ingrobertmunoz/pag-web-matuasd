@@ -122,6 +122,7 @@ class ResourcesManager {
     if (this.groupBy) {
       this.container.innerHTML = this.groupNames().map(name => {
         const items = this.filteredResources.filter(r => r[this.groupBy] === name);
+        const code = (items[0] && items[0].catedraCode) || '';
         // Al buscar, se abren solos los grupos con coincidencias.
         const open = this.query ? true : this.openGroups.has(name);
         return `
@@ -129,6 +130,7 @@ class ResourcesManager {
             <button class="res-group__head" type="button" aria-expanded="${open}">
               <span class="res-group__arrow" aria-hidden="true">▸</span>
               <span class="res-group__name">Cátedra ${name}</span>
+              ${code ? `<span class="res-group__code">${code}</span>` : ''}
               <span class="res-group__count">${items.length}</span>
             </button>
             <div class="res-group__body" ${open ? '' : 'hidden'}>
@@ -187,14 +189,17 @@ class ResourcesManager {
     if (!this.chipsContainer || !this.groupBy) return;
 
     const counts = new Map();
+    const codes = new Map();
     this.resources.forEach(r => {
       const name = r[this.groupBy];
-      if (name) counts.set(name, (counts.get(name) || 0) + 1);
+      if (!name) return;
+      counts.set(name, (counts.get(name) || 0) + 1);
+      if (r.catedraCode) codes.set(name, r.catedraCode);
     });
 
     const chip = (name, label, count) =>
       `<button type="button" class="res-chip${this.activeGroup === name ? ' res-chip--active' : ''}"
-        data-group="${name === null ? '' : name}">${label}<span class="res-chip__count">${count}</span></button>`;
+        data-group="${name === null ? '' : name}">${label}${codes.has(name) ? `<span class="res-chip__code">${codes.get(name)}</span>` : ''}<span class="res-chip__count">${count}</span></button>`;
 
     this.chipsContainer.innerHTML =
       chip(null, 'Todas', this.resources.length) +
@@ -439,6 +444,23 @@ const listViewStyles = `
     font-family: var(--font-mono);
     font-size: 0.7rem;
     opacity: 0.75;
+  }
+
+  .res-chip__code {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    opacity: 0.6;
+  }
+
+  .res-group__code {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    opacity: 0.7;
   }
 
   .res-group {
