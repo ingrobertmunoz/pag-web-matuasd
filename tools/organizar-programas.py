@@ -124,6 +124,11 @@ def titulo(nombre: str) -> str:
     return t
 
 
+def codigo_de_carpeta(pdf: Path) -> str:
+    """Código de cátedra según la carpeta que contiene al PDF, o ''."""
+    return next((c for c, n in CARPETAS.items() if pdf.parent.name == n), "")
+
+
 def pdfs_actuales() -> list[Path]:
     """Todos los PDFs, sueltos o ya dentro de una carpeta de cátedra."""
     return sorted(
@@ -160,8 +165,13 @@ def fechas_actuales() -> dict[str, str]:
 def construir_json(dry_run: bool) -> list[dict]:
     fechas = fechas_actuales()
     recursos = []
-    for pdf in pdfs_actuales():
-        codigo = next((c for c, n in CARPETAS.items() if pdf.parent.name == n), "")
+    # CARPETAS ya está en el orden 1..8 de los prefijos de carpeta; el JSON se
+    # emite en ese mismo orden para que los acordeones de la página coincidan.
+    orden = {c: i for i, c in enumerate(CARPETAS)}
+    for pdf in sorted(pdfs_actuales(),
+                      key=lambda p: (orden.get(codigo_de_carpeta(p), 99),
+                                     len(clave(p.name)), clave(p.name))):
+        codigo = codigo_de_carpeta(pdf)
         if not codigo:
             codigo, _ = clasificar(pdf)
         if not codigo:
