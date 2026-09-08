@@ -58,6 +58,8 @@ Move-Item "Matematica y Tecnologia\notebooks\*.ipynb" "resources\Matematica-y-Te
 Move-Item "Programas Matemáticas\*.pdf" "resources\Programas\"
 ```
 
+> Los PDFs no se quedan sueltos ahí: `resources/Programas/` está dividido en ocho subcarpetas por cátedra. Después de moverlos ejecuta `python3 tools/organizar-programas.py`, que los reparte y regenera el JSON de `pages/programas.html`. Ver CLAUDE.md, sección "Programas de estudio".
+
 ---
 
 ## 🗂️ Paso 2: Limpiar Carpetas Antiguas

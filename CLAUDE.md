@@ -45,13 +45,13 @@ Fonts: `--font-heading` (DM Serif Display), `--font-body` (Source Sans 3), `--fo
 ### JavaScript
 - `js/navigation.js` — responsive hamburger menu and dropdown logic.
 - `js/main.js` — smooth scroll, back-to-top button, lazy loading, scroll animations.
-- `js/resources.js` — reads `data-resources` JSON attribute from `#resources-container` and dynamically renders downloadable resource cards with search/filter.
+- `js/resources.js` — reads `data-resources` JSON attribute from `#resources-container` and dynamically renders downloadable resource cards with search/filter. Its constructor takes an optional 7th argument `{ groupBy, chipsId }`; only `pages/programas.html` passes it (see "Programas de estudio"). Without it the behaviour is a flat list, which is what every subject page uses.
 
 ### Asset naming
 Name every file in `img/` and `pages/img/` in lowercase `kebab-case`, ASCII only — no spaces, no accents (`analisis-real.png`, not `info Analisis Real.png`). Spaces and accents must be percent-encoded in any absolute URL; unencoded, social scrapers and some CDNs fail to fetch the file and the preview silently falls back to the logo. Several legacy filenames still violate this and are handled by encoding at generation time.
 
 ### Tooling
-`tools/` holds maintenance scripts. They are the only "build" the project has — everything else is hand-authored. Run them from the repo root. See "Social sharing previews" for what they do.
+`tools/` holds maintenance scripts. They are the only "build" the project has — everything else is hand-authored. Run them from the repo root. All of them are idempotent. See "Social sharing previews" and "Programas de estudio" for what they do.
 
 ### Path conventions
 - From `index.html` (root): use `./pages/...`, `./css/...`, `./img/...`
@@ -108,6 +108,41 @@ In the subject page (`pages/calculo-1.html`, etc.), update the `data-resources` 
 </div>
 ```
 Supported types: `PDF`, `PPT`, `PPTX`, `DOC`, `DOCX`, `XLS`, `XLSX`, `ZIP`, `MP4`.
+
+## Programas de estudio
+
+`resources/Programas/` is **not** a flat folder: the 62 PDFs live in eight subfolders, one per cátedra of the Escuela, numbered so the on-disk order matches what the page shows:
+
+```
+resources/Programas/
+├── 1. Cátedra Matemática Básica (MAT-AA)/
+├── 2. Cátedra Análisis Matemático I (MAT-AC)/
+├── 3. Cátedra Análisis Matemático II (MAT-AD)/
+├── 4. Cátedra Matemática Moderna (MAT-AB)/
+├── 5. Cátedra Álgebra (MAT-AE)/
+├── 6. Cátedra Matemática para Financieros y Economistas (MAT-AF)/
+├── 7. Cátedra Ecuaciones Diferenciales (MAT-AH)/
+└── 8. Cátedra Matemática Avanzada (MAT-AI)/
+```
+
+Note the numeric prefix and the cátedra code do not run in step (folder 4 is MAT-AB) — that is intentional, the numbers are the Escuela's display order.
+
+`pages/programas.html` renders them grouped: one collapsible accordion per cátedra plus a row of filter chips, driven by a single search box that also matches cátedra name and code. This comes from the `catedra` / `catedraCode` fields in the JSON and the `{ groupBy: 'catedra', chipsId: 'chips-trad' }` option passed to `ResourcesManager`.
+
+### tools/organizar-programas.py
+
+Never sort these PDFs or write that JSON by hand:
+
+```bash
+python3 tools/organizar-programas.py --dry-run   # qué movería, sin tocar nada
+python3 tools/organizar-programas.py             # mueve y regenera tools/programas.json
+```
+
+It reads the "Cátedra:" field from page 1 of each PDF (via `pdftotext -layout`), `git mv`s the file into the matching folder, and regenerates `tools/programas.json` — ordered by folder number, then by clave. Paste that JSON into the `data-resources` attribute of `#resources-container-trad`.
+
+**Moving a program to another cátedra is a two-step change.** Moving the file is not enough: the script reads the PDF, so the next run would move it back. Add its clave to the `OVERRIDES` dict with a comment saying why. Cases already there: scanned PDFs with no text layer, `Mat-3570` (its PDF says just "Análisis Matemático", no ordinal), and three programs the Escuela placed outside the cátedra their PDF declares.
+
+Adding a new program: drop the PDF in `resources/Programas/` named `Mat-XXXX Nombre de la Asignatura.pdf`, run the script, and paste the regenerated JSON into the page.
 
 ## Social sharing previews (Open Graph)
 

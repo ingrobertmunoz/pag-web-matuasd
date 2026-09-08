@@ -110,6 +110,8 @@ Los recursos deben:
    ```
 4. Crea un **Pull Request**
 
+> **Si el recurso es un programa de estudio**, no edites el JSON a mano: `resources/Programas/` está organizado en ocho subcarpetas por cátedra y la metadata se genera. Nombra el PDF `Mat-XXXX Nombre de la Asignatura.pdf`, déjalo en `resources/Programas/`, ejecuta `python3 tools/organizar-programas.py` y pega el `tools/programas.json` resultante en `pages/programas.html`.
+
 ---
 
 ## 🔧 Contribuir con Código

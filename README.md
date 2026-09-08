@@ -67,7 +67,7 @@ MATUASD/
 │   ├── acerca.html                # Acerca de nosotros
 │   └── contacto.html              # Página de contacto
 ├── resources/
-│   ├── Programas/                 # Programas de estudio (PDFs)
+│   ├── Programas/                 # Programas de estudio (PDFs), en 8 subcarpetas por cátedra
 │   ├── Matematica-Basica/         # Materiales de Matemática Básica
 │   ├── Calculo-I/                 # Materiales de Cálculo I
 │   ├── Calculo-II/                # Materiales de Cálculo II
@@ -193,6 +193,8 @@ Si deseas usar un dominio personalizado:
    ```
 
 3. Los tipos de archivo soportados: `PDF`, `PPT`, `PPTX`, `DOC`, `DOCX`, `XLS`, `XLSX`, `ZIP`, `MP4`, etc.
+
+> **Excepción: los programas de estudio.** `resources/Programas/` está dividido en ocho subcarpetas por cátedra y su `data-resources` se genera, no se escribe a mano. Coloca el PDF nombrado `Mat-XXXX Nombre de la Asignatura.pdf`, ejecuta `python3 tools/organizar-programas.py` (él lo mueve a la carpeta de su cátedra leyéndola del propio PDF y regenera `tools/programas.json`) y pega ese JSON en `pages/programas.html`.
 
 ### Agregar Nuevas Entradas al Blog
 
