@@ -100,6 +100,12 @@ PAGES = {
         "π",
     ),
     # Artículos del blog que no tienen portada propia
+    "desempeno-analitico-laboratorios": (
+        "Investigación UASD",
+        "Desempeño analítico en 37 laboratorios",
+        "Química clínica frente a los criterios de CLIA.",
+        "σ",
+    ),
     "geometria-no-euclidiana": (
         "Artículo",
         "Geometría No Euclidiana",
