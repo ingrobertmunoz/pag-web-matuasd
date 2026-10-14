@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Presentación interactiva sobre el proyecto FONDOCYT-UASD que usa drones multiespectrales e IA para detectar enfermedades foliares en arroz y musáceas, y sobre la matemática detrás de una red convolucional.">
+    <title>IA y drones en arroz y musáceas: explorando la matemática - Blog MATUASD</title>
+    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MATUASD">
+    <meta property="og:locale" content="es_DO">
+    <meta property="og:title" content="IA y drones en arroz y musáceas: explorando la matemática - Blog MATUASD">
+    <meta property="og:description" content="Presentación interactiva sobre el proyecto FONDOCYT-UASD que usa drones multiespectrales e IA para detectar enfermedades foliares en arroz y musáceas, y sobre la matemática detrás de una red convolucional.">
+    <meta property="og:image" content="https://www.matuasd.com/pages/img/presentacion-drones-ia.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="IA y drones en arroz y musáceas: explorando la matemática - Blog MATUASD">
+    <meta property="og:url" content="https://www.matuasd.com/pages/blog/ia-drones-arroz-musaceas.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IA y drones en arroz y musáceas: explorando la matemática - Blog MATUASD">
+    <meta name="twitter:description" content="Presentación interactiva sobre el proyecto FONDOCYT-UASD que usa drones multiespectrales e IA para detectar enfermedades foliares en arroz y musáceas, y sobre la matemática detrás de una red convolucional.">
+    <meta name="twitter:image" content="https://www.matuasd.com/pages/img/presentacion-drones-ia.jpg">
+    <meta name="twitter:image:alt" content="IA y drones en arroz y musáceas: explorando la matemática - Blog MATUASD">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <img src="../../img/logo.png" alt="Logo MATUASD" class="header__logo-img">
+                <span class="header__logo-text">MATUASD</span>
+            </a>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation">
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span
+                        class="nav__toggle-line"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="../programas.html" class="nav__link">Programas</a></li>
+                    <li class="nav__item nav__item--dropdown">
+                        <button class="nav__link nav__dropdown-toggle" aria-expanded="false">
+                            Clases <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <ul class="nav__dropdown">
+                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a>
+                            </li>
+                            <li><a href="../calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
+                            <li><a href="../calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
+                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
+                    <li class="nav__item"><a href="../monibot014.html" class="nav__link">Monibot014</a></li>
+                    <li class="nav__item"><a href="../contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-height);">
+        <div class="container" style="padding-top: var(--spacing-lg);">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a href="../../index.html" class="breadcrumb__link">Inicio</a></li>
+                <li class="breadcrumb__item"><a href="./index.html" class="breadcrumb__link">Blog</a></li>
+                <li class="breadcrumb__item">IA y drones en arroz y musáceas</li>
+            </ul>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+                    <header style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                        <div class="article-meta"
+                            style="display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap; margin-bottom: var(--spacing-lg);">
+                            <span style="color: var(--color-gray-dark);">📅 14 de octubre, 2026</span>
+                            <span class="badge badge--secondary">Inteligencia Artificial</span>
+                            <span style="color: var(--color-gray-dark);">Por: Robert Muñoz Rivera</span>
+                        </div>
+
+                        <h1 style="color: var(--color-primary); margin-bottom: var(--spacing-lg);">IA para detectar
+                            enfermedades foliares en arroz y musáceas con drones: explorando la matemática</h1>
+                    </header>
+
+                    <div class="article-content" style="line-height: 1.8; font-size: var(--font-size-lg);">
+                        <figure style="margin: 0 0 var(--spacing-2xl);">
+                            <img src="../img/presentacion-drones-ia.jpg"
+                                alt="Arrozal en Mao, Valverde, fotografiado desde el dron"
+                                style="width: 100%; height: auto; border-radius: var(--border-radius-lg);">
+                        </figure>
+
+                        <p
+                            style="font-size: var(--font-size-xl); color: var(--color-primary); font-weight: 600; margin-bottom: var(--spacing-xl);">
+                            Ya está disponible en línea la presentación de la charla sobre el proyecto FONDOCYT-UASD
+                            que usa drones multiespectrales e inteligencia artificial para detectar enfermedades
+                            foliares en arroz y musáceas, y sobre la matemática que hay dentro de esa «caja negra».
+                        </p>
+
+                        <p>
+                            La charla, impartida en el marco del 488.º aniversario de la UASD, tiene dos mitades. La
+                            primera cuenta qué hacemos en el campo: dos drones (uno que ve y otro que fumiga), las
+                            visitas a los cultivos de Mao, Valverde, y por qué una cámara multiespectral detecta la
+                            enfermedad antes que el ojo. La segunda abre la red neuronal y muestra, con un gato como
+                            ejemplo, que reconocer una imagen se reduce a sumas, multiplicaciones y una derivada.
+                        </p>
+
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Qué vas a encontrar</h2>
+
+                        <ul style="margin-bottom: var(--spacing-lg); padding-left: 1.5rem; list-style: disc;">
+                            <li><strong>El proyecto:</strong> el equipo, los drones, las bandas espectrales y los
+                                índices de vegetación NDVI y NDRE.</li>
+                            <li><strong>Contexto de IA:</strong> del perceptrón a la red profunda y sesenta años de
+                                visión computarizada.</li>
+                            <li><strong>La matemática:</strong> matrices, tensores, convolución, ReLU, max pooling,
+                                softmax, descenso del gradiente y regla de la cadena, con láminas interactivas.</li>
+                            <li><strong>Simulación:</strong> una red convolucional leyendo un dígito y un clasificador
+                                real que puedes ejecutar en Google Colab.</li>
+                            <li><strong>De vuelta al campo:</strong> U-Net para clasificar cada píxel y el paso del
+                                ortomosaico al mapa de fumigación.</li>
+                        </ul>
+
+                        <div
+                            style="padding: var(--spacing-xl); border: 4px solid var(--color-secondary); border-radius: var(--border-radius-lg); margin: var(--spacing-2xl) 0;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">⌨️ Cómo
+                                recorrerla</h3>
+                            <ul style="padding-left: 1.5rem; list-style: disc; margin: 0;">
+                                <li><strong>→ / ←</strong> para avanzar o retroceder.</li>
+                                <li><strong>↓</strong> cuando aparece el aviso ámbar: láminas para profundizar.</li>
+                                <li><strong>M</strong> abre el contenido con todas las láminas.</li>
+                                <li><strong>F</strong> pantalla completa · <strong>Esc</strong> vista general.</li>
+                            </ul>
+                            <p style="margin: var(--spacing-md) 0 0; font-size: var(--font-size-base); color: var(--color-gray-dark);">
+                                Se ve mejor en una computadora o tableta en horizontal.
+                            </p>
+                        </div>
+
+                        <div
+                            style="display: flex; gap: var(--spacing-md); flex-wrap: wrap; justify-content: center; margin-top: var(--spacing-xl);">
+                            <a href="./presentacion-drones-ia/" target="_blank" rel="noopener" class="btn btn--primary">🎞️ Ver la
+                                presentación</a>
+                            <a href="https://colab.research.google.com/drive/10hZZ-MbZgyqJQ25SEEAoP7USCrozW6aZ"
+                                target="_blank" rel="noopener noreferrer" class="btn btn--outline">🧪 Abrir el cuaderno
+                                en Colab</a>
+                        </div>
+                    </div>
+
+                    <footer
+                        style="margin-top: var(--spacing-3xl); padding-top: var(--spacing-xl); border-top: 2px solid var(--color-gray-light);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md);">
+                            <a href="./index.html" class="btn btn--outline">← Volver al Blog</a>
+
+                            <div style="display: flex; gap: var(--spacing-md);">
+                                <span
+                                    style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Compartir:</span>
+                                <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">📷 Instagram</a>
+                                <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">▶️ YouTube</a>
+                                <a href="mailto:matuasdrd@gmail.com"
+                                    style="color: var(--color-secondary); text-decoration: none;">✉️ Email</a>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__section-title">MATUASD</h3>
+                    <p style="color: var(--color-gray-medium); line-height: 1.8;">Portal educativo de MATUASD.</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Enlaces Rápidos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../../index.html" class="footer__link">Inicio</a></li>
+                        <li class="footer__list-item"><a href="./index.html" class="footer__link">Blog</a></li>
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item"><a href="../aviso-legal.html" class="footer__link">Aviso Legal</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Recursos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../matematica-basica.html"
+                                class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="../calculo-1.html" class="footer__link">Cálculo I</a>
+                        </li>
+                        <li class="footer__list-item"><a href="../calculo-2.html" class="footer__link">Cálculo II</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Contacto</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
+                            RD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2024</span> MATUASD. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="Instagram: @matuasdrd"><span
+                            style="font-size: 1.5rem;">📷</span></a>
+                    <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="YouTube: @matuasdrd"><span
+                            style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" title="LinkedIn: Próximamente"><span
+                            style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:matuasdrd@gmail.com" class="footer__social-link"
+                        title="Email: matuasdrd@gmail.com"><span style="font-size: 1.5rem;">✉️</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

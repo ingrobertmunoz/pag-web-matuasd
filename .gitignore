@@ -243,3 +243,7 @@ stats/
 .personal/
 .local/
 
+
+# Archivos de trabajo de la presentación (no se publican)
+pages/blog/presentacion-drones-ia/guion.md
+pages/blog/presentacion-drones-ia/preparar_*.py
