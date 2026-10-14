@@ -246,6 +246,7 @@ stats/
 
 # Archivos de trabajo de la presentación (no se publican)
 pages/blog/presentacion-drones-ia/guion.md
+pages/blog/presentacion-drones-ia/LEEME.md
 pages/blog/presentacion-drones-ia/preparar_*.py
 # KaTeX empaquetado de la presentación: sí se publica (la regla dist/ de arriba lo excluía)
 !pages/blog/presentacion-drones-ia/vendor/katex/dist/
