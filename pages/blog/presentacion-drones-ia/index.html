@@ -18,8 +18,8 @@
   <div class="portada">
     <div>
       <div class="logos">
-        <img src="assets/Uasd.png" alt="Escudo de la Universidad Autónoma de Santo Domingo">
-        <img src="assets/ciencas.jpeg" alt="Logo de la Facultad de Ciencias de la UASD">
+        <img src="assets/logo_uasd.png" alt="Escudo de la Universidad Autónoma de Santo Domingo">
+        <img src="assets/logo_ciencias.png" alt="Logo de la Facultad de Ciencias de la UASD">
         <p><b>Universidad Autónoma de Santo Domingo</b><br>Facultad de Ciencias · Escuela de Matemática</p>
       </div>
       <p class="motivo" id="fecha-evento"></p>
@@ -31,6 +31,7 @@
         <p id="ponente-titulos"></p>
         <p id="ponente-afiliacion"></p>
       </div>
+      <p class="duracion" id="duracion"></p>
     </div>
     <div class="mosaico">
       <img src="assets/campo_arroz_1.jpg" alt="Arrozal visto desde el dron">
@@ -48,6 +49,7 @@
 <section data-bloque="Inicio">
   <span class="bloque">Contenido</span>
   <h2>Lo que veremos hoy</h2>
+  <div class="indice-con-qr">
   <div class="indice">
     <a class="tema fragment" data-ir="El proyecto"><b>El proyecto</b><span>Qué hacemos, el equipo, los dos drones, las visitas a campo, por qué una cámara multiespectral y en qué etapa estamos.</span></a>
     <a class="tema fragment" data-ir="Contexto IA"><b>Contexto IA </b><span>aprendizaje automático y profundo; del perceptrón a la red profunda; la «caja negra»; visión computarizada, sus hitos y otras arquitecturas.</span></a>
@@ -56,8 +58,14 @@
     <a class="tema fragment" data-ir="De vuelta al proyecto"><b>De vuelta al proyecto</b><span>U-Net: clasificar cada píxel. Del ortomosaico al mapa de fumigación.</span></a>
     <a class="tema fragment" data-ir="Cierre"><b>Cierre</b><span>Las cuatro ideas que nos llevamos.</span></a>
   </div>
+  <div class="qr-presentacion">
+    <p class="rotulo">PRESENTACIÓN</p>
+    <div class="qr" id="qr-presentacion"></div>
+    <p class="enlace" id="enlace-presentacion"></p>
+  </div>
+  </div>
   <aside class="notes">
-    Seis clics: cada tema aparece cuando lo anuncias. Decir de palabra que cada tema es un enlace, que el botón «Contenido» (o la tecla M) abre la lista de todas las láminas y que la franja inferior muestra en qué tema vamos. Decir también que la presentación queda en línea y que algunas láminas (las de la flecha hacia abajo) son para revisar en casa.
+    Seis clics: cada tema aparece cuando lo anuncias. Decir de palabra que cada tema es un enlace, que el botón «Contenido» (o la tecla M) abre la lista de todas las láminas y que la franja inferior muestra en qué tema vamos. Invitar a escanear el código QR para seguirla en el teléfono: la presentación queda en línea y que algunas láminas (las de la flecha hacia abajo) son para revisar en casa.
   </aside>
 </section>
 
@@ -557,16 +565,18 @@
   <table class="areas">
     <thead><tr><th>Área</th><th>Dónde interviene</th><th>Lo veremos en</th></tr></thead>
     <tbody>
-      <tr><td><b>Álgebra lineal</b></td><td>Una imagen es una matriz o un tensor. Cada capa multiplica y suma: la convolución es un producto punto repetido.</td><td>Matriz, tensor, convolución</td></tr>
-      <tr><td><b>Cálculo</b></td><td>La derivada dice cómo cambiar cada peso para equivocarse menos. La regla de la cadena la lleva de la salida a la primera capa.</td><td>Gradiente, regla de la cadena</td></tr>
-      <tr><td><b>Probabilidad y estadística</b></td><td>La salida es una distribución de probabilidad, y el error se mide con una idea de la teoría de la información. Generalizar a fotos nuevas es un problema estadístico.</td><td>Softmax, entropía cruzada, curva ROC</td></tr>
-      <tr><td><b>Optimización</b></td><td>Entrenar es minimizar una función de millones de variables, paso a paso.</td><td>Descenso del gradiente, Adam</td></tr>
-      <tr><td><b>Geometría</b></td><td>Unir cientos de fotos en un mapa con coordenadas exige geometría proyectiva.</td><td>Ortomosaico</td></tr>
+      <tr><td><b>Álgebra lineal</b></td><td>Una imagen es una matriz o un tensor. La convolución es un producto punto repetido.</td><td>Matriz, tensor, convolución</td></tr>
+      <tr><td><b>Cálculo</b></td><td>El gradiente dice cómo ajustar cada peso; la regla de la cadena lo lleva por todas las capas. El AUC es una integral.</td><td>Gradiente, regla de la cadena, AUC</td></tr>
+      <tr><td><b>Probabilidad y estadística</b></td><td>La salida es una distribución de probabilidad; el error se mide con entropía cruzada. Generalizar es un problema estadístico.</td><td>Softmax, entropía cruzada, curva ROC</td></tr>
+      <tr><td><b>Optimización</b></td><td>Entrenar es minimizar una función de millones de variables. Elegir hiperparámetros también, pero sin derivadas.</td><td>Descenso del gradiente, Adam,<br>hiperparámetros</td></tr>
+      <tr><td><b>Geometría</b></td><td>Unir cientos de fotos en un mapa exige geometría proyectiva.</td><td>Ortomosaico</td></tr>
     </tbody>
   </table>
  
   <aside class="notes">
     Lista de las áreas de la matemática involucradas y dónde aparece cada una en la charla. Sirve de índice del bloque.
+    AUC: área bajo la curva ROC, una integral entre 0 y 1 que resume el desempeño del clasificador para todos los umbrales a la vez.
+    Hiperparámetros (tasa de aprendizaje, número de capas y filtros, tamaño del lote): elegirlos es un problema de optimización en dos niveles; afuera se minimiza el error de validación, adentro se entrena la red. No hay gradiente útil y cada intento cuesta un entrenamiento completo, por eso se usan búsqueda en rejilla, búsqueda aleatoria u optimización bayesiana. No tiene lámina propia.
     Para el público no matemático: sumas, multiplicaciones y una pendiente. Para el matemático: nada exótico, pero a una escala enorme.
   </aside>
 </section>
@@ -1105,9 +1115,17 @@
   <p class="chico" style="margin-bottom:14px">Dibujas un número del 0 al 9 y ves cómo cada capa de la red lo transforma hasta dar la respuesta. Reconocer dígitos escritos a mano es el ejemplo <strong>clásico</strong> con el que nacieron las redes convolucionales.</p>
   <div class="cols c46 medio">
     <div>
-      <div class="qr" id="qr-explorador" style="width:230px"></div>
-      <p class="enlace" id="enlace-explorador" style="margin-top:10px"></p>
-      <p class="mini suave">CNN Explorer, de moralesangel. Interfaz en inglés; necesita conexión.</p>
+      <div class="qr" id="qr-explorador" style="width:150px"></div>
+      <p class="enlace" id="enlace-explorador" style="margin-top:8px"></p>
+      <p class="mini suave" style="margin:0">CNN Explorer, de moralesangel. Interfaz en inglés; necesita conexión.</p>
+      <div class="datos-mnist">
+        <p class="rotulo">Base de datos: MNIST · <b>70,000</b> imágenes de 28 × 28</p>
+        <div class="reparto" aria-hidden="true">
+          <span class="entreno" style="flex:60000">Entrenamiento</span><span class="prueba" style="flex:10000">Prueba</span>
+        </div>
+        <p class="detalle"><b>60,000</b> para entrenar (85.7 %) · <b>10,000</b> para prueba (14.3 %)</p>
+        <p class="detalle suave">Validación: no aparta un grupo propio; usa el de prueba.</p>
+      </div>
     </div>
     <div>
       <table class="areas pasos">
@@ -1130,6 +1148,7 @@
     Orden sugerido: dibujar un dígito o pulsar «Random MNIST digit»; «Replay forward pass»; clic en un cubo brillante de Conv 1 y «Slide this kernel»; pestaña Kernels; y, si hay tiempo, pestaña Train.
     Arquitectura: Conv (8 filtros de 5×5) → Max pool → Conv (16 filtros de 3×3) → Max pool → capa densa de 64 → softmax de 10 salidas. Son exactamente las piezas del bloque matemático.
     Si no hay conexión, pasar directamente a la demostración siguiente, que tiene capturas de respaldo.
+    Datos: MNIST trae 70,000 dígitos ya repartidos por sus autores, 60,000 de entrenamiento y 10,000 de prueba. El guion de entrenamiento de la aplicación (scripts/train.py) usa esos 10,000 también como validación en cada época, así que el 98.9 % no viene de un grupo totalmente apartado. La práctica recomendada son tres grupos: entrenamiento, validación (para ajustar) y prueba (se mira una sola vez al final), por ejemplo 70/15/15. La pestaña Train del navegador entrena con un subconjunto de 12,000 dígitos.
   </aside>
 </section>
 

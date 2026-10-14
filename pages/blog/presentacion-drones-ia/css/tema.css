@@ -14,7 +14,8 @@
   --mono: "JetBrains Mono", "Fira Code", "DejaVu Sans Mono", Consolas, monospace;
 }
 
-html, body { background: var(--papel); }
+/* .reveal-viewport: reveal.css lo pinta de #fff y taparía el papel */
+html, body, .reveal-viewport { background: var(--papel); }
 
 .reveal {
   font-family: var(--fuente);
@@ -142,9 +143,11 @@ html, body { background: var(--papel); }
 .portada .autores p { margin: 0; }
 .portada .autores .nombre { font-size: 1.3em; font-weight: 800; color: var(--tinta); }
 .portada .logos { display: flex; align-items: center; gap: 16px; margin-bottom: 1.1em; }
-/* multiply hace desaparecer el fondo blanco de los logos sobre el papel de la lámina */
-.portada .logos img { height: 84px; width: auto; margin: 0; display: block; mix-blend-mode: multiply; }
+/* Logos con fondo transparente (logo_*.png, recortados de Uasd.png y ciencas.jpeg) */
+.portada .logos img { height: 84px; width: auto; margin: 0; display: block; }
 .portada .logos p { margin: 0 0 0 4px; font-size: 0.52em; line-height: 1.35; color: var(--tinta-suave); }
+.reveal .portada .duracion { display: inline-block; margin: 1em 0 0; font-size: 0.56em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ambar); background: var(--ambar-claro); border: 1.5px solid var(--ambar); border-radius: 999px; padding: 0.3em 1em; }
+.reveal .portada .duracion[hidden] { display: none; }
 .portada .motivo { margin: 0 0 0.9em; font-size: 0.6em; line-height: 1.35; font-weight: 600; font-style: italic; color: var(--verde); text-wrap: balance; }
 .portada .logos p b { color: var(--tinta); font-size: 1.12em; }
 .portada .mosaico { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -402,11 +405,13 @@ html, body { background: var(--papel); }
 /* Los controles viven fuera de la lámina, así que no los escala Reveal: su tamaño sale de --escala,
    que interactivos.js iguala a la escala de la lámina. */
 .reveal .menu-boton { position: absolute; top: 0.7em; right: 1em; z-index: 40; font-family: var(--fuente); font-size: max(11px, calc(14px * var(--escala, 1))); font-weight: 700; color: var(--verde); background: rgba(255, 255, 255, 0.92); border: 1.5px solid var(--verde); border-radius: 999px; padding: 0.42em 0.95em; cursor: pointer; }
+.reveal .menu-boton { line-height: 1; padding: 0.3em 0.62em; font-size: max(14px, calc(20px * var(--escala, 1))); }
+.reveal .cabecera .menu-boton { font-size: 1.4em; }
 .reveal .menu-boton:hover, .reveal .menu-boton.activo { background: var(--verde); color: #fff; }
 .reveal .cabecera { position: absolute; top: 0; right: 0; z-index: 40; display: flex; align-items: center; gap: 1em; padding: 0.7em 1em 0 0; font-size: max(11px, calc(14px * var(--escala, 1))); }
 .reveal .cabecera .menu-boton { position: static; font-size: 1em; }
 .reveal .marca { display: flex; align-items: center; gap: 0.45em; font-family: var(--fuente); font-size: 0.86em; font-weight: 700; letter-spacing: 0.04em; color: var(--tinta-suave); white-space: nowrap; transition: opacity 0.3s; }
-.reveal .marca img { height: 2.3em; width: auto; margin: 0; display: block; mix-blend-mode: multiply; }
+.reveal .marca img { height: 2.3em; width: auto; margin: 0; display: block; }
 .reveal .marca.oculta, .reveal .cabecera.menu-abierto .marca { opacity: 0; }
 .reveal .menu-boton:focus-visible, .reveal .menu-panel button:focus-visible, .reveal .franja-temas button:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
 .reveal .menu-panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(calc(400px * var(--escala-menu, 1)), 88vw); font-size: calc(15px * var(--escala-menu, 1)); z-index: 39; background: #fff; border-left: 1px solid var(--linea); box-shadow: -12px 0 32px rgba(27, 42, 34, 0.18); padding: 3.8em 1.2em 1.6em; overflow-y: auto; box-sizing: border-box; text-align: left; animation: abrir-menu 0.25s ease-out; }
@@ -494,3 +499,21 @@ html.print-pdf .reveal .slides section .fragment, html.reveal-print .reveal .sli
 .reveal figure img, .reveal img.marco { box-sizing: border-box; }
 .recorte.panor img, .recorte.panor .foto-falta { aspect-ratio: 16 / 9; }
 .recorte.panor img { object-fit: cover; }
+
+/* Reparto de la base de datos (lámina "Simulación de una CNN") */
+.datos-mnist { margin-top: 14px; padding: 10px 12px; background: #fff; border: 1px solid var(--linea); border-radius: 10px; }
+.datos-mnist p { margin: 0; line-height: 1.3; }
+.datos-mnist .rotulo { font-size: 0.56em; color: var(--tinta); }
+.datos-mnist .detalle { font-size: 0.5em; margin-top: 6px; }
+.datos-mnist .reparto { display: flex; height: 22px; margin-top: 8px; border-radius: 6px; overflow: hidden; font-size: 0.42em; font-weight: 700; }
+.datos-mnist .reparto span { display: flex; align-items: center; justify-content: center; color: #fff; white-space: nowrap; overflow: hidden; }
+.datos-mnist .reparto .entreno { background: var(--verde); }
+.datos-mnist .reparto .prueba { background: var(--ambar); }
+.datos-mnist b { font-variant-numeric: tabular-nums; }
+
+/* Índice con el QR de la presentación (lámina 2) */
+.indice-con-qr { display: grid; grid-template-columns: 1fr 230px; gap: 22px; align-items: center; }
+.qr-presentacion { text-align: center; }
+.qr-presentacion .rotulo { margin: 0 0 8px; font-size: 0.5em; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--verde); line-height: 1.3; }
+.qr-presentacion .qr { width: 230px; padding: 12px; }
+.qr-presentacion .enlace { margin: 8px 0 0; font-size: 0.4em; line-height: 1.35; }

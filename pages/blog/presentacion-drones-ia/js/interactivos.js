@@ -71,7 +71,8 @@
       "ponente": CFG.ponente,
       "ponente-titulos": (CFG.ponenteTitulos || []).filter(Boolean).join(" · "),
       "ponente-afiliacion": CFG.ponenteAfiliacion,
-      "fecha-evento": CFG.fechaEvento
+      "fecha-evento": CFG.fechaEvento,
+      "duracion": CFG.duracion
     };
     Object.keys(lineas).forEach((id) => {
       if (!$(id)) return;
@@ -95,12 +96,16 @@
     const qr = window.qrcode(0, "M");
     qr.addData(url);
     qr.make();
-    caja.innerHTML = qr.createSvgTag({ cellSize: 6, margin: 1, scalable: true });
+    // El QR también es un enlace: con un clic abre la demostración en una pestaña nueva.
+    caja.innerHTML = `<a href="${url}" target="_blank" rel="noopener" title="Abrir en una pestaña nueva">` +
+      qr.createSvgTag({ cellSize: 6, margin: 1, scalable: true }) + "</a>";
     const enlace = $(idEnlace);
     if (enlace) {
       const a = document.createElement("a");
       a.href = url;
       a.textContent = url.replace(/^https?:\/\//, "");
+      a.target = "_blank";
+      a.rel = "noopener"; // pestaña nueva: la presentación se queda en su lámina
       enlace.appendChild(a);
     }
   }
@@ -989,7 +994,10 @@
     const boton = document.createElement("button");
     boton.type = "button";
     boton.className = "menu-boton";
-    boton.innerHTML = "<span aria-hidden=\"true\">☰</span> Contenido";
+    // Solo el icono; el nombre queda para lectores de pantalla y como globo al pasar el cursor.
+    boton.innerHTML = "<span aria-hidden=\"true\">☰</span>";
+    boton.setAttribute("aria-label", "Contenido");
+    boton.title = "Contenido (M)";
     boton.setAttribute("aria-expanded", "false");
     const panel = document.createElement("aside");
     panel.className = "menu-panel";
@@ -1024,7 +1032,7 @@
     const marca = document.createElement("div");
     marca.className = "marca";
     marca.innerHTML =
-      '<img src="assets/Uasd.png" alt=""><img src="assets/ciencas.jpeg" alt="">' +
+      '<img src="assets/logo_uasd.png" alt=""><img src="assets/logo_ciencias.png" alt="">' +
       "<span>UASD · Facultad de Ciencias</span>";
     cabecera.appendChild(marca);
     cabecera.appendChild(boton);

@@ -6,6 +6,9 @@ window.CONFIG = {
   ponenteAfiliacion: "Facultad de Ciencias · UASD",
 
   // Motivo, evento o fecha de la charla (portada, entre los logos y el título). Deja "" para ocultar.
+  // Duración de la conferencia (portada, bajo los datos del ponente). Deja "" para ocultar.
+  duracion: "Conferencia · 20 minutos",
+
   fechaEvento: "En el marco del 488.º aniversario de la UASD",
 
   // Asistentes de investigación (lámina del equipo). Ejemplo: ["Nombre Apellido", "Nombre Apellido"]
@@ -18,7 +21,7 @@ window.CONFIG = {
   // Aplicación para ver una red convolucional por dentro (primera demostración).
   exploradorUrl: "https://moralesangel.github.io/cnn-explorer/",
 
-  // Enlace público de esta presentación (lámina de cierre). Con "" se muestra un aviso de pendiente.
+  // Enlace público de esta presentación (lámina 2, con su código QR). Con "" se muestra un aviso de pendiente.
   presentacionUrl: "https://www.matuasd.com/pages/blog/presentacion-drones-ia/",
 
   // Aparición gradual por clic (un punto a la vez). Con false, cada lámina se muestra completa
