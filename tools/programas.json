@@ -10,41 +10,21 @@
     "catedraCode": "MAT-AA"
   },
   {
-    "title": "Mat-151 Calculo II",
-    "type": "PDF",
-    "date": "2024-01-01",
-    "size": "329 KB",
-    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-151%20Calculo%20II.pdf",
-    "description": "Programa oficial · Análisis Matemático I",
-    "catedra": "Análisis Matemático I",
-    "catedraCode": "MAT-AC"
-  },
-  {
-    "title": "Mat-255 Geometría Analítica y Cálculo Diferencial e Integral",
-    "type": "PDF",
-    "date": "2024-01-01",
-    "size": "1.5 MB",
-    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-255%20Geometr%C3%ADa%20Anal%C3%ADtica%20y%20C%C3%A1lculo%20Diferencial%20e%20Integral.pdf",
-    "description": "Programa oficial · Análisis Matemático I",
-    "catedra": "Análisis Matemático I",
-    "catedraCode": "MAT-AC"
-  },
-  {
-    "title": "Mat-257 Calculo y Analitica I",
-    "type": "PDF",
-    "date": "2024-01-01",
-    "size": "122 KB",
-    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-257%20Calculo%20y%20Analitica%20I.pdf",
-    "description": "Programa oficial · Análisis Matemático I",
-    "catedra": "Análisis Matemático I",
-    "catedraCode": "MAT-AC"
-  },
-  {
     "title": "Mat-1500 Calculo I",
     "type": "PDF",
     "date": "2026-09-01",
-    "size": "371 KB",
+    "size": "360 KB",
     "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-1500%20Calculo_I.pdf",
+    "description": "Programa oficial · Análisis Matemático I",
+    "catedra": "Análisis Matemático I",
+    "catedraCode": "MAT-AC"
+  },
+  {
+    "title": "Mat-1510 Calculo II",
+    "type": "PDF",
+    "date": "2024-01-01",
+    "size": "329 KB",
+    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-1510%20Calculo%20II.pdf",
     "description": "Programa oficial · Análisis Matemático I",
     "catedra": "Análisis Matemático I",
     "catedraCode": "MAT-AC"
@@ -70,11 +50,31 @@
     "catedraCode": "MAT-AC"
   },
   {
+    "title": "Mat-2550 Geometría Analítica y Cálculo Diferencial e Integral",
+    "type": "PDF",
+    "date": "2024-01-01",
+    "size": "1.5 MB",
+    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-2550%20Geometr%C3%ADa%20Anal%C3%ADtica%20y%20C%C3%A1lculo%20Diferencial%20e%20Integral.pdf",
+    "description": "Programa oficial · Análisis Matemático I",
+    "catedra": "Análisis Matemático I",
+    "catedraCode": "MAT-AC"
+  },
+  {
     "title": "Mat-2570 Calculo Diferencial e Integral",
     "type": "PDF",
     "date": "2026-09-01",
     "size": "170 KB",
     "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-2570%20%20Calculo%20Diferencial%20e%20Integral.pdf",
+    "description": "Programa oficial · Análisis Matemático I",
+    "catedra": "Análisis Matemático I",
+    "catedraCode": "MAT-AC"
+  },
+  {
+    "title": "Mat-2570 Calculo y Analitica I",
+    "type": "PDF",
+    "date": "2024-01-01",
+    "size": "122 KB",
+    "url": "../resources/Programas/2.%20C%C3%A1tedra%20An%C3%A1lisis%20Matem%C3%A1tico%20I%20%28MAT-AC%29/Mat-2570%20Calculo%20y%20Analitica%20I.pdf",
     "description": "Programa oficial · Análisis Matemático I",
     "catedra": "Análisis Matemático I",
     "catedraCode": "MAT-AC"

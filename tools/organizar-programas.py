@@ -61,7 +61,7 @@ OVERRIDES = {
     # El PDF dice "Ecuaciones Diferenciales", pero la Escuela lo ubica en Análisis II.
     "3650": "AD",
     # Escaneados sin capa de texto (cátedra leída de la imagen).
-    "255": "AC",
+    "2550": "AC",
     "2500": "AC",
     "2570": "AC",
     "2580": "AD",
@@ -156,11 +156,16 @@ def mover(pdf: Path, destino: Path, dry_run: bool) -> bool:
 
 
 def fechas_actuales() -> dict[str, str]:
-    """Fechas ya publicadas en programas.html, por clave, para no perderlas."""
+    """Fechas ya publicadas en programas.html, por título y por clave.
+
+    El título va primero: dos programas pueden compartir clave (Mat-2570).
+    La clave queda como respaldo para un archivo recién renombrado.
+    """
     html = (ROOT / "pages" / "programas.html").read_text()
     fechas = {}
-    for m in re.finditer(r'"title":\s*"Mat-(\d+)[^"]*".*?"date":\s*"([\d-]+)"', html):
-        fechas[m.group(1)] = m.group(2)
+    for m in re.finditer(r'"title":\s*"(Mat-(\d+)[^"]*)".*?"date":\s*"([\d-]+)"', html):
+        fechas[m.group(1)] = m.group(3)
+        fechas.setdefault(m.group(2), m.group(3))
     return fechas
 
 
@@ -183,7 +188,7 @@ def construir_json(dry_run: bool) -> list[dict]:
         recursos.append({
             "title": titulo(pdf.name),
             "type": "PDF",
-            "date": fechas.get(clave(pdf.name), "2024-01-01"),
+            "date": fechas.get(titulo(pdf.name), fechas.get(clave(pdf.name), "2024-01-01")),
             "size": f"{size / 1024:.0f} KB" if size < 1024 * 1024 else f"{size / 1024 / 1024:.1f} MB",
             "url": "../resources/Programas/" + quote(rel),
             "description": f"Programa oficial · {NOMBRES[codigo]}",
