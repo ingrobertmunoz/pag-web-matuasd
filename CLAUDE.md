@@ -163,6 +163,8 @@ python3 tools/sync-og-tags.py           # aplica las etiquetas
 2. `pages/img/og/<slug>.png` (the branded image);
 3. the first real `<img>` in the body.
 
+An entry in its `IMAGE_OVERRIDES` dict (site path → image) takes precedence over 2 and 3, for pages that should reuse an existing image — e.g. the presentation `pages/blog/presentacion-drones-ia/` reuses its article's cover. Besides `pages/*.html` and `pages/blog/*.html`, it also covers the self-contained presentations at `pages/blog/<slug>/index.html`.
+
 It always emits **absolute, URL-encoded** URLs — filenames with spaces or accents (`info Analisis Real.png`) break scrapers unless encoded as `%20`.
 
 ### Workflow when adding any new page

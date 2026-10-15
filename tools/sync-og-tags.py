@@ -35,6 +35,12 @@ PLACEHOLDER_IMAGES = {"img/logo.png"}
 # Plantillas y borradores: no son paginas publicadas.
 EXCLUDE = {"pages/blog/plantilla-articulo.html"}
 
+# Paginas que reutilizan una imagen ya existente en vez de una de marca.
+IMAGE_OVERRIDES = {
+    # La presentacion comparte la portada del articulo que la enlaza.
+    "pages/blog/presentacion-drones-ia/index.html": "pages/img/presentacion-drones-ia.jpg",
+}
+
 CONTENT_IMG_RE = re.compile(r'<img[^>]+src=["\'](.*?)["\']', re.I)
 
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.S | re.I)
@@ -162,6 +168,9 @@ def process(page: Path, apply: bool) -> tuple[str, str]:
     if current and current not in PLACEHOLDER_IMAGES and (ROOT / current).exists():
         image_path = current
         origin = "propia"
+    elif rel_to_site(page) in IMAGE_OVERRIDES:
+        image_path = IMAGE_OVERRIDES[rel_to_site(page)]
+        origin = "asignada"
     else:
         image_path = brand_image_for(page)
         origin = "marca"
@@ -194,6 +203,8 @@ def main() -> None:
         [ROOT / "index.html"]
         + list((ROOT / "pages").glob("*.html"))
         + list((ROOT / "pages" / "blog").glob("*.html"))
+        # Presentaciones autocontenidas: pages/blog/<slug>/index.html
+        + list((ROOT / "pages" / "blog").glob("*/index.html"))
     )
 
     changed = 0
