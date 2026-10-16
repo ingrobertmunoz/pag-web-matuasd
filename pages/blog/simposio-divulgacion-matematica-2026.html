@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crónica del Simposio de Divulgación Matemática de la UASD en su 488.º aniversario: diez ponencias, un panel y una idea común: la matemática conecta con la sociedad.">
+    <title>Matemáticas que conectan: crónica del Simposio de Divulgación Matemática UASD 2026 - Blog MATUASD</title>
+    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <style>
+        /* Ponencia: miniatura del flyer + texto */
+        .ponencia {
+            display: flex;
+            gap: var(--spacing-lg);
+            align-items: flex-start;
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            background: var(--color-primary-subtle);
+            border-radius: var(--border-radius-md);
+        }
+
+        .ponencia__flyer {
+            flex: 0 0 120px;
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: zoom-in;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease;
+        }
+
+        .ponencia__flyer:hover,
+        .ponencia__flyer:focus-visible {
+            transform: scale(1.04);
+        }
+
+        .ponencia__flyer img,
+        .galeria__item img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .ponencia__body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ponencia__title {
+            color: var(--color-primary);
+            font-size: var(--font-size-lg);
+            margin: 0 0 var(--spacing-xs);
+            line-height: 1.35;
+        }
+
+        .ponencia__speaker {
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-secondary);
+            margin: 0 0 var(--spacing-sm);
+        }
+
+        .ponencia__body p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 560px) {
+            .ponencia {
+                flex-direction: column;
+            }
+
+            .ponencia__flyer {
+                flex-basis: auto;
+                width: 140px;
+            }
+        }
+
+        .foto {
+            margin: var(--spacing-xl) 0;
+        }
+
+        .foto img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-md);
+        }
+
+        .foto figcaption {
+            margin-top: var(--spacing-sm);
+            color: var(--color-gray-dark);
+            font-size: var(--font-size-sm);
+            font-style: italic;
+        }
+
+        .bloque-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: var(--font-size-sm);
+            color: var(--color-secondary);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-top: var(--spacing-2xl);
+        }
+
+        /* Galería de flyers */
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .galeria__item {
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: zoom-in;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+            transition: transform 0.2s ease;
+        }
+
+        .galeria__item:hover,
+        .galeria__item:focus-visible {
+            transform: scale(1.03);
+        }
+
+        /* Visor a pantalla completa */
+        .visor {
+            max-width: min(92vw, 640px);
+            max-height: 92vh;
+            padding: 0;
+            border: 0;
+            border-radius: var(--border-radius-md);
+            background: transparent;
+            overflow: visible;
+        }
+
+        .visor::backdrop {
+            background: rgba(0, 20, 45, 0.85);
+        }
+
+        .visor img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 86vh;
+            object-fit: contain;
+            border-radius: var(--border-radius-md);
+        }
+
+        .visor__close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 40px;
+            height: 40px;
+            border: 0;
+            border-radius: 50%;
+            background: var(--color-secondary);
+            color: #fff;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="MATUASD">
+    <meta property="og:locale" content="es_DO">
+    <meta property="og:title" content="Matemáticas que conectan: crónica del Simposio de Divulgación Matemática UASD 2026 - Blog MATUASD">
+    <meta property="og:description" content="Crónica del Simposio de Divulgación Matemática de la UASD en su 488.º aniversario: diez ponencias, un panel y una idea común: la matemática conecta con la sociedad.">
+    <meta property="og:image" content="https://www.matuasd.com/pages/img/simposio-2026/panel.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Matemáticas que conectan: crónica del Simposio de Divulgación Matemática UASD 2026 - Blog MATUASD">
+    <meta property="og:url" content="https://www.matuasd.com/pages/blog/simposio-divulgacion-matematica-2026.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matemáticas que conectan: crónica del Simposio de Divulgación Matemática UASD 2026 - Blog MATUASD">
+    <meta name="twitter:description" content="Crónica del Simposio de Divulgación Matemática de la UASD en su 488.º aniversario: diez ponencias, un panel y una idea común: la matemática conecta con la sociedad.">
+    <meta name="twitter:image" content="https://www.matuasd.com/pages/img/simposio-2026/panel.jpg">
+    <meta name="twitter:image:alt" content="Matemáticas que conectan: crónica del Simposio de Divulgación Matemática UASD 2026 - Blog MATUASD">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="../../index.html" class="header__logo">
+                <img src="../../img/logo.png" alt="Logo MATUASD" class="header__logo-img">
+                <span class="header__logo-text">MATUASD</span>
+            </a>
+            <nav class="nav">
+                <button class="nav__toggle" aria-label="Toggle navigation">
+                    <span class="nav__toggle-line"></span><span class="nav__toggle-line"></span><span
+                        class="nav__toggle-line"></span>
+                </button>
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="../../index.html" class="nav__link">Inicio</a></li>
+                    <li class="nav__item"><a href="./index.html" class="nav__link">Blog</a></li>
+                    <li class="nav__item"><a href="../programas.html" class="nav__link">Programas</a></li>
+                    <li class="nav__item nav__item--dropdown">
+                        <button class="nav__link nav__dropdown-toggle" aria-expanded="false">
+                            Clases <span class="dropdown-arrow">▼</span>
+                        </button>
+                        <ul class="nav__dropdown">
+                            <li><a href="../matematica-basica.html" class="nav__dropdown-link">Matemática Básica</a>
+                            </li>
+                            <li><a href="../calculo-1.html" class="nav__dropdown-link">Cálculo I</a></li>
+                            <li><a href="../calculo-2.html" class="nav__dropdown-link">Cálculo II</a></li>
+                            <li><a href="../matematica-financiera.html" class="nav__dropdown-link">Mat. Financiera</a>
+                            </li>
+                            <li><a href="../matematica-tecnologia.html" class="nav__dropdown-link">Mat. y Tecnología</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav__item"><a href="../calculadora-financiera.html" class="nav__link">Calculadora
+                            Financiera</a></li>
+                    <li class="nav__item"><a href="../monibot014.html" class="nav__link">Monibot014</a></li>
+                    <li class="nav__item"><a href="../contacto.html" class="nav__link">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="margin-top: var(--header-height);">
+        <div class="container" style="padding-top: var(--spacing-lg);">
+            <ul class="breadcrumb">
+                <li class="breadcrumb__item"><a href="../../index.html" class="breadcrumb__link">Inicio</a></li>
+                <li class="breadcrumb__item"><a href="./index.html" class="breadcrumb__link">Blog</a></li>
+                <li class="breadcrumb__item">Simposio de Divulgación Matemática 2026</li>
+            </ul>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <article class="blog-article" style="max-width: 800px; margin: 0 auto;">
+                    <header style="text-align: center; margin-bottom: var(--spacing-3xl);">
+                        <figure style="margin: 0 0 var(--spacing-xl);">
+                            <img src="../img/simposio-2026/panel.jpg"
+                                alt="Panel ¿Por qué investigar en matemáticas? durante el Simposio de Divulgación Matemática de la UASD"
+                                style="width: 100%; height: auto; border-radius: var(--border-radius-lg);">
+                            <figcaption
+                                style="margin-top: var(--spacing-sm); color: var(--color-gray-dark); font-size: var(--font-size-sm); font-style: italic;">
+                                Panel «¿Por qué investigar en matemáticas?», con la participación del decano de la
+                                Facultad de Ciencias, Mtro. Carlos Féliz Sánchez, la Dra. Orietta Liriano y el Dr. Juan
+                                Toribio Milane. Salón de Maestría de la Escuela de Matemática, 15 de octubre de 2026.
+                            </figcaption>
+                        </figure>
+
+                        <div class="article-meta"
+                            style="display: flex; justify-content: center; gap: var(--spacing-lg); flex-wrap: wrap; margin-bottom: var(--spacing-lg);">
+                            <span style="color: var(--color-gray-dark);">📅 15 de octubre, 2026</span>
+                            <span class="badge badge--primary">Matemáticas</span>
+                            <span style="color: var(--color-gray-dark);">Por: Equipo MATUASD</span>
+                        </div>
+
+                        <h1 style="color: var(--color-primary); margin-bottom: var(--spacing-lg);">Matemáticas que
+                            conectan: crónica del Simposio de Divulgación Matemática UASD 2026</h1>
+                    </header>
+
+                    <div class="article-content" style="line-height: 1.8; font-size: var(--font-size-lg);">
+                        <!-- RESUMEN PRINCIPAL -->
+                        <p
+                            style="font-size: var(--font-size-xl); color: var(--color-primary); font-weight: 600; margin-bottom: var(--spacing-xl);">
+                            De los números perfectos a ChatGPT, de la ecuación del calor a los drones sobre un arrozal:
+                            durante una jornada completa, la Escuela y el Instituto de Matemática de la UASD mostraron
+                            que la matemática no vive aislada en la pizarra, sino que conecta con todo lo demás.
+                        </p>
+
+                        <!-- INTRODUCCIÓN -->
+                        <p>
+                            <strong>Santo Domingo, D.N.</strong> — El 15 de octubre de 2026, en el marco del
+                            <strong>488.º aniversario de la Universidad Autónoma de Santo Domingo</strong>, el Salón de
+                            Maestría de la Escuela de Matemática acogió el <strong>Simposio de Divulgación
+                                Matemática</strong>, bajo el lema <em>«Matemáticas que conectan: teoría, aplicaciones e
+                                innovación»</em>. El programa se cumplió completo: diez ponencias organizadas en cuatro
+                            bloques temáticos, rondas de preguntas y un panel de cierre.
+                        </p>
+                        <p>
+                            La organización estuvo a cargo del <strong>Dr. Dionisio Peralta</strong>, director de la
+                            Escuela de Matemática, y del <strong>Doctorante Andradis Luna Martínez</strong>, director del
+                            Instituto de Matemática, con el respaldo de la Facultad de Ciencias.
+                        </p>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/publico.jpg" loading="lazy"
+                                alt="Estudiantes y profesores llenan el Salón de Maestría de la Escuela de Matemática durante el simposio">
+                            <figcaption>Estudiantes, docentes e investigadores siguieron la jornada en el Salón de
+                                Maestría de la Escuela de Matemática.</figcaption>
+                        </figure>
+
+                        <!-- LA IDEA CENTRAL -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Una idea que atravesó toda la jornada</h2>
+                        <p>
+                            En 1623, Galileo Galilei escribió que el gran libro del universo «está escrito en lengua
+                            matemática», y que sin ella es imposible entender una sola de sus palabras. Cuatro siglos
+                            después, la frase sigue vigente, pero se ha quedado corta: la matemática no solo describe
+                            el movimiento de los planetas, sino también cómo aprende una red neuronal, cómo se propaga
+                            el calor en un sólido, cómo se distribuyen los números primos o cómo un dron distingue una
+                            hoja sana de una enferma.
+                        </p>
+                        <p>
+                            Esa es la tesis que el simposio defendió con hechos. La matemática es un <strong>área
+                                neurálgica</strong>: está en el centro de la ingeniería, la medicina, la economía, la
+                            agricultura, la educación y la inteligencia artificial, y cuando falla la base matemática,
+                            falla todo lo que se construye encima. No es una disciplina que <em>se aplica</em> a la
+                            sociedad desde fuera; es parte del tejido con el que la sociedad funciona.
+                        </p>
+
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-gray-light); border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">💡 Teoría,
+                                aplicaciones e innovación: un solo hilo</h3>
+                            <p style="margin: 0;">
+                                El físico Eugene Wigner habló en 1960 de la «irrazonable eficacia de la matemática»: ideas
+                                desarrolladas por pura curiosidad terminan, décadas o siglos después, explicando el mundo.
+                                El programa del simposio lo ilustró sin proponérselo: las sumas de caracteres y los
+                                métodos de criba de la teoría de números conviven con los métodos numéricos que resuelven
+                                ecuaciones, y estos con la inteligencia artificial que hoy se usa en el campo y en el
+                                aula. La teoría de hoy es la aplicación de mañana.
+                            </p>
+                        </div>
+
+                        <!-- APERTURA -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Apertura</h2>
+                        <p>
+                            Tras la bienvenida y la presentación del simposio, las palabras de apertura y motivación
+                            estuvieron a cargo del <strong>Mtro. Carlos Féliz Sánchez, decano de la Facultad de
+                                Ciencias</strong>. A continuación intervinieron los directores organizadores, el Mtro.
+                            Andradis Luna y el Dr. Dionisio Peralta, quienes dieron paso al primer bloque académico.
+                        </p>
+
+                        <!-- BLOQUE I -->
+                        <span class="bloque-label">Bloque I · Jornada de la mañana</span>
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-xs); margin-bottom: var(--spacing-lg);">
+                            Números y problemas profundos</h2>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Los números perfectos">
+                                <img src="../img/simposio-2026/flyer-polanco.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia Los números perfectos, del Dr. Geremías Polanco">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Los números perfectos</h3>
+                                <p class="ponencia__speaker">Dr. Geremías Polanco</p>
+                                <p>
+                                    Un número es perfecto cuando es igual a la suma de sus divisores propios:
+                                    6 = 1 + 2 + 3, y después vienen 28, 496 y 8128. Euclides y Euler demostraron que
+                                    los perfectos pares están ligados a los primos de Mersenne; sin embargo, nadie sabe
+                                    todavía si existe un solo número perfecto impar. Un problema que cabe en una línea y
+                                    lleva más de dos mil años abierto fue la mejor puerta de entrada al simposio.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: De los residuos no cuadráticos a una desigualdad explícita de Burgess">
+                                <img src="../img/simposio-2026/flyer-luna.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia sobre residuos no cuadráticos y la desigualdad de Burgess, de Andradis Luna Martínez">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">De los residuos no cuadráticos a una desigualdad explícita
+                                    de Burgess para módulos libres de cubos</h3>
+                                <p class="ponencia__speaker">Andradis Luna Martínez, Enrique Treviño, Greg Martin,
+                                    Elchin Hasanalizade y Hua Lin</p>
+                                <p>
+                                    ¿Cuál es el menor número que <em>no</em> es un cuadrado perfecto módulo un primo?
+                                    Preguntas así conducen a la desigualdad de Burgess, una de las herramientas
+                                    centrales de la teoría analítica de números para acotar sumas de caracteres. El
+                                    trabajo, fruto de una colaboración internacional, busca versiones
+                                    <em>explícitas</em> de esa cota, con constantes concretas que puedan usarse en la
+                                    práctica. Es la línea de investigación del director del Instituto, de la que
+                                    hablamos en <a href="./nuevo-director-instituto-matematicas.html"
+                                        style="color: var(--color-secondary);">este artículo</a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- BLOQUE II -->
+                        <span class="bloque-label">Bloque II · Jornada de la mañana</span>
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-xs); margin-bottom: var(--spacing-lg);">
+                            Análisis, física matemática y métodos numéricos</h2>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Un marco espectral de Jacobi para la ecuación del calor">
+                                <img src="../img/simposio-2026/flyer-toribio.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia Un marco espectral de Jacobi para la ecuación del calor con condiciones de frontera de Dirichlet">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Un marco espectral de Jacobi para la ecuación del calor con
+                                    condiciones de frontera de Dirichlet</h3>
+                                <p class="ponencia__speaker">Juan Toribio Milane, José A. Gómez Hernández, Juan R.
+                                    Holguín y Pedro N. Tifa de Jesús</p>
+                                <p>
+                                    La ecuación del calor describe cómo se difunde la temperatura en un cuerpo; las
+                                    condiciones de Dirichlet fijan su valor en la frontera. Los métodos espectrales
+                                    escriben la solución como una combinación de funciones base, en este caso
+                                    construidas a partir de los polinomios de Jacobi, una familia de polinomios
+                                    ortogonales que contiene a los de Legendre y Chebyshev como casos particulares.
+                                </p>
+                            </div>
+                        </div>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/toribio-bessel.jpg" loading="lazy"
+                                alt="Expositor del marco espectral de Jacobi explica la ecuación radial y la aparición de las funciones de Bessel esféricas">
+                            <figcaption>La ecuación radial y la aparición de las funciones de Bessel esféricas, durante
+                                la exposición del marco espectral de Jacobi.</figcaption>
+                        </figure>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Método de Newton amortiguado">
+                                <img src="../img/simposio-2026/flyer-rodriguez.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia sobre el método de Newton amortiguado, del Dr. Antmel Rodríguez">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Ventajas y desventajas de la implementación del método de
+                                    Newton amortiguado para resolver problemas no lineales</h3>
+                                <p class="ponencia__speaker">Dr. Antmel Rodríguez</p>
+                                <p>
+                                    El método de Newton converge muy rápido cuando se parte cerca de la solución, pero
+                                    puede fallar cuando se parte lejos. La versión amortiguada no da el paso completo:
+                                    lo recorta con un factor λ elegido para garantizar que cada iteración mejore. Esa
+                                    decisión, aparentemente pequeña, es la diferencia entre un algoritmo que funciona en
+                                    el libro y uno que funciona en la práctica.
+                                </p>
+                            </div>
+                        </div>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/rodriguez-armijo.jpg" loading="lazy"
+                                alt="El Dr. Antmel Rodríguez señala una gráfica titulada Armijo en acción: se rechaza lambda igual a 1 y se acepta lambda igual a un medio">
+                            <figcaption>«Armijo en acción: se rechaza λ = 1 y se acepta λ = ½». La regla de Armijo
+                                decide cuánto avanzar en cada paso del método de Newton amortiguado.</figcaption>
+                        </figure>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: IA para la detección de enfermedades foliares mediante drones">
+                                <img src="../img/simposio-2026/flyer-munoz.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia IA para la detección de enfermedades foliares en arroz y musáceas mediante drones, de Robert Muñoz">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">IA para la detección de enfermedades foliares en arroz y
+                                    musáceas mediante drones: explorando la matemática</h3>
+                                <p class="ponencia__speaker">Robert Muñoz</p>
+                                <p>
+                                    El arroz y los plátanos son base de la mesa dominicana. Esta ponencia presentó un
+                                    proyecto FONDOCYT-UASD que usa drones multiespectrales e inteligencia artificial
+                                    para detectar enfermedades en los cultivos, y mostró la matemática que funciona
+                                    dentro de una red convolucional. Puedes leer el <a
+                                        href="./ia-drones-arroz-musaceas.html"
+                                        style="color: var(--color-secondary);">artículo completo</a> o recorrer la <a
+                                        href="./presentacion-drones-ia/" style="color: var(--color-secondary);">presentación
+                                        interactiva</a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/munoz-parametros.jpg" loading="lazy"
+                                alt="Robert Muñoz explica la diapositiva Aprender es ajustar parámetros: el caso más simple, con una recta de regresión">
+                            <figcaption>«Aprender es ajustar parámetros: el caso más simple». Una recta de regresión
+                                como primer paso para entender cómo aprende una red neuronal.</figcaption>
+                        </figure>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/foto-grupo.jpg" loading="lazy"
+                                alt="Fotografía de grupo de expositores, organizadores y asistentes del Simposio de Divulgación Matemática al mediodía">
+                            <figcaption>Expositores, organizadores y asistentes al cierre de la jornada de la mañana,
+                                antes del receso del almuerzo.</figcaption>
+                        </figure>
+
+                        <!-- BLOQUE III -->
+                        <span class="bloque-label">Bloque III · Jornada de la tarde</span>
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-xs); margin-bottom: var(--spacing-lg);">
+                            Matemáticas, inteligencia artificial y aplicaciones</h2>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Las matemáticas detrás de ChatGPT">
+                                <img src="../img/simposio-2026/flyer-feliz.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia Las matemáticas detrás de ChatGPT, de Gerior Féliz">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Las matemáticas detrás de ChatGPT: de las redes neuronales a
+                                    los Transformers</h3>
+                                <p class="ponencia__speaker">Mtro. Gerior Féliz</p>
+                                <p>
+                                    Detrás de un asistente conversacional no hay magia: hay álgebra lineal, cálculo
+                                    diferencial, probabilidad y optimización. La ponencia recorrió el camino desde la
+                                    neurona artificial más sencilla hasta la arquitectura Transformer, que está en la
+                                    base de los modelos de lenguaje actuales. Si te interesa el tema, en el blog
+                                    tenemos <a href="./matematicas-ia.html" style="color: var(--color-secondary);">un
+                                        artículo sobre matemáticas e IA</a> y otro sobre el <a
+                                        href="./teorema-aproximacion-universal.html"
+                                        style="color: var(--color-secondary);">teorema de aproximación universal</a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/feliz-chatgpt.jpg" loading="lazy"
+                                alt="Gerior Féliz junto a la portada de su ponencia Las matemáticas detrás de ChatGPT: de las redes neuronales a los Transformers">
+                            <figcaption>Gerior Féliz al inicio de su ponencia «Las matemáticas detrás de ChatGPT: de
+                                las redes neuronales a los Transformers».</figcaption>
+                        </figure>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Eficacia de los recursos educativos digitales">
+                                <img src="../img/simposio-2026/flyer-lora-beltre.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia sobre recursos educativos digitales en Matemática Básica, de Ceyda Luz Lora y Yirkairys Beltré">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Eficacia de los recursos educativos digitales adaptados a
+                                    los estilos de aprendizaje de los estudiantes de Matemática Básica</h3>
+                                <p class="ponencia__speaker">Ceyda Luz Lora y Yirkairys Beltré</p>
+                                <p>
+                                    La matemática también conecta en el aula. Esta investigación educativa se
+                                    preguntó si los recursos digitales diseñados según cómo aprende cada estudiante
+                                    mejoran los resultados en Matemática Básica, la asignatura por la que pasan miles
+                                    de estudiantes de la UASD en su primer año. 
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Métodos iterativos basados en medias">
+                                <img src="../img/simposio-2026/flyer-segura.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia Métodos iterativos basados en medias para solución de ecuaciones no lineales, de la Dra. Elaine Segura">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Métodos iterativos basados en medias para solución de
+                                    ecuaciones no lineales</h3>
+                                <p class="ponencia__speaker">Dra. Elaine Segura</p>
+                                <p>
+                                    La mayoría de las ecuaciones no lineales que aparecen en ciencia e ingeniería no se
+                                    pueden resolver con una fórmula: se resuelven por aproximaciones sucesivas. Los
+                                    métodos basados en medias modifican el esquema de Newton combinando información en
+                                    varios puntos mediante medias (aritmética, geométrica, armónica…) para acelerar la
+                                    convergencia. La ponencia dialogó de forma natural con la del Dr. Rodríguez en la
+                                    mañana.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- BLOQUE IV -->
+                        <span class="bloque-label">Bloque IV · Jornada de la tarde</span>
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-xs); margin-bottom: var(--spacing-lg);">
+                            Teoría de números y nuevas perspectivas</h2>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Del ocaso de las paralelas a las variedades complejas">
+                                <img src="../img/simposio-2026/flyer-de-leon.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia Del ocaso de las paralelas a las variedades complejas, de Juan Marcial de León Reyes">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Del ocaso de las paralelas a las variedades complejas</h3>
+                                <p class="ponencia__speaker">Juan Marcial de León Reyes</p>
+                                <p>
+                                    Durante más de dos mil años se intentó demostrar el quinto postulado de Euclides,
+                                    el de las paralelas. Cuando en el siglo XIX se aceptó que podía negarse sin caer en
+                                    contradicción, nacieron las geometrías no euclidianas y, con ellas, el camino hacia
+                                    las variedades: los espacios curvos que hoy sostienen la física moderna. Sobre el
+                                    comienzo de esa historia escribimos en <a href="./geometria-no-euclidiana.html"
+                                        style="color: var(--color-secondary);">Geometría no euclidiana</a>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/de-leon-simplecticas.jpg" loading="lazy"
+                                alt="Juan Marcial de León Reyes presenta la definición de variedad simpléctica">
+                            <figcaption>Juan Marcial de León Reyes presenta la definición de variedad
+                                simpléctica.</figcaption>
+                        </figure>
+
+                        <div class="ponencia">
+                            <button type="button" class="ponencia__flyer" data-visor
+                                aria-label="Ampliar flyer: Los métodos de cribas">
+                                <img src="../img/simposio-2026/flyer-morales.jpg" loading="lazy"
+                                    alt="Flyer de la ponencia Los métodos de cribas, de Samuel Morales">
+                            </button>
+                            <div class="ponencia__body">
+                                <h3 class="ponencia__title">Los métodos de cribas</h3>
+                                <p class="ponencia__speaker">Samuel Morales</p>
+                                <p>
+                                    Todo empieza con la criba de Eratóstenes: tachar los múltiplos para que queden los
+                                    primos. A partir de esa idea, Viggo Brun, Atle Selberg y otros construyeron en el
+                                    siglo XX herramientas capaces de contar primos con propiedades especiales. Con ellas,
+                                    Brun demostró que la suma de los inversos de los primos gemelos converge, aunque
+                                    todavía no sabemos si hay infinitos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <figure class="foto">
+                            <img src="../img/simposio-2026/morales-cribas.jpg" loading="lazy"
+                                alt="Samuel Morales explica la estimación de pi de x, z en su ponencia sobre métodos de cribas">
+                            <figcaption>Samuel Morales desarrolla la estimación de π(x, z), la función que cuenta lo
+                                que sobrevive a la criba.</figcaption>
+                        </figure>
+
+                        <!-- PANEL -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            El panel: ¿por qué investigar en matemáticas?</h2>
+                        <p>
+                            El panel de cierre fue uno de los momentos más interesantes del día. Reunió al
+                            <strong>Dr. Juan Toribio Milane</strong>, a la <strong>Dra. Orietta Liriano</strong> y al
+                            propio <strong>decano de la Facultad de Ciencias, Mtro. Carlos Féliz Sánchez</strong>, que
+                            pasó de inaugurar el simposio a debatir con estudiantes y expositores sobre la investigación
+                            matemática, la formación científica y las oportunidades para los jóvenes investigadores.
+                            Que el decano se sentara en la mesa dice mucho del lugar que la Facultad quiere darle a la
+                            investigación.
+                        </p>
+
+                        <div
+                            style="padding: var(--spacing-lg); background: var(--color-gray-light); border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius-md); margin: var(--spacing-xl) 0;">
+                            <h3 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">🔎 Un mensaje
+                                para los estudiantes</h3>
+                            <p style="margin: 0;">
+                                Frente a un problema matemático, la pregunta habitual es «¿cómo se resuelve?». Pero la
+                                investigación empieza cuando uno se atreve a ir más allá: ¿por qué funciona? ¿Existe
+                                otra forma? ¿Qué pasaría si cambiamos una condición? ¿Puede generalizarse? ¿Qué pregunta
+                                nueva surge de aquí? En ese paso, de resolver a preguntar, nace el investigador. Y esa,
+                                quizás, es la mejor respuesta a la pregunta que da nombre al panel.
+                            </p>
+                        </div>
+
+                        <!-- CLAUSURA -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Clausura</h2>
+                        <p>
+                            Las palabras de agradecimiento y cierre estuvieron a cargo del <strong>Dr. Dionisio
+                                Peralta</strong>, director de la Escuela de Matemática. 
+                        </p>
+
+                        <!-- GALERÍA -->
+                        <h2
+                            style="color: var(--color-primary); margin-top: var(--spacing-2xl); margin-bottom: var(--spacing-lg);">
+                            Galería de flyers y programa</h2>
+                        <p>
+                            Estas fueron las piezas de difusión del simposio. Toca cualquiera para verla en tamaño
+                            completo.
+                        </p>
+
+                        <div class="galeria">
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer oficial del simposio"><img src="../img/simposio-2026/flyer-oficial.jpg" loading="lazy" alt="Flyer oficial del Simposio de Divulgación Matemática UASD 2026"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: Los números perfectos"><img src="../img/simposio-2026/flyer-polanco.jpg" loading="lazy" alt="Flyer: Los números perfectos, Dr. Geremías Polanco"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: residuos no cuadráticos y desigualdad de Burgess"><img src="../img/simposio-2026/flyer-luna.jpg" loading="lazy" alt="Flyer: residuos no cuadráticos y desigualdad de Burgess, Andradis Luna Martínez"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: marco espectral de Jacobi"><img src="../img/simposio-2026/flyer-toribio.jpg" loading="lazy" alt="Flyer: marco espectral de Jacobi para la ecuación del calor"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: método de Newton amortiguado"><img src="../img/simposio-2026/flyer-rodriguez.jpg" loading="lazy" alt="Flyer: método de Newton amortiguado, Dr. Antmel Rodríguez"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: IA y drones en arroz y musáceas"><img src="../img/simposio-2026/flyer-munoz.jpg" loading="lazy" alt="Flyer: IA para la detección de enfermedades foliares mediante drones, Robert Muñoz"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: Las matemáticas detrás de ChatGPT"><img src="../img/simposio-2026/flyer-feliz.jpg" loading="lazy" alt="Flyer: Las matemáticas detrás de ChatGPT, Gerior Féliz"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: recursos educativos digitales"><img src="../img/simposio-2026/flyer-lora-beltre.jpg" loading="lazy" alt="Flyer: recursos educativos digitales en Matemática Básica, Ceyda Luz Lora y Yirkairys Beltré"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: métodos iterativos basados en medias"><img src="../img/simposio-2026/flyer-segura.jpg" loading="lazy" alt="Flyer: métodos iterativos basados en medias, Dra. Elaine Segura"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: Del ocaso de las paralelas a las variedades complejas"><img src="../img/simposio-2026/flyer-de-leon.jpg" loading="lazy" alt="Flyer: Del ocaso de las paralelas a las variedades complejas, Juan Marcial de León Reyes"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer: Los métodos de cribas"><img src="../img/simposio-2026/flyer-morales.jpg" loading="lazy" alt="Flyer: Los métodos de cribas, Samuel Morales"></button>
+                            <button type="button" class="galeria__item" data-visor aria-label="Ampliar flyer del panel ¿Por qué investigar en matemáticas?"><img src="../img/simposio-2026/flyer-panel.jpg" loading="lazy" alt="Flyer del panel ¿Por qué investigar en matemáticas?"></button>
+                        </div>
+
+                        <p style="text-align: center;">
+                            <a href="../../resources/simposio-2026/programa-simposio-2026.pdf" class="btn btn--outline"
+                                target="_blank" rel="noopener">📄 Descargar el programa del simposio (PDF)</a>
+                        </p>
+
+                        <!-- CONCLUSIÓN -->
+                        <div
+                            style="padding: var(--spacing-xl); background: var(--color-primary); color: white; border-radius: var(--border-radius-lg); margin: var(--spacing-2xl) 0; text-align: center;">
+                            <h3 style="margin-bottom: var(--spacing-md);">🎯 Conclusión</h3>
+                            <p style="font-size: var(--font-size-lg); margin: 0;">
+                                En el 488.º aniversario de la Primada de América, la Escuela y el Instituto de
+                                Matemática ofrecieron algo más que una serie de conferencias: una prueba de que la
+                                matemática que se hace en la UASD conecta la teoría más abstracta con los problemas
+                                reales del país. El universo habla en lenguaje matemático; formar a quienes sepan
+                                leerlo, y escribir en él, sigue siendo una de las tareas más importantes de la
+                                universidad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <footer
+                        style="margin-top: var(--spacing-3xl); padding-top: var(--spacing-xl); border-top: 2px solid var(--color-gray-light);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--spacing-md);">
+                            <a href="./index.html" class="btn btn--outline">← Volver al Blog</a>
+
+                            <div style="display: flex; gap: var(--spacing-md);">
+                                <span
+                                    style="color: var(--color-gray-dark); font-size: var(--font-size-sm);">Compartir:</span>
+                                <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">📷 Instagram</a>
+                                <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                                    style="color: var(--color-secondary); text-decoration: none;">▶️ YouTube</a>
+                                <a href="mailto:matuasdrd@gmail.com"
+                                    style="color: var(--color-secondary); text-decoration: none;">✉️ Email</a>
+                            </div>
+                        </div>
+                    </footer>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <dialog class="visor" id="visor" aria-label="Flyer ampliado">
+        <button type="button" class="visor__close" aria-label="Cerrar">×</button>
+        <img src="" alt="">
+    </dialog>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__section-title">MATUASD</h3>
+                    <p style="color: var(--color-gray-medium); line-height: 1.8;">Portal educativo de MATUASD.</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Enlaces Rápidos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../../index.html" class="footer__link">Inicio</a></li>
+                        <li class="footer__list-item"><a href="./index.html" class="footer__link">Blog</a></li>
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item"><a href="../aviso-legal.html" class="footer__link">Aviso Legal</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Recursos</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../matematica-basica.html"
+                                class="footer__link">Matemática Básica</a></li>
+                        <li class="footer__list-item"><a href="../calculo-1.html" class="footer__link">Cálculo I</a>
+                        </li>
+                        <li class="footer__list-item"><a href="../calculo-2.html" class="footer__link">Cálculo II</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__section-title">Contacto</h3>
+                    <ul class="footer__list">
+                        <li class="footer__list-item"><a href="../contacto.html" class="footer__link">Contacto</a></li>
+                        <li class="footer__list-item" style="color: var(--color-gray-medium);">📍 UASD, Santo Domingo,
+                            RD</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; <span data-year>2024</span> MATUASD. Todos los derechos reservados.</p>
+                <div class="footer__social">
+                    <a href="https://www.instagram.com/matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="Instagram: @matuasdrd"><span
+                            style="font-size: 1.5rem;">📷</span></a>
+                    <a href="https://www.youtube.com/@matuasdrd" target="_blank" rel="noopener noreferrer"
+                        class="footer__social-link" title="YouTube: @matuasdrd"><span
+                            style="font-size: 1.5rem;">▶️</span></a>
+                    <a href="#" class="footer__social-link" title="LinkedIn: Próximamente"><span
+                            style="font-size: 1.5rem;">💼</span></a>
+                    <a href="mailto:matuasdrd@gmail.com" class="footer__social-link"
+                        title="Email: matuasdrd@gmail.com"><span style="font-size: 1.5rem;">✉️</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+        // Visor de flyers: abre en grande la imagen del botón pulsado
+        (function () {
+            const visor = document.getElementById('visor');
+            if (!visor || typeof visor.showModal !== 'function') return;
+            const visorImg = visor.querySelector('img');
+
+            document.querySelectorAll('[data-visor]').forEach(button => {
+                button.addEventListener('click', () => {
+                    const img = button.querySelector('img');
+                    visorImg.src = img.src;
+                    visorImg.alt = img.alt;
+                    visor.showModal();
+                });
+            });
+
+            visor.querySelector('.visor__close').addEventListener('click', () => visor.close());
+            // Clic fuera de la imagen (en el fondo) cierra el visor
+            visor.addEventListener('click', event => {
+                if (event.target === visor) visor.close();
+            });
+        })();
+    </script>
+</body>
+
+</html>
