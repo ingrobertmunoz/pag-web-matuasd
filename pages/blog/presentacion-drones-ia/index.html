@@ -1395,14 +1395,31 @@
     plugins: [RevealMath.KaTeX, RevealNotes, RevealZoom]
   });
 
-  // En el celular, con la pantalla ampliada por pellizco, un dedo debe mover la vista y no cambiar
-  // de lámina: se apaga el deslizamiento mientras dure el zoom y se reactiva al volver a escala 1.
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', () => {
-      const sinZoom = window.visualViewport.scale <= 1.01;
-      if (Reveal.getConfig().touch !== sinZoom) Reveal.configure({ touch: sinZoom });
-    });
-  }
+  // Reveal recibe cada dedo como un toque aparte (eventos pointer): en un pellizco un dedo «desliza»
+  // hacia un lado y el otro hacia el contrario, y la lámina avanza y retrocede. Se le ocultan los
+  // movimientos táctiles con dos o más dedos (hasta levantarlos todos) y mientras la pantalla está
+  // ampliada, para que un dedo mueva la vista. Los interactivos (data-prevent-swipe) no se tocan.
+  (() => {
+    const dedos = new Set();
+    let multitactil = false;
+    const ampliada = () => window.visualViewport && window.visualViewport.scale > 1.01;
+    const soltar = (e) => {
+      if (e.pointerType !== 'touch') return;
+      dedos.delete(e.pointerId);
+      if (dedos.size === 0) multitactil = false;
+    };
+    window.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'touch') return;
+      dedos.add(e.pointerId);
+      if (dedos.size > 1) multitactil = true;
+    }, true);
+    window.addEventListener('pointerup', soltar, true);
+    window.addEventListener('pointercancel', soltar, true);
+    window.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'touch' || e.target.closest('[data-prevent-swipe]')) return;
+      if (multitactil || ampliada()) e.stopPropagation();
+    }, true);
+  })();
 </script>
 </body>
 </html>
