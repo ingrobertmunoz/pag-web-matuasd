@@ -486,10 +486,11 @@ html.print-pdf .cabecera, html.print-pdf .menu-boton, html.print-pdf .franja-tem
 .reveal .slides section .anillo.fragment { transform: scale(0.9); }
 .reveal .slides section .anillo.fragment.visible { transform: none; }
 
-@media (prefers-reduced-motion: reduce) {
-  .reveal .slides section * , .reveal .slides section *::before { animation: none !important; }
-  .reveal .slides section .fragment { transform: none; transition: none; }
-}
+/* Sin movimiento dentro de las láminas: en el celular, las animaciones se mezclaban con los gestos
+   de zoom. Las reglas de arriba quedan por si se quiere volver a activarlas quitando este bloque. */
+.reveal .slides section * , .reveal .slides section *::before { animation: none !important; }
+.reveal .slides section .fragment,
+.reveal .slides section .anillo.fragment { transform: none; transition: none; }
 html.print-pdf .reveal .slides section *, html.reveal-print .reveal .slides section *,
 html.print-pdf .reveal .slides section *::before, html.reveal-print .reveal .slides section *::before { animation: none !important; }
 html.print-pdf .reveal .slides section .fragment, html.reveal-print .reveal .slides section .fragment { transform: none; }

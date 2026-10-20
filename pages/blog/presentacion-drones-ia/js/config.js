@@ -25,6 +25,6 @@ window.CONFIG = {
   presentacionUrl: "https://www.matuasd.com/pages/blog/presentacion-drones-ia/",
 
   // Aparición gradual por clic (un punto a la vez). Con false, cada lámina se muestra completa
-  // desde el principio: útil si vas con poco tiempo. La entrada suave automática no cambia.
+  // desde el principio: útil si vas con poco tiempo. Los puntos aparecen de golpe, sin animación.
   aparicionGradual: true
 };
